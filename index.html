@@ -433,10 +433,16 @@ footer strong { color: var(--blue); }
     })
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' })
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
-    
+
   const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
-window.addEventListener('scroll', () => {
-      })
+  window.addEventListener('scroll', () => {
+    tijdlijnItems.forEach(item => {
+      if (item.getBoundingClientRect().bottom < window.innerHeight * 0.4) {
+        item.classList.add('past')
+      } else {
+        item.classList.remove('past')
+      }
+    })
   })
 </script>
   tijdlijnItems.forEach(item => {
