@@ -436,6 +436,9 @@ footer strong { color: var(--blue); }
     
   const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
 window.addEventListener('scroll', () => {
+      })
+  })
+</script>
   tijdlijnItems.forEach(item => {
     if (item.getBoundingClientRect().bottom < window.innerHeight * 0.4) {
       item.classList.add('past')
