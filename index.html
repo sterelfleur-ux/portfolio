@@ -432,7 +432,9 @@ footer strong { color: var(--blue); }
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) }
     })
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' })
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    
+  const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
 window.addEventListener('scroll', () => {
   tijdlijnItems.forEach(item => {
     if (item.getBoundingClientRect().bottom < window.innerHeight * 0.4) {
