@@ -78,7 +78,8 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0
 .tijdlijn-card { flex: 1; background: var(--white); border-radius: 0 12px 12px 0; padding: 16px 20px; }
 .card-normaal { border: 1px solid var(--border); border-left: 3px solid var(--border); }
 .card-probleem { border: 1px solid rgba(0,48,130,0.12); border-left: 3px solid var(--blue); }
-.card-crisis { border: 1px solid rgba(204,0,0,0.2); border-left: 3px solid #CC0000; }.tijdlijn-item.past .tijdlijn-card { border-left-color: var(--border) !important; }
+.card-crisis { border: 1px solid rgba(204,0,0,0.2); border-left: 3px solid #CC0000; }
+.tijdlijn-item.past .tijdlijn-card { border-left-color: var(--border) !important; }
 .tijdlijn-item.past .tijdlijn-tijd { color: var(--muted) !important; }
 .tijdlijn-tekst { font-size: 15px; line-height: 1.65; margin-bottom: 8px; }
 .tekst-normaal { color: var(--text); font-weight: 400; }
@@ -427,11 +428,13 @@ footer strong { color: var(--blue); }
     document.getElementById('line-fill').style.height = (pct * 100) + '%'
     document.getElementById('bike-icon').style.top = (pct * 90) + '%'
   })
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) }
     })
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' })
+
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
   const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
@@ -444,15 +447,6 @@ footer strong { color: var(--blue); }
       }
     })
   })
-</script>
-  tijdlijnItems.forEach(item => {
-    if (item.getBoundingClientRect().bottom < window.innerHeight * 0.4) {
-      item.classList.add('past')
-    } else {
-      item.classList.remove('past')
-    }
-  })
-})
 </script>
 </body>
 </html>
