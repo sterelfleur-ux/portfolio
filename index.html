@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<title>OV Fiets — UX Case Study</title>
+<title>NS Reisplanner — UX Case Study</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -17,138 +17,131 @@
   --text:   #1A1A2E;
   --muted:  #6B7280;
   --border: #E5E7EB;
+  --red:    #CC0000;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+/* PROGRESS BAR */
 #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--blue), var(--yellow)); z-index: 200; transition: width 0.1s linear; }
-#bikebar { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); height: 65vh; width: 28px; z-index: 100; display: flex; flex-direction: column; align-items: center; }
-#bikebar .line-bg { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; background: var(--border); border-radius: 1px; }
-#bikebar .line-fill { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 0%; background: var(--yellow); border-radius: 1px; transition: height 0.1s linear; }
-.bike-stop { position: absolute; left: 50%; transform: translate(-50%, -50%); width: 7px; height: 7px; border-radius: 50%; background: var(--white); border: 2px solid var(--border); }
-#bike-icon { position: absolute; left: 50%; top: 0%; transform: translateX(-50%); font-size: 18px; line-height: 1; transition: top 0.1s linear; filter: sepia(1) saturate(5) hue-rotate(5deg) brightness(1.1); }
-header { position: sticky; top: 0; z-index: 150; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); height: 58px; display: flex; align-items: center; padding: 0 60px; justify-content: space-between; }
-.header-logo { display: flex; align-items: center; gap: 12px; }
-.header-title { font-weight: 700; font-size: 15px; color: var(--blue); }
-.header-sub { color: var(--muted); font-size: 13px; }
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 80px; background: var(--white); position: relative; overflow: hidden; }
-.hero-blob-1 { position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: var(--yellow); opacity: 0.05; border-radius: 50%; }
-.hero-blob-2 { position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: var(--blue); opacity: 0.03; border-radius: 50%; }
-.hero-content { max-width: 680px; position: relative; z-index: 1; }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,48,130,0.06); border: 1px solid rgba(0,48,130,0.12); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s 0.2s both; }
+
+/* HEADER */
+header { position: sticky; top: 0; z-index: 150; background: var(--blue); height: 58px; display: flex; align-items: center; padding: 0 60px; gap: 16px; }
+.header-logo { display: flex; align-items: center; gap: 10px; }
+.header-title { font-weight: 700; font-size: 15px; color: var(--white); }
+.header-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
+.header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px; background: var(--blue); position: relative; overflow: hidden; }
+.hero-blob { position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: var(--yellow); opacity: 0.04; border-radius: 50%; }
+.hero-content { max-width: 620px; position: relative; z-index: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,201,23,0.12); border: 1px solid rgba(255,201,23,0.25); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--yellow); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s 0.2s both; }
 .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .hero h1 { margin: 0 0 24px; line-height: 1.05; font-weight: 800; }
-.hero-word { display: block; font-size: clamp(3.5rem, 7vw, 6rem); letter-spacing: -2px; animation: slideIn 0.6s both; }
-.hero-word-1 { color: var(--blue); animation-delay: 0.35s; }
-.hero-word-2 { color: var(--yellow); animation-delay: 0.47s; }
-.hero-word-3 { color: var(--blue); animation-delay: 0.59s; }
+.hero-word { display: block; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; animation: slideIn 0.6s both; }
+.hero-word-1 { color: var(--white); animation-delay: 0.3s; }
+.hero-word-2 { color: var(--yellow); animation-delay: 0.42s; }
+.hero-word-3 { color: var(--white); animation-delay: 0.54s; }
 @keyframes slideIn { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
-.hero-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 460px; margin: 0 auto 36px; animation: fadeUp 0.8s 0.8s both; }
-.hero-tags { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.6s 1s both; }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 440px; margin: 0 auto 36px; animation: fadeUp 0.8s 0.7s both; }
+.hero-tags { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.6s 0.9s both; flex-wrap: wrap; }
 .hero-tag { padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
-.hero-tag-primary { background: var(--blue); color: var(--white); }
-.hero-tag-secondary { background: var(--bg); color: var(--muted); }
+.hero-tag-primary { background: var(--yellow); color: var(--blue); }
+.hero-tag-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-d1 { transition-delay: 0.08s; }
 .reveal-d2 { transition-delay: 0.16s; }
 .reveal-d3 { transition-delay: 0.24s; }
 .reveal-d4 { transition-delay: 0.32s; }
-.section { padding: 100px 80px; }
-.section-inner { max-width: 900px; margin: 0 auto; }
-.section-inner-sm { max-width: 680px; margin: 0 auto; }
-.section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-.section-num-light { background: rgba(255,201,23,0.15); color: var(--yellow); }
-.section-tag-text { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
-.section-tag-text-light { color: rgba(255,255,255,0.45); }
-h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-.section-intro { font-size: 15px; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 40px; }
+
+/* SECTIONS */
+.section { padding: 90px 80px; }
+.section-inner { max-width: 860px; margin: 0 auto; }
+.section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.section-num { width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--blue); }
+.section-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
+
+/* VERHAAL */
 .verhaal-bg { background: var(--bg); }
-.verhaal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
-.verhaal-bar { width: 5px; height: 40px; background: var(--yellow); border-radius: 3px; }
-.verhaal-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.verhaal-title { font-size: 22px; font-weight: 800; color: var(--blue); }
-.tijdlijn-item { display: flex; gap: 20px; margin-bottom: 28px; align-items: flex-start; }
-.tijdlijn-tijd { flex-shrink: 0; width: 80px; padding-top: 4px; font-size: 11px; font-weight: 700; }
-.tijd-normaal { color: var(--muted); }
-.tijd-probleem { color: var(--blue); }
-.tijd-crisis { color: #CC0000; }
-.tijdlijn-card { flex: 1; background: var(--white); border-radius: 0 12px 12px 0; padding: 16px 20px; }
-.card-normaal { border: 1px solid var(--border); border-left: 3px solid var(--border); }
-.card-probleem { border: 1px solid rgba(0,48,130,0.12); border-left: 3px solid var(--blue); }
-.card-crisis { border: 1px solid rgba(204,0,0,0.2); border-left: 3px solid #CC0000; }
-.tijdlijn-item.past .tijdlijn-card { border-left-color: var(--border) !important; }
-.tijdlijn-item.past .tijdlijn-tijd { color: var(--muted) !important; }
-.tijdlijn-tekst { font-size: 15px; line-height: 1.65; margin-bottom: 8px; }
-.tekst-normaal { color: var(--text); font-weight: 400; }
-.tekst-crisis { color: #CC0000; font-weight: 600; }
-.tijdlijn-cijfer { font-size: 12px; color: var(--muted); background: var(--bg); padding: 6px 12px; border-radius: 8px; display: inline-block; }
-.verhaal-conclusie { background: var(--blue); border-radius: 16px; padding: 24px 28px; margin-top: 8px; color: var(--white); font-size: 15px; line-height: 1.65; font-style: italic; }
+.verhaal-header { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+.verhaal-bar { width: 4px; height: 36px; background: var(--yellow); border-radius: 2px; flex-shrink: 0; }
+.verhaal-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.verhaal-title { font-size: 20px; font-weight: 800; color: var(--blue); }
+
+.stap-item { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
+.stap-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin-top: 2px; }
+.stap-normaal { background: var(--border); color: var(--muted); }
+.stap-probleem { background: rgba(0,48,130,0.1); color: var(--blue); }
+.stap-crisis { background: rgba(204,0,0,0.1); color: var(--red); }
+.stap-card { flex: 1; background: var(--white); border-radius: 0 12px 12px 0; padding: 14px 18px; }
+.stap-card-normaal { border: 1px solid var(--border); border-left: 3px solid var(--border); }
+.stap-card-probleem { border: 1px solid rgba(0,48,130,0.12); border-left: 3px solid var(--blue); }
+.stap-card-crisis { border: 1px solid rgba(204,0,0,0.15); border-left: 3px solid var(--red); }
+.stap-tekst { font-size: 14px; line-height: 1.65; margin-bottom: 8px; color: var(--text); }
+.stap-tekst-crisis { color: var(--red); font-weight: 600; }
+.stap-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.label-probleem { color: var(--blue); }
+.label-crisis { color: var(--red); }
+.stap-tag { font-size: 11px; color: var(--muted); background: var(--bg); padding: 4px 10px; border-radius: 6px; display: inline-block; }
+
+/* SCREENSHOT PLACEHOLDER */
+.screenshot-placeholder { background: var(--bg); border: 2px dashed var(--border); border-radius: 12px; padding: 24px; text-align: center; color: var(--muted); font-size: 12px; margin-top: 10px; }
+.screenshot-img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; margin-top: 10px; }
+
+/* SCHERM GRID */
+.scherm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+
+.verhaal-conclusie { background: var(--blue); border-radius: 16px; padding: 22px 26px; margin-top: 8px; color: var(--white); font-size: 14px; line-height: 1.7; font-style: italic; }
 .verhaal-conclusie strong { color: var(--yellow); }
-.doelgroep-bg { background: var(--white); }
-.doelgroep-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
-.persona-card { background: var(--bg); border: 1px solid var(--border); border-top: 4px solid var(--yellow); border-radius: 18px; padding: 28px; }
-.persona-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px; }
-.persona-name { font-size: 20px; font-weight: 800; margin-bottom: 3px; }
-.persona-sub { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 16px; }
-.persona-quote { background: rgba(255,201,23,0.08); border-left: 3px solid var(--yellow); padding: 10px 14px; font-size: 13px; line-height: 1.6; font-style: italic; margin-bottom: 16px; color: var(--text); }
-.persona-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.persona-tag { padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 500; background: rgba(0,48,130,0.07); color: var(--blue); }
-.taken-list { display: flex; flex-direction: column; gap: 10px; }
-.taak-item { display: flex; gap: 14px; align-items: flex-start; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; transition: transform 0.2s; }
-.taak-item:hover { transform: translateX(4px); }
-.taak-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-.taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
-.taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-.problemen-bg { background: var(--blue); }
-.problemen-bg h2 { color: var(--white); }
-.problemen-bg .section-intro { color: rgba(255,255,255,0.4); }
-.problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
-.probleem-card { border-radius: 14px; padding: 22px 24px; transition: transform 0.2s; }
+
+/* PROBLEMEN */
+.problemen-bg { background: var(--white); }
+.probleem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.probleem-card { border-radius: 14px; padding: 20px 22px; border: 1px solid var(--border); transition: transform 0.2s; }
 .probleem-card:hover { transform: translateY(-3px); }
-.probleem-ux { background: rgba(255,201,23,0.1); border: 1px solid rgba(255,201,23,0.3); }
-.probleem-id { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+.probleem-blauw { border-top: 3px solid var(--blue); }
+.probleem-rood { border-top: 3px solid var(--red); }
+.probleem-geel { border-top: 3px solid var(--yellow); }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
-.badge-ux { color: #8B6500; background: rgba(255,201,23,0.2); }
-.badge-id { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.1); }
-.probleem-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.probleem-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-.verdict { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
-.verdict strong { color: var(--yellow); }
-.domein-bg { background: var(--bg); }
-.domein-note { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; font-size: 12px; color: var(--muted); margin-bottom: 40px; }
-.domein-note strong { color: var(--text); font-weight: 600; }
-.interfaces-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-.interface-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--yellow); border-radius: 14px; padding: 18px 16px; transition: transform 0.2s; }
-.interface-card:hover { transform: translateY(-4px); }
-.interface-num { font-size: 9px; font-weight: 700; color: var(--yellow); letter-spacing: 2px; margin-bottom: 10px; }
-.interface-icon { font-size: 22px; margin-bottom: 10px; }
-.interface-name { font-size: 12px; font-weight: 700; margin-bottom: 5px; line-height: 1.3; }
-.interface-why { font-size: 11px; color: var(--muted); line-height: 1.5; }
-.rand-bg { background: var(--white); }
-.rand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.rand-col { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
-.rand-col-blue { border-top: 3px solid var(--blue); }
-.rand-col-yellow { border-top: 3px solid var(--yellow); }
-.rand-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
-.rand-title-blue { color: var(--blue); }
-.rand-title-yellow { color: #8B6500; }
-.rand-item { display: flex; gap: 10px; margin-bottom: 12px; }
-.rand-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 7px; }
-.rand-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
-.afsluiter { background: var(--blue); padding: 80px; text-align: center; }
-.afsluiter-badge { display: inline-block; background: rgba(255,201,23,0.15); border: 1px solid rgba(255,201,23,0.25); color: var(--yellow); padding: 5px 16px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
-.afsluiter h2 { color: var(--white); margin-bottom: 12px; }
-.afsluiter p { color: rgba(255,255,255,0.4); max-width: 380px; margin: 0 auto; font-size: 14px; line-height: 1.7; }
-footer { text-align: center; padding: 28px 80px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.badge-ux { background: rgba(0,48,130,0.08); color: var(--blue); }
+.badge-id { background: rgba(204,0,0,0.08); color: var(--red); }
+.probleem-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.3; }
+.probleem-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* OPLOSSINGEN */
+.oplossingen-bg { background: var(--blue); }
+.oplossingen-bg h2 { color: var(--white); }
+.oplossingen-bg .section-intro { color: rgba(255,255,255,0.4); }
+.oplossingen-bg .section-tag { color: rgba(255,255,255,0.4); }
+.oplossing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.oplossing-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px 22px; transition: transform 0.2s; }
+.oplossing-card:hover { transform: translateY(-3px); }
+.oplossing-num { font-size: 9px; font-weight: 700; color: var(--yellow); letter-spacing: 2px; margin-bottom: 10px; }
+.oplossing-icon { font-size: 22px; margin-bottom: 10px; }
+.oplossing-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+.oplossing-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+/* AFSLUITER */
+.afsluiter { background: var(--bg); padding: 80px; text-align: center; border-top: 1px solid var(--border); }
+.afsluiter-badge { display: inline-block; background: rgba(0,48,130,0.06); border: 1px solid rgba(0,48,130,0.12); color: var(--blue); padding: 5px 16px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.afsluiter h2 { margin-bottom: 12px; }
+.afsluiter p { color: var(--muted); max-width: 380px; margin: 0 auto; font-size: 14px; line-height: 1.7; }
+
+footer { text-align: center; padding: 24px 80px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 footer strong { color: var(--blue); }
+
 @media (max-width: 900px) {
-  .doelgroep-grid { grid-template-columns: 1fr; }
-  .problemen-grid { grid-template-columns: 1fr; }
-  .interfaces-grid { grid-template-columns: repeat(2, 1fr); }
-  .rand-grid { grid-template-columns: 1fr; }
+  .probleem-grid { grid-template-columns: 1fr; }
+  .oplossing-grid { grid-template-columns: 1fr; }
+  .scherm-grid { grid-template-columns: 1fr; }
   .section { padding: 60px 24px; }
   header { padding: 0 24px; }
   .hero { padding: 80px 24px; }
@@ -156,277 +149,217 @@ footer strong { color: var(--blue); }
 </style>
 </head>
 <body>
+
 <div id="progress"></div>
-<div id="bikebar">
-  <div class="line-bg"></div>
-  <div class="line-fill" id="line-fill"></div>
-  <div class="bike-stop" style="top:0%"></div>
-  <div class="bike-stop" style="top:16%"></div>
-  <div class="bike-stop" style="top:36%"></div>
-  <div class="bike-stop" style="top:56%"></div>
-  <div class="bike-stop" style="top:74%"></div>
-  <div class="bike-stop" style="top:90%"></div>
-  <div id="bike-icon">🚲</div>
-</div>
+
 <!-- HEADER -->
 <header>
   <div class="header-logo">
-    <span class="header-title">OV Fiets</span>
-    <span class="header-sub">UX Case Study</span>
+    <span class="header-title">NS Reisplanner</span>
   </div>
+  <div class="header-divider"></div>
+  <span class="header-sub">UX Case Study</span>
 </header>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-blob-1"></div>
-  <div class="hero-blob-2"></div>
+  <div class="hero-blob"></div>
   <div class="hero-content">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      UI/UX Case Study — NS OV Fiets
+      UI/UX Case Study — NS Reisplanner
     </div>
     <h1>
-      <span class="hero-word hero-word-1">Fietsen</span>
+      <span class="hero-word hero-word-1">Plannen</span>
       <span class="hero-word hero-word-2">Zonder</span>
-      <span class="hero-word hero-word-3">Gedoe</span>
+      <span class="hero-word hero-word-3">Verwarring</span>
     </h1>
-    <p class="hero-sub">Een UX-analyse van de NS OV Fiets — van onbetrouwbare beschikbaarheid tot ontbrekende feedback.</p>
+    <p class="hero-sub">Een UX-analyse van de NS Reisplanner — van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
     <div class="hero-tags">
-      <span class="hero-tag hero-tag-primary">🚲 OV Fiets</span>
+      <span class="hero-tag hero-tag-primary">🗺️ Reisplanner</span>
       <span class="hero-tag hero-tag-secondary">📱 NS App</span>
       <span class="hero-tag hero-tag-secondary">👤 Dirk</span>
     </div>
   </div>
 </section>
+
 <!-- VERHAAL -->
 <section class="section verhaal-bg">
-  <div class="section-inner-sm">
+  <div class="section-inner">
     <div class="reveal verhaal-header">
       <div class="verhaal-bar"></div>
       <div>
         <div class="verhaal-label">Het verhaal</div>
-        <div class="verhaal-title">Een dag in het leven van Dirk</div>
+        <div class="verhaal-title">Dirk plant zijn eerste reis naar zijn nieuwe werk</div>
       </div>
     </div>
-    <div class="tijdlijn-item reveal reveal-d1">
-      <div class="tijdlijn-tijd tijd-normaal">07:45</div>
-      <div class="tijdlijn-card card-normaal">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk staat op het perron van Utrecht Centraal. Hij opent de app. 12 fietsen beschikbaar. Goed.</p>
+
+    <!-- STAP 1 -->
+    <div class="stap-item reveal reveal-d1">
+      <div class="stap-num stap-normaal">1</div>
+      <div class="stap-card stap-card-normaal">
+        <div class="stap-tekst">Dirk downloadt de NS-app en wil zijn betaalpas koppelen om zijn ritten te kunnen inzien.</div>
+        <div class="scherm-grid">
+          <div class="screenshot-placeholder">📱 Screenshot: betaalpas koppelen scherm<br><small>Voeg hier images/screen-02.png toe</small></div>
+        </div>
       </div>
     </div>
-    <div class="tijdlijn-item reveal reveal-d1">
-      <div class="tijdlijn-tijd tijd-probleem">08:12</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Hij komt aan op Amsterdam Centraal. Er staan er twee. Eén lekke band. De app zei 12.</p>
-        <div class="tijdlijn-cijfer">📊 Data is 15 min oud — 290 fietsen verdwenen in 1 uur zonder app-update</div>
+
+    <!-- STAP 2 -->
+    <div class="stap-item reveal reveal-d1">
+      <div class="stap-num stap-probleem">2</div>
+      <div class="stap-card stap-card-probleem">
+        <div class="stap-label label-probleem">UX Probleem</div>
+        <div class="stap-tekst">Hij krijgt de melding <strong>"Er is een fout opgetreden, probeer het later opnieuw."</strong> Geen uitleg wat er fout ging. Het veld "Bedrag" blijkt het afgeschreven bedrag van zijn laatste reis te zijn — maar dat staat nergens uitgelegd.</div>
+        <div class="stap-tag">💡 Op de website staat dit wél duidelijk uitgelegd</div>
+        <div class="scherm-grid">
+          <div class="screenshot-placeholder">📱 App: foutmelding<br><small>images/screen-01.png</small></div>
+          <div class="screenshot-placeholder">🌐 Website: duidelijke uitleg<br><small>images/screen-website.png</small></div>
+        </div>
       </div>
     </div>
-    <div class="tijdlijn-item reveal reveal-d2">
-      <div class="tijdlijn-tijd tijd-probleem">08:18</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Hij vindt een fiets aan de andere kant. Het slot werkt niet bij de eerste poging. Of de tweede. Geen uitleg in de app. Bij de derde poging: groen.</p>
-        <div class="tijdlijn-cijfer">📊 Slot blokkeert 1.000× per maand — geen enkele foutmelding</div>
+
+    <!-- STAP 3 -->
+    <div class="stap-item reveal reveal-d2">
+      <div class="stap-num stap-probleem">3</div>
+      <div class="stap-card stap-card-probleem">
+        <div class="stap-label label-probleem">UX Probleem</div>
+        <div class="stap-tekst">Dirk plant zijn reis en klikt op Reisopties om OV-fiets bij aankomst in te stellen. Maar onder "Openbaar vervoer" staat geen OV-fiets. De optie zit verstopt onder een klein <strong>"Aankomst: Lopen"</strong> knopje bovenin.</div>
+        <div class="stap-tag">🔍 OV-fiets is 3 klikken diep verborgen</div>
+        <div class="scherm-grid">
+          <div class="screenshot-placeholder">📱 Reisopties zonder OV-fiets<br><small>images/screen-03.png</small></div>
+          <div class="screenshot-placeholder">📱 Aankomst dropdown met OV-fiets<br><small>images/screen-04.png</small></div>
+        </div>
       </div>
     </div>
-    <div class="tijdlijn-item reveal reveal-d3">
-      <div class="tijdlijn-tijd tijd-probleem">17:30</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk levert de fiets in. Kaart tegen het slot — zoals 's ochtends. Logisch toch? Niet dus. De fiets staat nu geregistreerd als opnieuw verhuurd.</p>
-        <div class="tijdlijn-cijfer">📊 4.315 onterechte boetes in H1 2025 — door precies deze fout</div>
+
+    <!-- STAP 4 -->
+    <div class="stap-item reveal reveal-d3">
+      <div class="stap-num stap-probleem">4</div>
+      <div class="stap-card stap-card-probleem">
+        <div class="stap-label label-probleem">UX Probleem</div>
+        <div class="stap-tekst">Na het opslaan ziet Dirk de reis staan — maar zijn vraag is nog steeds onbeantwoord: <strong>zijn er fietsen beschikbaar in Haarlem?</strong> De app toont "Amsterdam Zuid — 413 beschikbaar." Zijn bestemming is Haarlem.</div>
+        <div class="stap-tag">📍 App toont verkeerd station</div>
+        <div class="scherm-grid">
+          <div class="screenshot-placeholder">📱 Reisresultaat met Amsterdam Zuid<br><small>images/screen-05.png</small></div>
+          <div class="screenshot-placeholder">📱 Kaart met OV-fiets locaties<br><small>images/screen-06.png</small></div>
+        </div>
       </div>
     </div>
-    <div class="tijdlijn-item reveal reveal-d4">
-      <div class="tijdlijn-tijd tijd-crisis">3 dagen later</div>
-      <div class="tijdlijn-card card-crisis">
-        <p class="tijdlijn-tekst tekst-crisis">"Uw OV Fiets is vermist. U wordt €350,- in rekening gebracht." Dirk heeft niks fout gedaan. De app heeft hem nooit verteld hoe het wel moet.</p>
-        <div class="tijdlijn-cijfer">📊 NS verwerkt 1.200 uur klantenservicetijd per jaar voor vermijdbare boetes</div>
+
+    <!-- STAP 5 -->
+    <div class="stap-item reveal reveal-d4">
+      <div class="stap-num stap-crisis">5</div>
+      <div class="stap-card stap-card-crisis">
+        <div class="stap-label label-crisis">Eindresultaat</div>
+        <div class="stap-tekst stap-tekst-crisis">Eenmaal in Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. Dit stond in kleine lettertjes onder een grote blauwe knop. De app had hem hier nooit op gewezen.</div>
+        <div class="stap-tag">⚠️ Alleen OV-chipkaart werkt — nergens prominent vermeld</div>
+        <div class="screenshot-placeholder">📱 OV-fiets detailscherm Haarlem<br><small>images/screen-07.png</small></div>
       </div>
     </div>
+
     <div class="reveal">
       <div class="verhaal-conclusie">
-        Dit is geen uitzondering. Dit is elke maand <strong>300 keer</strong> het verhaal van Dirk.
+        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — zonder waarschuwing, zonder alternatief.
       </div>
     </div>
   </div>
 </section>
-<!-- 01 DOELGROEP -->
-<section class="section doelgroep-bg">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">
-        <div class="section-num">01</div>
-        <span class="section-tag-text">Doelgroep</span>
-      </div>
-      <h2 style="color:var(--blue);margin-bottom:40px">Wie is Dirk?</h2>
-    </div>
-    <div class="doelgroep-grid">
-      <div class="persona-card reveal reveal-d1">
-        <div class="persona-avatar">🧔</div>
-        <div class="persona-name">Dirk</div>
-        <div class="persona-sub">38 jaar · Utrecht · Dagelijks forens</div>
-        <div class="persona-quote">"De app zei 12 fietsen — maar er stonden er twee. Eén met een lekke band."</div>
-        <div class="persona-tags">
-          <span class="persona-tag">Forens</span>
-          <span class="persona-tag">5× per week</span>
-          <span class="persona-tag">Last mile</span>
-        </div>
-      </div>
-      <div class="taken-list">
-        <div class="taak-item reveal reveal-d1">
-          <div class="taak-icon">📊</div>
-          <div><div class="taak-title">Beschikbaarheid checken</div><div class="taak-desc">Controleert voor vertrek of er fietsen zijn op het aankomststation.</div></div>
-        </div>
-        <div class="taak-item reveal reveal-d2">
-          <div class="taak-icon">🔓</div>
-          <div><div class="taak-title">Fiets huren & openen</div><div class="taak-desc">Houdt zijn OV-chipkaart tegen het slot — altijd fysiek bij zich.</div></div>
-        </div>
-        <div class="taak-item reveal reveal-d3">
-          <div class="taak-icon">📍</div>
-          <div><div class="taak-title">Fiets inleveren</div><div class="taak-desc">Wil directe bevestiging dat de rit goed is afgesloten.</div></div>
-        </div>
-        <div class="taak-item reveal reveal-d4">
-          <div class="taak-icon">🛠️</div>
-          <div><div class="taak-title">Defect melden</div><div class="taak-desc">Wil een kapotte fiets snel doorgeven vanuit de app.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 02 PROBLEMEN -->
+
+<!-- PROBLEMEN -->
 <section class="section problemen-bg">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
-        <div class="section-num section-num-light">02</div>
-        <span class="section-tag-text section-tag-text-light">Doel & Problemen</span>
+        <div class="section-num">01</div>
+        <span class="section-tag">Problemen</span>
       </div>
-      <h2 style="margin-bottom:8px">Waar loopt Dirk tegenaan?</h2>
-      <p class="section-intro">Problemen op zowel UX- als Interaction Design-vlak.</p>
+      <h2>Waar loopt Dirk tegenaan?</h2>
+      <p class="section-intro">Vier concrete UX- en Interaction Design problemen in de NS reisplanner.</p>
     </div>
-    <div class="problemen-grid">
-      <div class="probleem-card probleem-ux reveal reveal-d1">
+    <div class="probleem-grid">
+      <div class="probleem-card probleem-blauw reveal reveal-d1">
         <span class="probleem-badge badge-ux">UX Probleem</span>
-        <div class="probleem-title">Onbetrouwbare beschikbaarheid</div>
-        <div class="probleem-text">Data 15 min oud — 290 fietsen weg in 1 uur zonder app-update.</div>
+        <div class="probleem-title">Vage foutmelding bij pas koppelen</div>
+        <div class="probleem-text">Geen uitleg wat er fout gaat of wat het "Bedrag" veld betekent. Website doet dit wél goed.</div>
       </div>
-      <div class="probleem-card probleem-id reveal reveal-d2">
+      <div class="probleem-card probleem-rood reveal reveal-d2">
         <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">Slot blokkeert zonder uitleg</div>
-        <div class="probleem-text">1.000× per maand. Geen foutmelding, geen instructie in de app.</div>
+        <div class="probleem-title">OV-fiets verstopt in reisopties</div>
+        <div class="probleem-text">Staat niet bij "Openbaar vervoer" maar verborgen onder "Aankomst: Lopen" — niet intuïtief.</div>
       </div>
-      <div class="probleem-card probleem-id reveal reveal-d3">
+      <div class="probleem-card probleem-rood reveal reveal-d3">
         <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">Verkeerd inleveren → boete</div>
-        <div class="probleem-text">4.315 onterechte boetes in H1 2025. Oorzaak: kaart gebruiken bij inleveren.</div>
+        <div class="probleem-title">Verkeerd station getoond</div>
+        <div class="probleem-text">App toont beschikbaarheid van een ander station dan het aankomststation. Misleidend.</div>
       </div>
-      <div class="probleem-card probleem-id reveal reveal-d4">
-        <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">Geen bevestiging na inleveren</div>
-        <div class="probleem-text">Pas na 72 uur een e-mail. NS verwerkt 1.200 uur klantenservice/jaar hiervoor.</div>
+      <div class="probleem-card probleem-geel reveal reveal-d4">
+        <span class="probleem-badge badge-ux">UX Probleem</span>
+        <div class="probleem-title">Pinpas werkt niet — nergens vermeld</div>
+        <div class="probleem-text">Kritieke informatie staat in kleine lettertjes. Gebruiker ontdekt het pas op het station.</div>
       </div>
-    </div>
-    <div class="verdict reveal">
-      <span style="font-size:20px">⚖️</span>
-      <span>Betere UX = minder frustratie voor Dirk én <strong>600 uur minder klantenservice per jaar voor NS.</strong></span>
     </div>
   </div>
 </section>
-<!-- 03 DOMEIN -->
-<section class="section domein-bg">
+
+<!-- OPLOSSINGEN -->
+<section class="section oplossingen-bg">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
-        <div class="section-num">03</div>
-        <span class="section-tag-text">Domein</span>
+        <div class="section-num" style="background:rgba(255,201,23,0.15);color:var(--yellow)">02</div>
+        <span class="section-tag" style="color:rgba(255,255,255,0.4)">Oplossingen</span>
       </div>
-      <h2 style="color:var(--blue);margin-bottom:8px">Welke interfaces ga ik ontwerpen?</h2>
-      <p class="section-intro">Bestaande app — NS app (iOS & Android), OV Fiets sectie.</p>
-      <div class="domein-note">📱 <strong>Bestaande applicatie</strong> — herontwerp van bestaande sectie</div>
+      <h2>Wat kan beter?</h2>
+      <p class="section-intro" style="color:rgba(255,255,255,0.4)">Vier interfaces om te herontwerpen.</p>
     </div>
-    <div class="interfaces-grid">
-      <div class="interface-card reveal reveal-d1">
-        <div class="interface-num">01</div>
-        <div class="interface-icon">📊</div>
-        <div class="interface-name">Beschikbaarheidsscherm</div>
-        <div class="interface-why">Timestamp + betrouwbaarheidsindicator.</div>
+    <div class="oplossing-grid">
+      <div class="oplossing-card reveal reveal-d1">
+        <div class="oplossing-num">01</div>
+        <div class="oplossing-icon">💳</div>
+        <div class="oplossing-title">Duidelijke foutafhandeling</div>
+        <div class="oplossing-text">Specifieke foutmelding + uitleg wat het "Bedrag" veld is. Zelfde kwaliteit als de website.</div>
       </div>
-      <div class="interface-card reveal reveal-d2">
-        <div class="interface-num">02</div>
-        <div class="interface-icon">🔓</div>
-        <div class="interface-name">Huurstart & slot-flow</div>
-        <div class="interface-why">Bevestiging + foutherstel bij blokkering.</div>
+      <div class="oplossing-card reveal reveal-d2">
+        <div class="oplossing-num">02</div>
+        <div class="oplossing-icon">🚲</div>
+        <div class="oplossing-title">OV-fiets in reisopties</div>
+        <div class="oplossing-text">OV-fiets als zichtbare optie naast trein, bus en metro — niet verstopt onder aankomstinstelling.</div>
       </div>
-      <div class="interface-card reveal reveal-d3">
-        <div class="interface-num">03</div>
-        <div class="interface-icon">🚲</div>
-        <div class="interface-name">Inleverflow</div>
-        <div class="interface-why">Animatie + directe bevestiging na inleveren.</div>
+      <div class="oplossing-card reveal reveal-d3">
+        <div class="oplossing-num">03</div>
+        <div class="oplossing-icon">📍</div>
+        <div class="oplossing-title">Juiste beschikbaarheid</div>
+        <div class="oplossing-text">Toon beschikbaarheid van het gekozen aankomststation, niet een willekeurig nabijgelegen station.</div>
       </div>
-      <div class="interface-card reveal reveal-d4">
-        <div class="interface-num">04</div>
-        <div class="interface-icon">🔔</div>
-        <div class="interface-name">Pushnotificaties</div>
-        <div class="interface-why">Na inleveren + waarschuwing na 30 min.</div>
-      </div>
-      <div class="interface-card reveal reveal-d4">
-        <div class="interface-num">05</div>
-        <div class="interface-icon">⚡</div>
-        <div class="interface-name">Storingsscherm</div>
-        <div class="interface-why">Statuspagina bij landelijke uitval.</div>
+      <div class="oplossing-card reveal reveal-d4">
+        <div class="oplossing-num">04</div>
+        <div class="oplossing-icon">⚠️</div>
+        <div class="oplossing-title">Betaalmethode waarschuwing</div>
+        <div class="oplossing-text">Prominente melding als pinpas niet werkt voor OV-fiets — vóórdat de gebruiker op het station staat.</div>
       </div>
     </div>
   </div>
 </section>
-<!-- 04 RANDVOORWAARDEN -->
-<section class="section rand-bg">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">
-        <div class="section-num">04</div>
-        <span class="section-tag-text">Randvoorwaarden</span>
-      </div>
-      <h2 style="color:var(--blue);margin-bottom:40px">Beperkingen</h2>
-    </div>
-    <div class="rand-grid">
-      <div class="rand-col rand-col-blue reveal reveal-d1">
-        <div class="rand-title rand-title-blue">Technisch</div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Geen realtime data — 15 min vertraging</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Fysieke OV-chipkaart vereist</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">3G/4G afhankelijkheid slots</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">iOS & Android vereist</div></div>
-      </div>
-      <div class="rand-col rand-col-yellow reveal reveal-d2">
-        <div class="rand-title rand-title-yellow">Budgettair</div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Alle oplossingen zijn frontend — geen backend</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">NS groot — budget aanwezig maar traag</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Sterke businesscase: 600 uur/jaar besparing</div></div>
-      </div>
-      <div class="rand-col rand-col-blue reveal reveal-d3">
-        <div class="rand-title rand-title-blue">Organisatorisch</div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">OV-chipkaart verdwijnt eind 2027</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">AVG — toestemming nodig voor push</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">900.000+ gebruikers — geen radicale wijzigingen</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- AFSLUITER -->
 <section class="afsluiter">
   <div class="reveal">
     <div class="afsluiter-badge">✏️ Vrij in te zetten</div>
     <h2>Ruimte voor eigen inzichten</h2>
-    <p>Voeg hier screenshots, onderzoeksresultaten of wireframes toe.</p>
+    <p>Voeg hier screenshots, wireframes of onderzoeksresultaten toe.</p>
   </div>
 </section>
+
 <footer>
-  🚲 OV Fiets UX Case Study · Persona: <strong>Dirk</strong> · NS app herontwerp
+  🗺️ NS Reisplanner UX Case Study · Persona: <strong>Dirk</strong> · NS app herontwerp
 </footer>
+
 <script>
   window.addEventListener('scroll', () => {
     const max = document.body.scrollHeight - window.innerHeight
     const pct = window.scrollY / max
     document.getElementById('progress').style.width = (pct * 100) + '%'
-    document.getElementById('line-fill').style.height = (pct * 100) + '%'
-    document.getElementById('bike-icon').style.top = (pct * 90) + '%'
   })
 
   const observer = new IntersectionObserver((entries) => {
@@ -436,17 +369,6 @@ footer strong { color: var(--blue); }
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' })
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
-
-  const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
-  window.addEventListener('scroll', () => {
-    tijdlijnItems.forEach(item => {
-      if (item.getBoundingClientRect().bottom < window.innerHeight * 0.4) {
-        item.classList.add('past')
-      } else {
-        item.classList.remove('past')
-      }
-    })
-  })
 </script>
 </body>
 </html>
