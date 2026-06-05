@@ -35,25 +35,30 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .header-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
 .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
 
+/* HERO */
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px; background: var(--blue); position: relative; overflow: hidden; }
 .hero-blob { position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: var(--yellow); opacity: 0.04; border-radius: 50%; }
 .hero-content { max-width: 620px; position: relative; z-index: 1; }
 .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,201,23,0.12); border: 1px solid rgba(255,201,23,0.25); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--yellow); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s 0.2s both; }
 .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-.hero h1 { margin: 0 0 24px; line-height: 1.05; font-weight: 800; }
-.hero-word { display: block; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; animation: slideIn 0.6s both; }
-.hero-word-1 { color: var(--white); animation-delay: 0.3s; }
-.hero-word-2 { color: var(--yellow); animation-delay: 0.42s; }
-.hero-word-3 { color: var(--white); animation-delay: 0.54s; }
-@keyframes slideIn { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
-.hero-sub { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 440px; margin: 0 auto 36px; animation: fadeUp 0.8s 0.7s both; }
-.hero-tags { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.6s 0.9s both; flex-wrap: wrap; }
+.hero h1 { margin: 0 0 24px; line-height: 1.05; font-weight: 800; overflow: hidden; }
+.hero-word { display: block; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; }
+.hero-word-1 { color: var(--white); animation: wordSlide 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-word-2 { color: var(--yellow); animation: wordSlide 0.7s 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-word-3 { color: var(--white); animation: wordSlide 0.7s 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+@keyframes wordSlide {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 440px; margin: 0 auto 36px; animation: fadeUp 0.8s 1.1s both; }
+.hero-tags { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.6s 1.3s both; flex-wrap: wrap; }
 .hero-tag { padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
 .hero-tag-primary { background: var(--yellow); color: var(--blue); }
 .hero-tag-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+/* REVEAL */
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-d1 { transition-delay: 0.08s; }
@@ -70,33 +75,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
 h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--blue); }
 .section-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
-
-/* RECENSIE */
-.recensie-bg { background: var(--white); }
-.recensie-card { background: var(--bg); border: 1px solid var(--border); border-left: 4px solid var(--yellow); border-radius: 0 16px 16px 0; padding: 28px 32px; display: flex; gap: 20px; align-items: flex-start; }
-.recensie-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.recensie-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-.recensie-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-.recensie-tekst { font-size: 15px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 12px; }
-.recensie-sterren { font-size: 14px; color: var(--yellow); letter-spacing: 2px; }
-.recensie-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-left: 8px; vertical-align: middle; }
-
-/* DOELGROEP */
-.doelgroep-bg { background: var(--bg); }
-.doelgroep-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
-.persona-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--yellow); border-radius: 18px; padding: 28px; }
-.persona-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px; }
-.persona-name { font-size: 20px; font-weight: 800; margin-bottom: 3px; }
-.persona-sub { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 16px; }
-.persona-quote { background: rgba(255,201,23,0.08); border-left: 3px solid var(--yellow); padding: 10px 14px; font-size: 13px; line-height: 1.6; font-style: italic; margin-bottom: 16px; color: var(--text); border-radius: 0 8px 8px 0; }
-.persona-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.persona-tag { padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 500; background: rgba(0,48,130,0.07); color: var(--blue); }
-.taken-list { display: flex; flex-direction: column; gap: 10px; }
-.taak-item { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; transition: transform 0.2s; }
-.taak-item:hover { transform: translateX(4px); }
-.taak-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-.taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
-.taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 /* VERHAAL TIJDLIJN */
 .verhaal-bg { background: var(--bg); }
@@ -122,10 +100,26 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .verhaal-conclusie { background: var(--blue); border-radius: 16px; padding: 24px 28px; margin-top: 8px; color: var(--white); font-size: 15px; line-height: 1.65; font-style: italic; }
 .verhaal-conclusie strong { color: var(--yellow); }
 
+/* DOELGROEP + RECENSIE */
+.doelgroep-bg { background: var(--white); }
+.doelgroep-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
+.persona-card { background: var(--bg); border: 1px solid var(--border); border-top: 4px solid var(--yellow); border-radius: 18px; padding: 28px; }
+.persona-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px; }
+.persona-name { font-size: 20px; font-weight: 800; margin-bottom: 3px; }
+.persona-sub { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 16px; }
+.persona-quote { background: rgba(255,201,23,0.08); border-left: 3px solid var(--yellow); padding: 10px 14px; font-size: 13px; line-height: 1.6; font-style: italic; margin-bottom: 12px; color: var(--text); border-radius: 0 8px 8px 0; }
+.persona-sterren { font-size: 13px; color: var(--yellow); margin-bottom: 14px; }
+.persona-sterren span { font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
+.persona-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.persona-tag { padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 500; background: rgba(0,48,130,0.07); color: var(--blue); }
+.taken-list { display: flex; flex-direction: column; gap: 10px; }
+.taak-item { display: flex; gap: 14px; align-items: flex-start; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; transition: transform 0.2s; }
+.taak-item:hover { transform: translateX(4px); }
+.taak-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+.taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
 /* PROBLEMEN */
-.problemen-bg { background: var(--white); }
-.problemen-bg h2 { color: var(--white); }
-.problemen-bg .section-intro { color: rgba(255,255,255,0.4); }
 .problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
 .probleem-card { border-radius: 14px; padding: 22px 24px; transition: transform 0.2s; }
 .probleem-card:hover { transform: translateY(-3px); }
@@ -204,6 +198,7 @@ footer strong { color: var(--blue); }
   <span class="header-sub">UX Case Study</span>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-blob"></div>
   <div class="hero-content">
@@ -225,32 +220,65 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- RECENSIE -->
-<section class="section recensie-bg">
+<!-- VERHAAL -->
+<section class="section verhaal-bg">
   <div class="section-inner-sm">
-    <div class="reveal">
-      <div class="section-label">
-        <div class="section-num">★</div>
-        <span class="section-tag">Gebruikersreview</span>
-      </div>
-      <h2 style="margin-bottom:28px">Wat zegt Dirk?</h2>
-    </div>
-    <div class="recensie-card reveal reveal-d1">
-      <div class="recensie-avatar">🧔</div>
+    <div class="reveal verhaal-header">
+      <div class="verhaal-bar"></div>
       <div>
-        <div class="recensie-name">Dirk</div>
-        <div class="recensie-sub">38 jaar · Utrecht · Dagelijks NS-reiziger</div>
-        <div class="recensie-tekst">"De reisplanner is compleet onoverzichtelijk. Ik wil gewoon weten of er een OV-fiets beschikbaar is op mijn aankomststation — maar de app geeft me informatie over een station dat ik helemaal niet nodig heb. En dan kom ik ter plaatse erachter dat mijn pinpas niet eens werkt. Dat had de app me allang kunnen vertellen."</div>
-        <div>
-          <span class="recensie-sterren">★★☆☆☆</span>
-          <span class="recensie-label">App Store · NS app</span>
-        </div>
+        <div class="verhaal-label">Het verhaal</div>
+        <div class="verhaal-title">Dirk plant zijn eerste reis naar zijn nieuwe werk</div>
+      </div>
+    </div>
+
+    <div class="tijdlijn-item reveal reveal-d1">
+      <div class="tijdlijn-tijd tijd-normaal">Stap 1</div>
+      <div class="tijdlijn-card card-normaal">
+        <p class="tijdlijn-tekst tekst-normaal">Dirk downloadt de NS-app en wil zijn betaalpas koppelen om zijn ritten te kunnen inzien.</p>
+      </div>
+    </div>
+
+    <div class="tijdlijn-item reveal reveal-d1">
+      <div class="tijdlijn-tijd tijd-probleem">Stap 2</div>
+      <div class="tijdlijn-card card-probleem">
+        <p class="tijdlijn-tekst tekst-normaal">Hij vult het formulier in maar krijgt een vage foutmelding zonder uitleg. Het veld "Bedrag" blijkt het afgeschreven bedrag van zijn laatste reis te zijn — maar dat staat nergens uitgelegd.</p>
+        <div class="tijdlijn-cijfer">💡 Op de website staat dit wél duidelijk uitgelegd</div>
+      </div>
+    </div>
+
+    <div class="tijdlijn-item reveal reveal-d2">
+      <div class="tijdlijn-tijd tijd-probleem">Stap 3</div>
+      <div class="tijdlijn-card card-probleem">
+        <p class="tijdlijn-tekst tekst-normaal">Dirk plant zijn reis naar Haarlem en zoekt OV-fiets als aankomstoptie. Onder "Openbaar vervoer" staat geen OV-fiets. De optie zit verstopt onder "Aankomst: Lopen" — drie klikken diep.</p>
+        <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties</div>
+      </div>
+    </div>
+
+    <div class="tijdlijn-item reveal reveal-d3">
+      <div class="tijdlijn-tijd tijd-probleem">Stap 4</div>
+      <div class="tijdlijn-card card-probleem">
+        <p class="tijdlijn-tekst tekst-normaal">De reis is gepland — maar zijn vraag blijft onbeantwoord: zijn er fietsen in Haarlem? De app toont "Amsterdam Zuid — 413 beschikbaar." Dat is niet zijn bestemming.</p>
+        <div class="tijdlijn-cijfer">📍 Verkeerd station getoond</div>
+      </div>
+    </div>
+
+    <div class="tijdlijn-item reveal reveal-d4">
+      <div class="tijdlijn-tijd tijd-crisis">Op station</div>
+      <div class="tijdlijn-card card-crisis">
+        <p class="tijdlijn-tekst tekst-crisis">In Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. Dit stond in kleine lettertjes — de app had hem hier nooit op gewezen.</p>
+        <div class="tijdlijn-cijfer">⚠️ Alleen OV-chipkaart werkt — nergens prominent vermeld</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="verhaal-conclusie">
+        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — zonder waarschuwing, zonder alternatief.
       </div>
     </div>
   </div>
 </section>
 
-<!-- DOELGROEP -->
+<!-- DOELGROEP MET RECENSIE -->
 <section class="section doelgroep-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -265,7 +293,8 @@ footer strong { color: var(--blue); }
         <div class="persona-avatar">🧔</div>
         <div class="persona-name">Dirk</div>
         <div class="persona-sub">38 jaar · Utrecht · Dagelijks forens</div>
-        <div class="persona-quote">"Ik wil gewoon weten of ik straks een fiets kan pakken. Geef me duidelijke informatie, geen gedoe."</div>
+        <div class="persona-quote">"De reisplanner is onoverzichtelijk. Ik wil duidelijke informatie — niet pas op het station erachter komen dat mijn pinpas niet werkt."</div>
+        <div class="persona-sterren">★★☆☆☆ <span>App Store · NS app</span></div>
         <div class="persona-tags">
           <span class="persona-tag">Forens</span>
           <span class="persona-tag">5× per week</span>
@@ -290,57 +319,6 @@ footer strong { color: var(--blue); }
           <div class="taak-icon">⚠️</div>
           <div><div class="taak-title">Betaalmethode begrijpen</div><div class="taak-desc">Wil weten welke betaalmiddelen werken voor de OV-fiets — vóór hij op het station staat.</div></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VERHAAL -->
-<section class="section verhaal-bg">
-  <div class="section-inner-sm">
-    <div class="reveal verhaal-header">
-      <div class="verhaal-bar"></div>
-      <div>
-        <div class="verhaal-label">Het verhaal</div>
-        <div class="verhaal-title">Dirk plant zijn eerste reis naar zijn nieuwe werk</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d1">
-      <div class="tijdlijn-tijd tijd-normaal">Stap 1</div>
-      <div class="tijdlijn-card card-normaal">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk downloadt de NS-app en wil zijn betaalpas koppelen. Hij vult het formulier in maar krijgt een vage foutmelding — zonder uitleg wat er fout is.</p>
-        <div class="tijdlijn-cijfer">💡 Op de website staat wél duidelijk wat het "Bedrag"-veld betekent</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d1">
-      <div class="tijdlijn-tijd tijd-probleem">Stap 2</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk plant zijn reis naar Haarlem en wil OV-fiets als aankomstoptie instellen. Onder "Openbaar vervoer" staat geen OV-fiets. Hij vindt de optie pas na goed zoeken, verstopt onder "Aankomst: Lopen".</p>
-        <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties — 3 klikken diep verborgen</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d2">
-      <div class="tijdlijn-tijd tijd-probleem">Stap 3</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">De reis is gepland, maar Dirk weet nog steeds niet of er fietsen zijn in Haarlem. De app toont "Amsterdam Zuid — 413 beschikbaar." Dat is niet zijn bestemming.</p>
-        <div class="tijdlijn-cijfer">📍 Verkeerd station getoond — Amsterdam Zuid in plaats van Haarlem</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d3">
-      <div class="tijdlijn-tijd tijd-crisis">Op het station</div>
-      <div class="tijdlijn-card card-crisis">
-        <p class="tijdlijn-tekst tekst-crisis">Dirk staat in Haarlem en kan de OV-fiets niet huren met zijn pinpas. Alleen een OV-chipkaart werkt. Dit stond in kleine lettertjes — de app had hem hier nooit op gewezen.</p>
-        <div class="tijdlijn-cijfer">⚠️ Kritieke informatie verborgen onder grote blauwe knop</div>
-      </div>
-    </div>
-
-    <div class="reveal">
-      <div class="verhaal-conclusie">
-        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — zonder waarschuwing, zonder alternatief.
       </div>
     </div>
   </div>
