@@ -124,7 +124,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .badge-id { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.1); }
 .probleem-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
 .probleem-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 14px; }
-.probleem-img { width: 100%; border-radius: 10px; display: block; aspect-ratio: 9/16; object-fit: cover; }
+.probleem-img { width: 100%; border-radius: 10px; display: block; object-fit: cover; }
 .probleem-img-placeholder { width: 100%; border-radius: 10px; aspect-ratio: 9/16; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.25); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
 .verdict { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
@@ -155,7 +155,6 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .afsluiter-badge { display: inline-block; background: rgba(255,201,23,0.15); border: 1px solid rgba(255,201,23,0.25); color: var(--yellow); padding: 5px 16px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
 .afsluiter h2 { color: var(--white); margin-bottom: 12px; }
 .afsluiter p { color: rgba(255,255,255,0.4); max-width: 380px; margin: 0 auto; font-size: 14px; line-height: 1.7; }
-
 footer { text-align: center; padding: 28px 80px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 footer strong { color: var(--blue); }
 
@@ -211,7 +210,6 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- VERHAAL — scrollbar start hier -->
 <section class="section verhaal-bg" id="verhaal-start">
   <div class="section-inner-sm">
     <div class="reveal verhaal-header">
@@ -278,7 +276,7 @@ footer strong { color: var(--blue); }
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
         <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">2025</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS startte een herontwerp van de reisplanner — maar klachten bleven</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS startte een herontwerp — maar klachten bleven</div>
       </div>
     </div>
 
@@ -296,7 +294,6 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- DOELGROEP -->
 <section class="section doelgroep-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -342,7 +339,6 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- PROBLEMEN -->
 <section class="section problemen-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -406,7 +402,6 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- INTERFACES -->
 <section class="section domein-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -446,7 +441,6 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- RANDVOORWAARDEN -->
 <section class="section rand-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -500,14 +494,12 @@ footer strong { color: var(--blue); }
     const verhaalTop = verhaalStart.getBoundingClientRect().top + window.scrollY
     const scrollbar = document.getElementById('scrollbar')
 
-    // Toon scrollbar pas zodra verhaal in beeld komt
     if (window.scrollY >= verhaalTop - 200) {
       scrollbar.classList.add('visible')
     } else {
       scrollbar.classList.remove('visible')
     }
 
-    // Bereken voortgang vanaf het verhaal
     const max = document.body.scrollHeight - window.innerHeight
     const pct = window.scrollY / max
     const verhaalPct = Math.max(0, Math.min(1, (window.scrollY - verhaalTop + 200) / (max - verhaalTop + 200)))
