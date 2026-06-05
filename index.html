@@ -35,7 +35,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .header-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
 .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
 
-/* HERO */
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px; background: var(--blue); position: relative; overflow: hidden; }
 .hero-blob { position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: var(--yellow); opacity: 0.04; border-radius: 50%; }
 .hero-content { max-width: 620px; position: relative; z-index: 1; }
@@ -47,10 +46,7 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .hero-word-1 { color: var(--white); animation: wordSlide 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) both; }
 .hero-word-2 { color: var(--yellow); animation: wordSlide 0.7s 0.6s cubic-bezier(0.22,1,0.36,1) both; }
 .hero-word-3 { color: var(--white); animation: wordSlide 0.7s 0.8s cubic-bezier(0.22,1,0.36,1) both; }
-@keyframes wordSlide {
-  from { opacity: 0; transform: translateY(60px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes wordSlide { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
 .hero-sub { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 440px; margin: 0 auto 36px; animation: fadeUp 0.8s 1.1s both; }
 .hero-tags { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.6s 1.3s both; flex-wrap: wrap; }
 .hero-tag { padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
@@ -58,7 +54,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .hero-tag-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* REVEAL */
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-d1 { transition-delay: 0.08s; }
@@ -76,7 +71,7 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--blue); }
 .section-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
 
-/* VERHAAL TIJDLIJN */
+/* VERHAAL */
 .verhaal-bg { background: var(--bg); }
 .verhaal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
 .verhaal-bar { width: 5px; height: 40px; background: var(--yellow); border-radius: 3px; }
@@ -100,7 +95,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .verhaal-conclusie { background: var(--blue); border-radius: 16px; padding: 24px 28px; margin-top: 8px; color: var(--white); font-size: 15px; line-height: 1.65; font-style: italic; }
 .verhaal-conclusie strong { color: var(--yellow); }
 
-/* DOELGROEP + RECENSIE */
+/* DOELGROEP */
 .doelgroep-bg { background: var(--white); }
 .doelgroep-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
 .persona-card { background: var(--bg); border: 1px solid var(--border); border-top: 4px solid var(--yellow); border-radius: 18px; padding: 28px; }
@@ -120,6 +115,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 /* PROBLEMEN */
+.problemen-bg { background: var(--blue); }
 .problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
 .probleem-card { border-radius: 14px; padding: 22px 24px; transition: transform 0.2s; }
 .probleem-card:hover { transform: translateY(-3px); }
@@ -129,7 +125,10 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .badge-ux { color: #8B6500; background: rgba(255,201,23,0.2); }
 .badge-id { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.1); }
 .probleem-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.probleem-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+.probleem-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 14px; }
+.probleem-img { width: 100%; border-radius: 10px; display: block; aspect-ratio: 9/16; object-fit: cover; background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); }
+.probleem-img-placeholder { width: 100%; border-radius: 10px; aspect-ratio: 9/16; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.25); font-size: 11px; text-align: center; padding: 12px; }
+.probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
 .verdict { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
 .verdict strong { color: var(--yellow); }
 
@@ -272,13 +271,41 @@ footer strong { color: var(--blue); }
 
     <div class="reveal">
       <div class="verhaal-conclusie">
-        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — zonder waarschuwing, zonder alternatief.
+        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — zonder waarschuwing, zonder alternatief. En Dirk is <strong>niet de enige.</strong>
       </div>
     </div>
+
+    <!-- CIJFERS -->
+    <div class="cijfers-grid reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;">
+      <div class="cijfer-card" style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
+        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">57.974</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">klachten bij NS klantenservice over binnenlands vervoer in 2024</div>
+      </div>
+      <div class="cijfer-card" style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
+        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">900.000+</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">gebruikers van de NS app — elk met dezelfde onduidelijke reisplanner</div>
+      </div>
+      <div class="cijfer-card" style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
+        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">2025</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS startte een herontwerp van de reisplanner — maar klachten bleven</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="background:rgba(204,0,0,0.06);border:1px solid rgba(204,0,0,0.15);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:14px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Na het herontwerp</div>
+      <p style="font-size:14px;color:var(--text);line-height:1.7;">Ook na de update blijven gebruikers klagen over <strong>onoverzichtelijkheid</strong>, <strong>onduidelijke informatie</strong> en <strong>overprikkeling door teveel kleur en visuele drukte</strong>. Het herontwerp loste de oppervlakte aan — maar de onderliggende UX-problemen zijn nog steeds aanwezig.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+        <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Te druk, te veel kleuren"</span>
+        <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Ik vind niks meer terug"</span>
+        <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Slechter dan voorheen"</span>
+        <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Verwarrende indeling"</span>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:10px;text-align:right;">Bronnen: NS Jaarverslag 2024 · NS Community · App Store reviews</p>
   </div>
 </section>
 
-<!-- DOELGROEP MET RECENSIE -->
+<!-- DOELGROEP -->
 <section class="section doelgroep-bg">
   <div class="section-inner">
     <div class="reveal">
@@ -325,7 +352,7 @@ footer strong { color: var(--blue); }
 </section>
 
 <!-- PROBLEMEN -->
-<section class="section" style="background:var(--blue)">
+<section class="section problemen-bg">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
@@ -336,26 +363,59 @@ footer strong { color: var(--blue); }
       <p class="section-intro" style="color:rgba(255,255,255,0.4)">Problemen op zowel UX- als Interaction Design-vlak.</p>
     </div>
     <div class="problemen-grid">
+
       <div class="probleem-card probleem-ux reveal reveal-d1">
         <span class="probleem-badge badge-ux">UX Probleem</span>
         <div class="probleem-title">Vage foutmelding bij pas koppelen</div>
         <div class="probleem-text">Geen uitleg wat er fout gaat of wat het "Bedrag"-veld betekent. Website doet dit wél goed.</div>
+        <!-- Vervang de src hieronder door jouw screenshot, bijv: src="images/screen-01.png" -->
+        <img class="probleem-img" src="images/screen-01.png" alt="Foutmelding bij betaalpas koppelen"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="probleem-img-placeholder" style="display:none">
+          <div class="img-icon">📱</div>
+          <div>Voeg toe: <strong>images/screen-01.png</strong></div>
+        </div>
       </div>
+
       <div class="probleem-card probleem-id reveal reveal-d2">
         <span class="probleem-badge badge-id">ID Probleem</span>
         <div class="probleem-title">OV-fiets verstopt in reisopties</div>
         <div class="probleem-text">Staat niet bij "Openbaar vervoer" maar verborgen onder "Aankomst: Lopen" — niet intuïtief.</div>
+        <!-- Vervang de src hieronder door jouw screenshot, bijv: src="images/screen-02.png" -->
+        <img class="probleem-img" src="images/screen-02.png" alt="OV-fiets verstopt in reisopties"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="probleem-img-placeholder" style="display:none">
+          <div class="img-icon">📱</div>
+          <div>Voeg toe: <strong>images/screen-02.png</strong></div>
+        </div>
       </div>
+
       <div class="probleem-card probleem-id reveal reveal-d3">
         <span class="probleem-badge badge-id">ID Probleem</span>
         <div class="probleem-title">Verkeerd station getoond</div>
         <div class="probleem-text">App toont beschikbaarheid van een ander station dan het aankomststation. Misleidend.</div>
+        <!-- Vervang de src hieronder door jouw screenshot, bijv: src="images/screen-03.png" -->
+        <img class="probleem-img" src="images/screen-03.png" alt="Verkeerd station getoond"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="probleem-img-placeholder" style="display:none">
+          <div class="img-icon">📱</div>
+          <div>Voeg toe: <strong>images/screen-03.png</strong></div>
+        </div>
       </div>
+
       <div class="probleem-card probleem-id reveal reveal-d4">
         <span class="probleem-badge badge-id">ID Probleem</span>
         <div class="probleem-title">Pinpas werkt niet — nergens vermeld</div>
         <div class="probleem-text">Kritieke informatie staat in kleine lettertjes. Gebruiker ontdekt het pas op het station.</div>
+        <!-- Vervang de src hieronder door jouw screenshot, bijv: src="images/screen-04.png" -->
+        <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="probleem-img-placeholder" style="display:none">
+          <div class="img-icon">📱</div>
+          <div>Voeg toe: <strong>images/screen-04.png</strong></div>
+        </div>
       </div>
+
     </div>
     <div class="verdict reveal">
       <span style="font-size:20px">⚖️</span>
@@ -437,12 +497,11 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<!-- AFSLUITER -->
 <section class="afsluiter">
   <div class="reveal">
     <div class="afsluiter-badge">✏️ Vrij in te zetten</div>
     <h2>Ruimte voor eigen inzichten</h2>
-    <p>Voeg hier screenshots, wireframes of onderzoeksresultaten toe.</p>
+    <p>Voeg hier wireframes of onderzoeksresultaten toe.</p>
   </div>
 </section>
 
@@ -460,12 +519,8 @@ footer strong { color: var(--blue); }
     document.getElementById('progress').style.width = (pct * 100) + '%'
     document.getElementById('line-fill').style.height = (pct * 100) + '%'
     document.getElementById('scroll-icon').style.top = (pct * 90) + '%'
-
     const newIcon = pct > 0.5 ? 1 : 0
-    if (newIcon !== lastIcon) {
-      lastIcon = newIcon
-      document.getElementById('scroll-icon').textContent = scrollIcons[newIcon]
-    }
+    if (newIcon !== lastIcon) { lastIcon = newIcon; document.getElementById('scroll-icon').textContent = scrollIcons[newIcon] }
   })
 
   const observer = new IntersectionObserver((entries) => {
