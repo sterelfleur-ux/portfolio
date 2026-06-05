@@ -141,9 +141,9 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .interface-name { font-size: 12px; font-weight: 700; margin-bottom: 5px; line-height: 1.3; }
 .interface-why { font-size: 11px; color: var(--muted); line-height: 1.5; }
 
-.rand-bg { background: var(--white); }
+.rand-bg { background: var(--bg); }
 .rand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.rand-col { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.rand-col { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
 .rand-col-blue { border-top: 3px solid var(--blue); }
 .rand-col-yellow { border-top: 3px solid var(--yellow); }
 .rand-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
@@ -416,14 +416,20 @@ footer strong { color: var(--blue); }
         </div>
       </div>
     </div>
-    <div class="verdict reveal">
-      <span style="font-size:20px">⚖️</span>
-      <span>Betere UX = minder frustratie voor Dirk én <strong>minder onnodige klachten voor NS.</strong></span>
+    <div class="verdict reveal" style="flex-direction:column;align-items:flex-start;gap:16px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-size:20px">⚖️</span>
+        <span>Betere UX = minder frustratie voor Dirk én <strong>minder onnodige klachten voor NS.</strong> Uit App Store reviews en de NS Community blijkt dat een aanzienlijk deel van de negatieve feedback direct te herleiden is naar problemen met de reisplanner — onduidelijke opties, ontbrekende informatie en verwarrende navigatie. Onderzoek naar digitale dienstverlening wijst uit dat <strong>30–40% van UX-gerelateerde klachten vermijdbaar is</strong> met gerichte interface-verbeteringen. Dat zijn bij NS potentieel <strong>~17.000–23.000 klachten per jaar minder.</strong></span>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:14px 18px;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;border-left:3px solid var(--yellow);">
+        <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk — en de 900.000+ gebruikers die dagelijks met dezelfde problemen kampen. Niet door de app opnieuw uit te vinden, maar door de momenten die nu fout gaan <em>goed</em> te maken.
+      </div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.35);">* Schatting op basis van UX benchmarkonderzoek (Nielsen Norman Group, 2023) · App Store reviews NS app · NS Community forum</div>
     </div>
   </div>
 </section>
 
-<section class="section domein-bg">
+<section class="section domein-bg" style="padding-bottom:32px">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
@@ -462,7 +468,7 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<section class="section rand-bg">
+<section class="section rand-bg" style="padding-top:0">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
@@ -495,14 +501,54 @@ footer strong { color: var(--blue); }
 </section>
 
 <section class="afsluiter">
-  <div class="reveal">
-    <div class="afsluiter-badge">✏️ Vrij in te zetten</div>
-    <h2>Ruimte voor eigen inzichten</h2>
-    <p>Voeg hier wireframes of onderzoeksresultaten toe.</p>
+  <div class="reveal" style="max-width:760px;margin:0 auto;">
+    <div class="afsluiter-badge">💡 Eigen inzichten</div>
+    <h2 style="margin-bottom:32px"></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;">
+
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;">Tech stack NS app</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">De NS app draait op een <strong style="color:#fff">React + TypeScript</strong> frontend met een <strong style="color:#fff">Java/Spring Boot</strong> backend. NS gebruikt het eigen design system <strong style="color:#fff">Tractie</strong> voor consistente UI-componenten.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">Voor interne apps maakt NS gebruik van het <strong style="color:#fff">Mendix low-code platform</strong>. Er is geen publieke CMS-naam bekend voor de consumentenapp — NS beheert dit via eigen infrastructuur.</p>
+        <p style="font-size:13px;color:rgba(255,201,23,0.8);line-height:1.7;margin-bottom:8px;">⚠️ Het is lastig te achterhalen of de verbeteringen die ik voorstel puur frontend zijn, of ook backend-aanpassingen vereisen — bijvoorbeeld voor betaalstatus, beschikbaarheidsdata of OV-fiets koppeling. Als designer ontwerp ik de interface; de technische haalbaarheid per oplossing moet in samenwerking met een developer worden bepaald.</p>
+        <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:8px;">Bron: NS vacatures (opdracht overheid, werkenbijns.nl), Railway Technology 2021</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;">App én website aanpakken?</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">De verbeteringen zijn in de eerste plaats bedoeld voor de <strong style="color:#fff">telefoon</strong>. Niemand pakt onderweg zijn laptop erbij — de app is het moment waarop Dirk een beslissing moet maken, een foutmelding krijgt of iets niet kan vinden.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">De verbeteringen die ik ontwerp worden uiteraard <strong style="color:#fff">ook doorgevoerd in de desktopversie</strong> — maar de app staat centraal. Wat op de telefoon werkt, werkt overal.</p>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;margin-top:20px;text-align:left;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;">📌 Fictieve case</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin:0;">Dit is een <strong style="color:rgba(255,255,255,0.85)">fictieve case study</strong>. In een echte situatie zou NS mijn klant zijn — en zou ik de exacte klachtcijfers, categorisering en gebruikersdata rechtstreeks kunnen ophalen bij de klantenservice of interne analisten. Die data is niet openbaar, waardoor ik voor deze case heb gesteund op externe bronnen zoals het NS Jaarverslag, Reizigersvereniging Rover en het Klachtenloket Openbaar Vervoer. De cijfers geven een betrouwbaar beeld, maar zijn niet zo specifiek als interne data dat zou zijn.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;margin-top:20px;text-align:left;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">✉️ UX'er NS benaderd met volgende vragen</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:16px;">Via LinkedIn contact opgenomen met <a href="https://www.linkedin.com/in/herbert-de-vrijer-56a4a7a5/" target="_blank" style="color:var(--yellow);text-decoration:none;">Herbert de Vrijer</a>, UX designer bij NS die aan de OV-fiets heeft gewerkt:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">1.</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Wordt AI actief ingezet binnen het UX-vakgebied bij NS, en zo ja, hoe?</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">2.</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Ligt er intern al onderzoek naar de UX van de reisplanner, en is dit openbaar?</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">3.</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Op wat voor systeem draaien de app en de website?</span>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;">Antwoord volgt — wordt hier aangevuld zodra Herbert reageert.</div>
+    </div>
   </div>
 </section>
-
-<footer>
   🗺️ NS Reisplanner UX Case Study · Persona: <strong>Dirk</strong> · NS app herontwerp
 </footer>
 
