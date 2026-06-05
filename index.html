@@ -113,24 +113,24 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
 .taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-.problemen-bg { background: var(--bg); }
+.problemen-bg { background: var(--blue); }
 .problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 20px; }
 .probleem-card { background: transparent; transition: transform 0.2s; }
-.probleem-card:hover { transform: translateY(-3px); }
+.probleem-card:hover { transform: translateY(-4px); }
 .probleem-ux { }
 .probleem-id { }
-.probleem-img-wrap { width: 100%; display: flex; justify-content: center; margin-bottom: 20px; }
-.probleem-img { width: 80%; display: block; object-fit: cover; border-radius: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.22); }
-.probleem-img-placeholder { width: 80%; aspect-ratio: 9/16; background: var(--white); border-radius: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: 11px; text-align: center; padding: 12px; }
+.probleem-img-wrap { width: 100%; display: flex; justify-content: center; margin-bottom: 0; }
+.probleem-img { width: 78%; display: block; object-fit: cover; border-radius: 28px; box-shadow: 0 24px 56px rgba(0,0,0,0.35); }
+.probleem-img-placeholder { width: 78%; aspect-ratio: 9/16; background: rgba(255,255,255,0.08); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.3); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.probleem-card-top { padding: 0 8px; }
+.probleem-card-top { background: var(--yellow); border-radius: 0 0 20px 20px; margin: -2px 11% 0; padding: 18px 20px 20px; }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
-.badge-ux { color: #7A5500; background: var(--yellow); }
-.badge-id { color: var(--blue); background: rgba(0,48,130,0.1); }
-.probleem-title { font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 8px; line-height: 1.3; }
-.probleem-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.verdict { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); line-height: 1.6; }
-.verdict strong { color: var(--blue); }
+.badge-ux { color: #7A5500; background: rgba(0,0,0,0.1); }
+.badge-id { color: var(--blue); background: rgba(0,48,130,0.12); }
+.probleem-title { font-size: 15px; font-weight: 800; color: var(--blue); margin-bottom: 6px; line-height: 1.3; }
+.probleem-text { font-size: 12px; color: rgba(0,30,80,0.7); line-height: 1.6; }
+.verdict { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.verdict strong { color: var(--yellow); }
 
 .domein-bg { background: var(--bg); }
 .interfaces-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -269,16 +269,19 @@ footer strong { color: var(--blue); }
 
     <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;">
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
-        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">57.974</div>
+        <div class="counter" data-target="57974" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">klachten bij NS klantenservice over binnenlands vervoer in 2024</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: NS Financieel Jaarverslag 2024</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
-        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">900.000+</div>
+        <div class="counter" data-target="900000" data-suffix="+" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">gebruikers van de NS app — elk met dezelfde onduidelijke reisplanner</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: Reizigersvereniging Rover</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
-        <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">2025</div>
+        <div class="counter" data-target="2025" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS startte een herontwerp — maar klachten bleven</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: Klachtenloket Openbaar Vervoer</div>
       </div>
     </div>
 
@@ -345,11 +348,11 @@ footer strong { color: var(--blue); }
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
-        <div class="section-num">02</div>
-        <span class="section-tag">Doel & Problemen</span>
+        <div class="section-num" style="color:rgba(255,255,255,0.3)">02</div>
+        <span class="section-tag" style="color:rgba(255,255,255,0.5)">Doel & Problemen</span>
       </div>
-      <h2 style="margin-bottom:8px">Waar loopt Dirk tegenaan?</h2>
-      <p class="section-intro">Problemen op zowel UX- als Interaction Design-vlak.</p>
+      <h2 style="margin-bottom:8px;color:var(--white)">Waar loopt Dirk tegenaan?</h2>
+      <p class="section-intro" style="color:rgba(255,255,255,0.5)">Problemen op zowel UX- als Interaction Design-vlak.</p>
     </div>
     <div class="problemen-grid">
       <div class="probleem-card probleem-ux reveal reveal-d1">
@@ -548,6 +551,28 @@ footer strong { color: var(--blue); }
       }
     })
   })
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target
+        const target = parseInt(el.dataset.target)
+        const suffix = el.dataset.suffix || ''
+        const duration = 1800
+        const start = performance.now()
+        const animate = (now) => {
+          const elapsed = now - start
+          const progress = Math.min(elapsed / duration, 1)
+          const eased = 1 - Math.pow(1 - progress, 3)
+          const value = Math.floor(eased * target)
+          el.textContent = value.toLocaleString('nl-NL') + suffix
+          if (progress < 1) requestAnimationFrame(animate)
+        }
+        requestAnimationFrame(animate)
+        counterObserver.unobserve(el)
+      }
+    })
+  }, { threshold: 0.5 })
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el))
 </script>
 </body>
 </html>
