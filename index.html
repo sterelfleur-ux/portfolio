@@ -114,21 +114,21 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 .problemen-bg { background: var(--bg); }
-.problemen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
-.probleem-card { border-radius: 16px; overflow: hidden; background: var(--blue); transition: transform 0.2s; }
+.problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 20px; }
+.probleem-card { background: transparent; transition: transform 0.2s; }
 .probleem-card:hover { transform: translateY(-3px); }
-.probleem-ux { background: var(--blue); }
-.probleem-id { background: var(--blue); }
-.probleem-img-wrap { width: 100%; overflow: hidden; }
-.probleem-img { width: 100%; display: block; object-fit: cover; }
-.probleem-img-placeholder { width: 100%; aspect-ratio: 9/16; background: rgba(255,255,255,0.05); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.25); font-size: 11px; text-align: center; padding: 12px; }
+.probleem-ux { }
+.probleem-id { }
+.probleem-img-wrap { width: 100%; display: flex; justify-content: center; margin-bottom: 20px; }
+.probleem-img { width: 80%; display: block; object-fit: cover; border-radius: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.22); }
+.probleem-img-placeholder { width: 80%; aspect-ratio: 9/16; background: var(--white); border-radius: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.probleem-card-top { padding: 18px 20px 20px; }
+.probleem-card-top { padding: 0 8px; }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
-.badge-ux { color: #7A5500; background: rgba(255,201,23,0.25); }
-.badge-id { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.1); }
-.probleem-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.probleem-text { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.badge-ux { color: #7A5500; background: var(--yellow); }
+.badge-id { color: var(--blue); background: rgba(0,48,130,0.1); }
+.probleem-title { font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 8px; line-height: 1.3; }
+.probleem-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .verdict { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); line-height: 1.6; }
 .verdict strong { color: var(--blue); }
 
@@ -162,7 +162,7 @@ footer strong { color: var(--blue); }
 
 @media (max-width: 900px) {
   .doelgroep-grid { grid-template-columns: 1fr; }
-  .problemen-grid { grid-template-columns: 1fr 1fr; }
+  .problemen-grid { grid-template-columns: 1fr; }
   .interfaces-grid { grid-template-columns: repeat(2, 1fr); }
   .rand-grid { grid-template-columns: 1fr; }
   .section { padding: 60px 24px; }
