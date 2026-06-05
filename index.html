@@ -113,22 +113,23 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
 .taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-.problemen-bg { background: var(--blue); }
-.problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
-.probleem-card { border-radius: 14px; padding: 22px 24px; transition: transform 0.2s; }
-.probleem-card:hover { transform: translateY(-3px); }
-.probleem-ux { background: rgba(255,201,23,0.1); border: 1px solid rgba(255,201,23,0.3); }
-.probleem-id { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
-.probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
-.badge-ux { color: #8B6500; background: rgba(255,201,23,0.2); }
-.badge-id { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.1); }
-.probleem-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.probleem-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 14px; }
-.probleem-img { width: 100%; border-radius: 10px; display: block; object-fit: cover; }
-.probleem-img-placeholder { width: 100%; border-radius: 10px; aspect-ratio: 9/16; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.25); font-size: 11px; text-align: center; padding: 12px; }
+.problemen-bg { background: var(--bg); }
+.problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.probleem-card { border-radius: 16px; overflow: hidden; background: var(--white); border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+.probleem-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.probleem-ux { border-left: 3px solid var(--yellow); }
+.probleem-id { border-left: 3px solid var(--blue); }
+.probleem-card-top { padding: 20px 20px 16px; }
+.probleem-badge { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
+.badge-ux { color: #7A5500; background: rgba(255,201,23,0.15); }
+.badge-id { color: var(--blue); background: rgba(0,48,130,0.08); }
+.probleem-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.probleem-text { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+.probleem-img { width: 100%; display: block; object-fit: cover; border-top: 1px solid var(--border); }
+.probleem-img-placeholder { width: 100%; aspect-ratio: 9/16; background: var(--bg); border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.verdict { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
-.verdict strong { color: var(--yellow); }
+.verdict { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.verdict strong { color: var(--blue); }
 
 .domein-bg { background: var(--bg); }
 .interfaces-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -199,7 +200,7 @@ footer strong { color: var(--blue); }
     <h1>
       <span class="hero-word hero-word-1">Plannen</span>
       <span class="hero-word hero-word-2">Zonder</span>
-      <span class="hero-word hero-word-3">Verwarring</span>
+      <span class="hero-word hero-word-3">Gedoe</span>
     </h1>
     <p class="hero-sub">Een UX-analyse van de NS Reisplanner — van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
     <div class="hero-tags">
@@ -343,17 +344,19 @@ footer strong { color: var(--blue); }
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label">
-        <div class="section-num section-num-light">02</div>
-        <span class="section-tag" style="color:rgba(255,255,255,0.45)">Doel & Problemen</span>
+        <div class="section-num">02</div>
+        <span class="section-tag">Doel & Problemen</span>
       </div>
-      <h2 style="color:var(--white);margin-bottom:8px">Waar loopt Dirk tegenaan?</h2>
-      <p class="section-intro" style="color:rgba(255,255,255,0.4)">Problemen op zowel UX- als Interaction Design-vlak.</p>
+      <h2 style="margin-bottom:8px">Waar loopt Dirk tegenaan?</h2>
+      <p class="section-intro">Problemen op zowel UX- als Interaction Design-vlak.</p>
     </div>
     <div class="problemen-grid">
       <div class="probleem-card probleem-ux reveal reveal-d1">
-        <span class="probleem-badge badge-ux">UX Probleem</span>
-        <div class="probleem-title">Vage foutmelding bij pas koppelen</div>
-        <div class="probleem-text">Geen uitleg wat er fout gaat of wat het "Bedrag"-veld betekent.</div>
+        <div class="probleem-card-top">
+          <span class="probleem-badge badge-ux">UX Probleem</span>
+          <div class="probleem-title">Vage foutmelding bij pas koppelen</div>
+          <div class="probleem-text">Geen uitleg wat er fout gaat of wat het "Bedrag"-veld betekent.</div>
+        </div>
         <img class="probleem-img" src="images/screen-01.png" alt="Foutmelding betaalpas"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="probleem-img-placeholder" style="display:none">
@@ -362,9 +365,11 @@ footer strong { color: var(--blue); }
         </div>
       </div>
       <div class="probleem-card probleem-id reveal reveal-d2">
-        <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">OV-fiets verstopt in reisopties</div>
-        <div class="probleem-text">Verborgen onder "Aankomst: Lopen" — niet intuïtief.</div>
+        <div class="probleem-card-top">
+          <span class="probleem-badge badge-id">ID Probleem</span>
+          <div class="probleem-title">OV-fiets verstopt in reisopties</div>
+          <div class="probleem-text">Verborgen onder "Aankomst: Lopen" — niet intuïtief.</div>
+        </div>
         <img class="probleem-img" src="images/screen-02.png" alt="OV-fiets verstopt"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="probleem-img-placeholder" style="display:none">
@@ -373,9 +378,11 @@ footer strong { color: var(--blue); }
         </div>
       </div>
       <div class="probleem-card probleem-id reveal reveal-d3">
-        <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">Verkeerd station getoond</div>
-        <div class="probleem-text">App toont beschikbaarheid van een ander station. Misleidend.</div>
+        <div class="probleem-card-top">
+          <span class="probleem-badge badge-id">ID Probleem</span>
+          <div class="probleem-title">Verkeerd station getoond</div>
+          <div class="probleem-text">App toont beschikbaarheid van een ander station. Misleidend.</div>
+        </div>
         <img class="probleem-img" src="images/screen-03.png" alt="Verkeerd station"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="probleem-img-placeholder" style="display:none">
@@ -384,9 +391,11 @@ footer strong { color: var(--blue); }
         </div>
       </div>
       <div class="probleem-card probleem-id reveal reveal-d4">
-        <span class="probleem-badge badge-id">ID Probleem</span>
-        <div class="probleem-title">Pinpas werkt niet — nergens vermeld</div>
-        <div class="probleem-text">Kritieke info in kleine lettertjes. Ontdekt pas op het station.</div>
+        <div class="probleem-card-top">
+          <span class="probleem-badge badge-id">ID Probleem</span>
+          <div class="probleem-title">Pinpas werkt niet — nergens vermeld</div>
+          <div class="probleem-text">Kritieke info in kleine lettertjes. Ontdekt pas op het station.</div>
+        </div>
         <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="probleem-img-placeholder" style="display:none">
