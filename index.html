@@ -44,7 +44,7 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .hero h1 { margin: 0 0 24px; line-height: 1.05; font-weight: 800; overflow: hidden; }
-.hero-word { display: block; font-size: clamp(4rem, 9vw, 8rem); letter-spacing: -3px; }
+.hero-word { display: block; font-size: clamp(3rem, 7vw, 6.5rem); letter-spacing: -3px; }
 .hero-word-1 { color: var(--white); animation: wordSlide 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) both; }
 .hero-word-2 { color: var(--yellow); animation: wordSlide 0.7s 0.6s cubic-bezier(0.22,1,0.36,1) both; }
 .hero-word-3 { color: var(--white); animation: wordSlide 0.7s 0.8s cubic-bezier(0.22,1,0.36,1) both; }
@@ -171,12 +171,42 @@ footer strong { color: var(--blue); }
 @media (max-width: 900px) {
   .doelgroep-grid { grid-template-columns: 1fr; }
   .problemen-grid { grid-template-columns: 1fr; }
+  .problemen-grid-bottom { grid-template-columns: 1fr; }
   .interfaces-grid { grid-template-columns: repeat(2, 1fr); }
   .rand-grid { grid-template-columns: 1fr; }
   .section { padding: 60px 24px; }
   header { padding: 0 24px; }
   .hero { padding: 80px 24px; }
   #scrollbar { display: none; }
+  .hero-word { font-size: clamp(3rem, 12vw, 5rem); }
+  .taken-list { display: flex; flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 48px 20px; }
+  .hero { padding: 60px 20px; min-height: auto; }
+  .hero-word { font-size: clamp(2.5rem, 14vw, 4rem); letter-spacing: -2px; }
+  .hero-sub { font-size: 14px; }
+  .hero-tags { gap: 8px; }
+  .doelgroep-grid { grid-template-columns: 1fr; gap: 16px; }
+  .problemen-grid { grid-template-columns: 1fr; gap: 20px; }
+  .problemen-grid-bottom { grid-template-columns: 1fr; gap: 20px; }
+  .probleem-img { width: 85%; }
+  .probleem-card-top { margin: 0 8%; }
+  .interfaces-grid { grid-template-columns: 1fr; }
+  .rand-grid { grid-template-columns: 1fr; }
+  .tijdlijn-item { flex-direction: column; gap: 8px; }
+  .tijdlijn-tijd { width: auto; }
+  .tijdlijn-card { border-radius: 12px; }
+  .verhaal-conclusie { font-size: 13px; padding: 18px 20px; }
+  h2 { font-size: 1.8rem; }
+  .section-inner { max-width: 100%; }
+  .hero-content { max-width: 100%; }
+  .rand-col { padding: 18px; }
+  .interface-card { padding: 20px 16px; }
+  /* 5th card and blue panel stack on mobile */
+  div[style*="display:flex;gap:32px"] { flex-direction: column !important; }
+  div[style*="flex:0 0 calc(50%"] { flex: 1 1 100% !important; }
 }
 </style>
 </head>
@@ -237,7 +267,7 @@ footer strong { color: var(--blue); }
     <div class="tijdlijn-item reveal reveal-d1">
       <div class="tijdlijn-tijd tijd-probleem">Stap 1</div>
       <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk downloadt de NS-app en wil zijn betaalpas koppelen om zijn ritten te kunnen inzien. Hij vult het formulier in maar krijgt een vage foutmelding zonder uitleg. Het veld "Bedrag" blijkt het afgeschreven bedrag van zijn laatste reis te zijn, maar daar heeft hij overheen gelezen.</p>
+        <p class="tijdlijn-tekst tekst-normaal">Dirk downloadt de NS-app en wil zijn betaalpas koppelen om zijn ritten te kunnen inzien. Hij vult het formulier in maar krijgt een vage foutmelding zonder uitleg. Het veld "Bedrag" blijkt het afgeschreven bedrag van zijn laatste reis te zijn, maar dat staat nergens uitgelegd. De foutmelding geeft niet aan wat hij fout heeft gedaan, waardoor hij er overheen leest.</p>
         <div class="tijdlijn-cijfer">💡 Op de website staat dit wél duidelijk uitgelegd</div>
       </div>
     </div>
