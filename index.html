@@ -123,11 +123,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-card:hover { transform: translateY(-4px); }
 .probleem-ux { }
 .probleem-id { }
-.probleem-img-wrap { width: 100%; display: flex; justify-content: center; margin-bottom: 0; }
-.probleem-img { width: 78%; display: block; object-fit: cover; border-radius: 28px; aspect-ratio: 9/16; }
+.probleem-img-wrap { width: 100%; display: flex; justify-content: center; margin-bottom: 8px; }
+.probleem-img { width: 72%; display: block; object-fit: contain; border-radius: 28px; }
 .probleem-img-placeholder { width: 78%; aspect-ratio: 9/16; background: rgba(255,255,255,0.06); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.3); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.probleem-card-top { background: var(--yellow); border-radius: 20px; margin: -2px 11% 0; padding: 18px 20px 20px; min-height: 140px; display: flex; flex-direction: column; flex: 1; }
+.probleem-card-top { background: var(--yellow); border-radius: 16px; margin: 0 14%; padding: 16px 18px 18px; display: flex; flex-direction: column; }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
 .badge-ux { color: var(--red); background: rgba(204,0,0,0.1); }
 .badge-id { color: var(--blue); background: rgba(0,48,130,0.12); }
@@ -442,8 +442,8 @@ footer strong { color: var(--blue); }
       </div>
     </div>
 
-    <div class="problemen-grid-last">
-      <div class="probleem-card probleem-id reveal reveal-d4">
+    <div class="reveal" style="display:flex;gap:32px;align-items:flex-start;">
+      <div class="probleem-card probleem-ux" style="flex:0 0 calc(50% - 16px);">
         <div class="probleem-img-wrap">
           <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -458,17 +458,16 @@ footer strong { color: var(--blue); }
           <div class="probleem-text">Kritieke info in kleine lettertjes. Ontdekt pas op het station.</div>
         </div>
       </div>
-    </div>
-    <div class="reveal" style="background:var(--blue);border-radius:16px;padding:28px 32px;display:flex;flex-direction:column;gap:20px;">
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <span style="font-size:20px">⚖️</span>
-        <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;">Betere UX = minder frustratie voor Dirk én <strong style="color:#fff;">minder onnodige klachten voor NS.</strong> Uit App Store reviews en de NS Community blijkt dat een aanzienlijk deel van de negatieve feedback direct te herleiden is naar problemen met de reisplanner, onduidelijke opties, ontbrekende informatie en verwarrende navigatie.</span>
-      </div>
-      <div style="border-left:3px solid var(--yellow);padding:14px 18px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.7;background:rgba(255,255,255,0.05);border-radius:0 10px 10px 0;">
-        <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk, en de 900.000+ gebruikers die dagelijks met dezelfde problemen kampen. Niet door de app opnieuw uit te vinden, maar door de momenten die nu fout gaan <em>goed</em> te maken.
-      </div>
-      <div style="border-left:3px solid var(--yellow);padding:14px 18px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.7;background:rgba(255,255,255,0.05);border-radius:0 10px 10px 0;">
-        <strong style="color:var(--yellow);">Mijn impact als designer:</strong> een betere app-ervaring betekent minder frustratie voor Dirk, minder onnodige klachten bij de NS klantenservice en minder declaraties die NS moet verwerken en vergoeden.
+      <div style="flex:0 0 calc(50% - 16px);display:flex;justify-content:center;">
+        <div style="width:72%;background:var(--blue);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;gap:16px;">
+          <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">⚖️ <strong style="color:#fff;">Betere UX = minder frustratie voor Dirk én minder klachten voor NS.</strong> Negatieve reviews zijn direct te herleiden naar de reisplanner.</div>
+          <div style="border-left:3px solid var(--yellow);padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.85);line-height:1.6;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
+            <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk en de 900.000+ dagelijkse gebruikers, door de momenten die nu fout gaan <em>goed</em> te maken.
+          </div>
+          <div style="border-left:3px solid var(--yellow);padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.85);line-height:1.6;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
+            <strong style="color:var(--yellow);">Mijn impact:</strong> betere ervaring, minder klachten, minder declaraties voor NS.
+          </div>
+        </div>
       </div>
     </div>
   </div>
