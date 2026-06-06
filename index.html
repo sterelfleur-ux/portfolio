@@ -62,6 +62,10 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .reveal-d2 { transition-delay: 0.16s; }
 .reveal-d3 { transition-delay: 0.24s; }
 .reveal-d4 { transition-delay: 0.32s; }
+.slide-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.slide-left.visible { opacity: 1; transform: translateX(0); }
+.slide-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.slide-right.visible { opacity: 1; transform: translateX(0); }
 
 .section { padding: 90px 80px; }
 .section-inner { max-width: 860px; margin: 0 auto; }
@@ -119,7 +123,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-card.full-row { grid-column: span 1; }
 .problemen-grid-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; align-items: stretch; }
 .problemen-grid-last { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 20px; max-width: 50%; }
-.probleem-card { background: transparent; transition: transform 0.2s; display: flex; flex-direction: column; }
+.probleem-card { background: transparent; transition: transform 0.2s; display: flex; flex-direction: column; height: 100%; }
 .probleem-card:hover { transform: translateY(-4px); }
 .probleem-ux { }
 .probleem-id { }
@@ -127,7 +131,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-img { width: 72%; display: block; object-fit: contain; border-radius: 28px; }
 .probleem-img-placeholder { width: 78%; aspect-ratio: 9/16; background: rgba(255,255,255,0.06); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.3); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.probleem-card-top { background: var(--yellow); border-radius: 16px; margin: 0 14%; padding: 16px 18px 18px; display: flex; flex-direction: column; }
+.probleem-card-top { background: var(--yellow); border-radius: 16px; margin: 0 14%; padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
 .badge-ux { color: var(--red); background: rgba(204,0,0,0.1); }
 .badge-id { color: var(--blue); background: rgba(0,48,130,0.12); }
@@ -249,7 +253,7 @@ footer strong { color: var(--blue); }
     <div class="tijdlijn-item reveal reveal-d3">
       <div class="tijdlijn-tijd tijd-probleem">Stap 3</div>
       <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">De reis is gepland,maar zijn vraag blijft onbeantwoord: zijn er fietsen in Haarlem? De app toont "Amsterdam Zuid,413 beschikbaar." Dat is niet zijn bestemming. Bovendien moet Dirk helemaal naar beneden scrollen om deze info überhaupt te vinden — ze is niet direct zichtbaar.</p>
+        <p class="tijdlijn-tekst tekst-normaal">De reis is gepland,maar zijn vraag blijft onbeantwoord: zijn er fietsen in Haarlem? De app toont "Amsterdam Zuid,413 beschikbaar." Dat is niet zijn bestemming. Bovendien moet Dirk helemaal naar beneden scrollen om deze info überhaupt te vinden, ze is niet direct zichtbaar.</p>
         <div class="tijdlijn-cijfer">📍 Verkeerd station getoond</div>
       </div>
     </div>
@@ -257,7 +261,7 @@ footer strong { color: var(--blue); }
     <div class="tijdlijn-item reveal reveal-d4">
       <div class="tijdlijn-tijd tijd-crisis">Op station</div>
       <div class="tijdlijn-card card-crisis">
-        <p class="tijdlijn-tekst tekst-crisis">In Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. Dit stond in kleine lettertjes,de app had hem hier nooit op gewezen.</p>
+        <p class="tijdlijn-tekst tekst-crisis">In Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. De app had hem hier niet duidelijk genoeg op gewezen.</p>
         <div class="tijdlijn-cijfer">⚠️ Alleen OV-chipkaart werkt,nergens prominent vermeld</div>
       </div>
     </div>
@@ -378,7 +382,7 @@ footer strong { color: var(--blue); }
     </div>
     <div class="problemen-grid">
       <div class="probleem-card probleem-ux reveal reveal-d1" style="grid-column:span 1">
-        <div class="probleem-img-wrap">
+        <div class="probleem-img-wrap slide-left">
           <img class="probleem-img" src="images/screen-01.png" alt="Foutmelding betaalpas"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="probleem-img-placeholder" style="display:none">
@@ -437,12 +441,12 @@ footer strong { color: var(--blue); }
         <div class="probleem-card-top">
           <span class="probleem-badge badge-id">ID Probleem</span>
           <div class="probleem-title">Verkeerd station getoond</div>
-          <div class="probleem-text">App toont beschikbaarheid van een ander station. Misleidend.</div>
+          <div class="probleem-text">App toont fietsinfo van een ander station. De juiste info is alleen zichtbaar na helemaal naar beneden scrollen.</div>
         </div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;gap:32px;align-items:flex-start;">
+    <div class="reveal" style="display:flex;gap:32px;align-items:flex-end;">
       <div class="probleem-card probleem-ux" style="flex:0 0 calc(50% - 16px);">
         <div class="probleem-img-wrap">
           <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet"
@@ -631,7 +635,7 @@ footer strong { color: var(--blue); }
     })
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' })
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+  document.querySelectorAll('.reveal, .slide-left, .slide-right').forEach(el => observer.observe(el))
 
   const tijdlijnItems = document.querySelectorAll('.tijdlijn-item')
   window.addEventListener('scroll', () => {
