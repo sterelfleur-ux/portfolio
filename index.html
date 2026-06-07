@@ -123,7 +123,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-card.full-row { grid-column: span 1; }
 .problemen-grid-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; align-items: stretch; }
 .problemen-grid-last { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 20px; max-width: 50%; }
-.probleem-card { background: transparent; transition: transform 0.2s; display: flex; flex-direction: column; height: 100%; }
+.probleem-card { background: transparent; transition: transform 0.2s; display: flex; flex-direction: column; height: 100%; width: 100%; }
 .probleem-card:hover { transform: translateY(-4px); }
 .probleem-ux { }
 .probleem-id { }
@@ -131,7 +131,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-img { width: 72%; display: block; object-fit: contain; border-radius: 28px; }
 .probleem-img-placeholder { width: 78%; aspect-ratio: 9/16; background: rgba(255,255,255,0.06); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.3); font-size: 11px; text-align: center; padding: 12px; }
 .probleem-img-placeholder .img-icon { font-size: 24px; opacity: 0.4; }
-.probleem-card-top { background: var(--yellow); border-radius: 16px; margin: 0 14%; padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.probleem-card-top { background: var(--yellow); border-radius: 16px; margin: 0 14%; padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; min-height: 160px; box-sizing: border-box; }
 .probleem-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
 .badge-ux { color: var(--red); background: rgba(204,0,0,0.1); }
 .badge-id { color: var(--blue); background: rgba(0,48,130,0.12); }
@@ -254,15 +254,16 @@ footer strong { color: var(--blue); }
 <section class="section verhaal-bg" id="verhaal-start">
   <div class="section-inner-sm">
     <div class="reveal verhaal-header">
+      <div class="section-num">01</div>
       <div class="verhaal-bar"></div>
       <div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <div class="section-num">01</div>
-          <div class="verhaal-label" style="margin-bottom:0">Het verhaal</div>
-        </div>
+        <div class="verhaal-label">Het verhaal</div>
         <div class="verhaal-title">Dirk plant zijn eerste reis naar zijn nieuwe werk</div>
       </div>
     </div>
+
+    <div style="position:relative;padding-left:4px;">
+      <div style="position:absolute;left:79px;top:0;bottom:0;width:2px;background:var(--border);border-radius:1px;z-index:0;"></div>
 
     <div class="tijdlijn-item reveal reveal-d1">
       <div class="tijdlijn-tijd tijd-probleem">Stap 1</div>
@@ -290,7 +291,7 @@ footer strong { color: var(--blue); }
 
     <div class="tijdlijn-item reveal reveal-d4">
       <div class="tijdlijn-tijd">Op station</div>
-      <div class="tijdlijn-card">
+      <div class="tijdlijn-card card-probleem">
         <p class="tijdlijn-tekst">In Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. De app had hem hier niet duidelijk genoeg op gewezen.</p>
         <div class="tijdlijn-cijfer">⚠️ Alleen OV-chipkaart werkt,nergens prominent vermeld</div>
       </div>
@@ -308,34 +309,35 @@ footer strong { color: var(--blue); }
       </div>
     </div>
 
+    </div>
+
     <div class="reveal">
       <div class="verhaal-conclusie" style="text-align:center;">
         Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong>,zonder waarschuwing, zonder alternatief. <span style="color:var(--yellow)">En Dirk is niet de enige.</span>
       </div>
     </div>
 
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;">
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;">
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
         <div class="counter" data-target="57974" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">klachten bij NS klantenservice over binnenlands vervoer in 2024</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">klachten bij NS in 2024</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;font-style:italic;">Hoeveel hiervan hebben geleid tot een declaratie is intern en niet openbaar.</div>
         <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: NS Financieel Jaarverslag 2024</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
         <div class="counter" data-target="900000" data-suffix="+" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">gebruikers van de NS app,elk met dezelfde onduidelijke reisplanner</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;font-style:italic;">Op een gemiddelde werkdag nemen 1,1 miljoen reizigers de trein. Een groot deel zijn forensen, maar hoeveel hiervan de app dagelijks gebruiken om te plannen is niet openbaar.</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">mensen gebruiken de NS app</div>
         <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: Reizigersvereniging Rover · NS Halfjaarcijfers 2023</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
         <div class="counter" data-target="2025" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS startte een herontwerp van de reisplanner, die daarna als fijner werd ervaren, maar klachten bleven</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">NS vernieuwde de app, maar klachten bleven</div>
         <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: Klachtenloket Openbaar Vervoer</div>
       </div>
     </div>
 
-    <div class="reveal" style="background:rgba(204,0,0,0.06);border:1px solid rgba(204,0,0,0.15);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:14px;text-align:center;">
+    <div class="reveal" style="background:rgba(204,0,0,0.06);border:1px solid rgba(204,0,0,0.15);border-radius:12px;padding:18px 22px;margin-top:14px;text-align:center;">
       <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Na het herontwerp</div>
-      <p style="font-size:13px;color:var(--text);line-height:1.6;">De problemen bleven. Gebruikers klaagden nog steeds over drukte, onduidelijkheid en slechte navigatie.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;justify-content:center;">
         <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Te druk, te veel kleuren"</span>
         <span style="background:rgba(204,0,0,0.08);color:var(--red);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;">"Ik vind niks meer terug"</span>
@@ -362,12 +364,7 @@ footer strong { color: var(--blue); }
         <div class="persona-sub">38 jaar · Utrecht · Dagelijks forens</div>
         <div class="persona-quote">"De reisplanner is onoverzichtelijk. Ik wil duidelijke informatie, niet pas op het station erachter komen dat ik geen fiets kan huren. Ik heb de kosten van mijn Uber gedeclareerd."</div>
         <div class="persona-sterren">★★☆☆☆ <span>App Store · NS app</span></div>
-        <div class="persona-tags">
-          <span class="persona-tag">Forens</span>
-          <span class="persona-tag">5× per week</span>
-          <span class="persona-tag">Betaalpas</span>
-          <span class="persona-tag">Last mile</span>
-        </div>
+
       </div>
       <div class="taken-list">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Primaire taken van dagelijkse NS-forensen</div>
@@ -493,7 +490,7 @@ footer strong { color: var(--blue); }
         </div>
       </div>
       <div style="flex:0 0 calc(50% - 16px);display:flex;justify-content:center;">
-        <div style="width:72%;background:var(--blue);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;gap:16px;">
+        <div style="width:72%;background:var(--blue);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;gap:20px;min-height:420px;justify-content:center;">
           <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">⚖️ <strong style="color:#fff;">Betere UX = minder frustratie voor Dirk én minder klachten voor NS.</strong> Negatieve reviews zijn direct te herleiden naar de reisplanner.</div>
           <div style="border-left:3px solid var(--yellow);padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.85);line-height:1.6;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
             <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk en de 900.000+ dagelijkse gebruikers, door de momenten die nu fout gaan <em>goed</em> te maken.
