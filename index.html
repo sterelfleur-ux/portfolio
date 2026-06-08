@@ -21,22 +21,22 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+#progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--blue), #FFC917, #FF8C00, var(--red)); z-index: 200; transition: width 0.1s linear; }
+#scrollbar { display: none !important; }
+.scroll-stop { display: none; }
+#scroll-icon { display: none; }
+#scroll-icon-bottom { display: none; }
 
-#progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--blue), var(--yellow)); z-index: 200; transition: width 0.1s linear; }
-
-#scrollbar { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); height: 65vh; width: 44px; z-index: 100; display: flex; flex-direction: column; align-items: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
-#scrollbar.visible { opacity: 1; pointer-events: all; }
-#scrollbar .line-bg { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 3px; background: var(--border); border-radius: 2px; }
-#scrollbar .line-fill { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 3px; height: 0%; background: var(--yellow); border-radius: 2px; transition: height 0.1s linear; }
-.scroll-stop { position: absolute; left: 50%; transform: translate(-50%, -50%); width: 9px; height: 9px; border-radius: 50%; background: var(--white); border: 2px solid var(--border); }
-#scroll-icon { position: absolute; left: 50%; top: 0%; transform: translateX(-50%); font-size: 26px; line-height: 1; transition: top 0.1s linear; }
-#scroll-icon-bottom { position: absolute; left: 50%; bottom: -28px; transform: translateX(-50%); font-size: 22px; line-height: 1; opacity: 0.4; }
-
+/* Nieuwe werkende scrollbar */
+#zz-bar { position: fixed; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; pointer-events: none; z-index: 5; display: none; }
+#zz-bar.active { display: block; }
+#zz-track { position: absolute; width: 3px; background: rgba(0,48,130,0.12); }
+#zz-fill { position: absolute; width: 3px; height: 0%; background: var(--blue); }
+#zz-icon { position: fixed; left: 50%; transform: translateX(-50%); font-size: 26px; z-index: 20; pointer-events: none; display: none; }
 header { position: sticky; top: 0; z-index: 150; background: var(--blue); height: 58px; display: flex; align-items: center; padding: 0 60px; gap: 16px; }
 .header-title { font-weight: 700; font-size: 15px; color: var(--white); }
 .header-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
 .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
-
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px; background: var(--blue); position: relative; overflow: hidden; }
 .hero-blob { position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: var(--yellow); opacity: 0.04; border-radius: 50%; }
 .hero-content { max-width: 620px; position: relative; z-index: 1; }
@@ -55,7 +55,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .hero-tag-primary { background: var(--yellow); color: var(--blue); }
 .hero-tag-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-d1 { transition-delay: 0.08s; }
@@ -66,7 +65,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .slide-left.visible { opacity: 1; transform: translateX(0); }
 .slide-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .slide-right.visible { opacity: 1; transform: translateX(0); }
-
 .section { padding: 90px 60px; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-inner-sm { max-width: 900px; margin: 0 auto; }
@@ -76,7 +74,6 @@ header { position: sticky; top: 0; z-index: 150; background: var(--blue); height
 .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
 h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--blue); }
 .section-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
-
 .verhaal-bg { background: var(--bg); }
 .verhaal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
 .verhaal-bar { width: 5px; height: 40px; background: var(--yellow); border-radius: 3px; }
@@ -99,7 +96,6 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .tijdlijn-cijfer { font-size: 12px; color: var(--muted); background: var(--bg); padding: 6px 12px; border-radius: 8px; display: inline-block; }
 .verhaal-conclusie { background: var(--blue); border-radius: 16px; padding: 24px 28px; margin-top: 8px; color: var(--white); font-size: 15px; line-height: 1.65; font-style: italic; }
 .verhaal-conclusie strong { color: var(--yellow); }
-
 .doelgroep-bg { background: var(--blue); }
 .doelgroep-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
 .persona-card { background: var(--bg); border: 1px solid var(--border); border-top: 4px solid var(--yellow); border-radius: 18px; padding: 28px; }
@@ -117,7 +113,6 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .taak-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 .taak-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
 .taak-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-
 .problemen-bg { background: var(--white); }
 .problemen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; align-items: stretch; }
 .probleem-card.full-row { grid-column: span 1; }
@@ -139,7 +134,6 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .probleem-text { font-size: 12px; color: rgba(0,30,80,0.7); line-height: 1.6; }
 .verdict { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; font-size: 14px; color: var(--muted); line-height: 1.6; }
 .verdict strong { color: var(--blue); }
-
 .domein-bg { background: var(--blue); }
 .interfaces-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .interface-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-top: 3px solid var(--yellow); border-radius: 16px; padding: 28px 24px; transition: transform 0.2s; }
@@ -148,7 +142,6 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .interface-icon { font-size: 32px; margin-bottom: 14px; }
 .interface-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; color: #fff; }
 .interface-why { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
-
 .rand-bg { background: var(--bg); }
 .rand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .rand-col { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
@@ -160,14 +153,12 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0
 .rand-item { display: flex; gap: 10px; margin-bottom: 12px; }
 .rand-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 7px; }
 .rand-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
 .afsluiter { background: var(--blue); padding: 80px; text-align: center; }
 .afsluiter-badge { display: inline-block; background: rgba(255,201,23,0.15); border: 1px solid rgba(255,201,23,0.25); color: var(--yellow); padding: 5px 16px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
 .afsluiter h2 { color: var(--white); margin-bottom: 12px; }
 .afsluiter p { color: rgba(255,255,255,0.4); max-width: 380px; margin: 0 auto; font-size: 14px; line-height: 1.7; }
 footer { text-align: center; padding: 28px 80px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 footer strong { color: var(--blue); }
-
 @media (max-width: 900px) {
   .doelgroep-grid { grid-template-columns: 1fr; }
   .problemen-grid { grid-template-columns: 1fr; }
@@ -177,11 +168,10 @@ footer strong { color: var(--blue); }
   .section { padding: 60px 24px; }
   header { padding: 0 24px; }
   .hero { padding: 80px 24px; }
-  #scrollbar { display: none; }
+  #scrollbar { display: none !important; }
   .hero-word { font-size: clamp(3rem, 12vw, 5rem); }
   .taken-list { display: flex; flex-direction: column; }
 }
-
 @media (max-width: 600px) {
   .section { padding: 48px 20px; }
   .hero { padding: 60px 20px; min-height: auto; }
@@ -204,13 +194,26 @@ footer strong { color: var(--blue); }
   .hero-content { max-width: 100%; }
   .rand-col { padding: 18px; }
   .interface-card { padding: 20px 16px; }
-  /* 5th card and blue panel stack on mobile */
   div[style*="display:flex;gap:32px"] { flex-direction: column !important; }
   div[style*="flex:0 0 calc(50%"] { flex: 1 1 100% !important; }
 }
+.zigzag-tijdlijn { position: relative; padding: 20px 0; overflow: visible; }
+.zigzag-lijn { position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 40px; display: flex; flex-direction: column; align-items: center; z-index: 2; pointer-events: none; overflow: visible; }
+.zigzag-lijn-track { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--blue); border-radius: 2px; }
+.zigzag-icon { display: none; }
+.zigzag-item { display: flex; align-items: center; margin-bottom: 60px; position: relative; }
+.zigzag-links { flex-direction: row; padding-right: calc(50% + 40px); justify-content: flex-end; }
+.zigzag-rechts { flex-direction: row; padding-left: calc(50% + 40px); justify-content: flex-start; }
+.zigzag-card { background: var(--white); border-radius: 16px; padding: 20px 24px; max-width: 480px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+.zigzag-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+.zigzag-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--blue); border: 3px solid var(--white); box-shadow: 0 0 0 3px var(--blue); flex-shrink: 0; position: absolute; left: calc(50% - 7px); z-index: 3; }
+.zigzag-dot-crisis { background: var(--blue); box-shadow: 0 0 0 3px var(--blue); }
 </style>
 </head>
 <body>
+
+<div id="zz-bar"><div id="zz-track"></div><div id="zz-fill"></div></div>
+<div id="zz-icon">🚆</div>
 
 <div id="progress"></div>
 
@@ -236,13 +239,13 @@ footer strong { color: var(--blue); }
 <section class="hero">
   <div class="hero-blob"></div>
   <div class="hero-content">
-    <div class="hero-badge"><div class="badge-dot"></div>UI/UX Case Study,NS Reisplanner</div>
+    <div class="hero-badge"><div class="badge-dot"></div>UI/UX Case Study, NS Reisplanner</div>
     <h1>
       <span class="hero-word hero-word-1">Goed</span>
       <span class="hero-word hero-word-2">Ontwerp,</span>
-      <span class="hero-word hero-word-3">Goede Reis</span>
+      <span class="hero-word hero-word-3">Goede Reis.</span>
     </h1>
-    <p class="hero-sub">Een UX-analyse van de NS Reisplanner,van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
+    <p class="hero-sub">Een UX-analyse van de NS Reisplanner, van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
     <div class="hero-tags">
       <span class="hero-tag hero-tag-primary">🗺️ Reisplanner</span>
       <span class="hero-tag hero-tag-secondary">📱 NS App</span>
@@ -251,83 +254,89 @@ footer strong { color: var(--blue); }
   </div>
 </section>
 
-<section class="section verhaal-bg" id="verhaal-start">
-  <div class="section-inner-sm">
-    <div class="reveal verhaal-header">
-      <div class="section-num">01</div>
-      <div class="verhaal-bar"></div>
-      <div>
-        <div class="verhaal-label">Het verhaal</div>
-        <div class="verhaal-title">Dirk plant zijn eerste reis naar zijn nieuwe werk</div>
+<section class="section verhaal-bg" id="verhaal-start" style="position:relative;overflow:hidden;">
+  <div class="section-inner-sm" style="position:relative;z-index:1;">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px;">
+        <div class="section-num">01</div>
+        <div class="verhaal-label" style="margin-bottom:0">Het verhaal</div>
       </div>
+      <div class="verhaal-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Dirk's Reis</div>
     </div>
 
-    <div style="position:relative;padding-left:4px;">
-      <div style="position:absolute;left:79px;top:0;bottom:0;width:2px;background:var(--border);border-radius:1px;z-index:0;"></div>
-
-    <div class="tijdlijn-item reveal reveal-d1">
-      <div class="tijdlijn-tijd tijd-probleem">Stap 1</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk downloadt de NS-app en wil zijn betaalpas koppelen om zijn ritten te kunnen inzien. Hij vult het formulier in maar krijgt een vage foutmelding zonder uitleg. Het veld "Bedrag" blijkt het afgeschreven bedrag van zijn laatste reis te zijn, maar dat staat nergens uitgelegd. De foutmelding geeft niet aan wat hij fout heeft gedaan, waardoor hij er overheen leest.</p>
-        <div class="tijdlijn-cijfer">💡 Op de website staat dit wél duidelijk uitgelegd</div>
+    <div class="zigzag-tijdlijn">
+      <div class="zigzag-lijn">
+        <div class="zigzag-lijn-track"></div>
+        <div class="zigzag-icon" id="zigzag-icon">🚆</div>
       </div>
-    </div>
 
-    <div class="tijdlijn-item reveal reveal-d2">
-      <div class="tijdlijn-tijd tijd-probleem">Stap 2</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">Dirk plant zijn reis naar Haarlem en zoekt OV-fiets als aankomstoptie. Onder "Openbaar vervoer" staat geen OV-fiets. De optie zit verstopt onder "Aankomst: Lopen",drie klikken diep.</p>
-        <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties</div>
+      <div class="zigzag-item zigzag-links reveal reveal-d1">
+        <div class="zigzag-card card-probleem">
+          <div class="zigzag-label tijd-probleem">Betaalpas koppelen</div>
+          <p class="tijdlijn-tekst tekst-normaal">Dirk wil zijn <strong>betaalpas koppelen</strong> in de NS-app. Hij vult het formulier in maar krijgt een <strong>vage foutmelding</strong>, hij koppelt zijn betaalpas op de website en gaat verder met plannen in de app.</p>
+          <div class="tijdlijn-cijfer">💡 Op de website staat dit wél duidelijk uitgelegd</div>
+        </div>
+        <div class="zigzag-dot"></div>
       </div>
-    </div>
 
-    <div class="tijdlijn-item reveal reveal-d3">
-      <div class="tijdlijn-tijd tijd-probleem">Stap 3</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst tekst-normaal">De reis is gepland,maar zijn vraag blijft onbeantwoord: zijn er fietsen in Haarlem? De app toont "Amsterdam Zuid,413 beschikbaar." Dat is niet zijn bestemming. Bovendien moet Dirk helemaal naar beneden scrollen om deze info überhaupt te vinden, ze is niet direct zichtbaar.</p>
-        <div class="tijdlijn-cijfer">📍 Verkeerd station getoond</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d4">
-      <div class="tijdlijn-tijd">Op station</div>
-      <div class="tijdlijn-card card-probleem">
-        <p class="tijdlijn-tekst">In Haarlem blijkt Dirk de OV-fiets niet te kunnen huren met zijn pinpas. De app had hem hier niet duidelijk genoeg op gewezen.</p>
-        <div class="tijdlijn-cijfer">⚠️ Alleen OV-chipkaart werkt,nergens prominent vermeld</div>
-      </div>
-    </div>
-
-    <div class="tijdlijn-item reveal reveal-d4">
-      <div class="tijdlijn-tijd tijd-crisis">Gevolg</div>
-      <div class="tijdlijn-card card-crisis">
-        <p class="tijdlijn-tekst tekst-crisis">Dirk heeft geen keus,zonder fiets komt hij te laat op werk. Hij bestelt een Uber, dient een klacht in bij NS en declareert de extra kosten.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
-          <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">🚕 Uber besteld</span>
-          <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">📋 Klacht ingediend</span>
-          <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">🧾 Declaratie verstuurd</span>
+      <div class="zigzag-item zigzag-rechts reveal reveal-d2">
+        <div class="zigzag-dot"></div>
+        <div class="zigzag-card card-probleem">
+          <div class="zigzag-label tijd-probleem">OV-fiets zoeken</div>
+          <p class="tijdlijn-tekst tekst-normaal">Dirk zoekt <strong>OV-fiets</strong> als aankomstoptie. Onder "Openbaar vervoer" staat <strong>geen OV-fiets</strong>. De optie zit verstopt onder <strong>"Aankomst: Lopen"</strong>, drie klikken diep.</p>
+          <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties</div>
         </div>
       </div>
-    </div>
 
+      <div class="zigzag-item zigzag-links reveal reveal-d3">
+        <div class="zigzag-card card-probleem">
+          <div class="zigzag-label tijd-probleem">Beschikbaarheid checken</div>
+          <p class="tijdlijn-tekst tekst-normaal">De reis is gepland, maar zijn vraag blijft onbeantwoord: <strong>zijn er fietsen in Haarlem?</strong> Hij moet helemaal naar beneden scrollen, langs advertenties. Eindelijk staat daar het aanbod, maar de app toont <strong>Amsterdam Zuid</strong> in plaats van Haarlem.</p>
+          <div class="tijdlijn-cijfer">📍 Verkeerd station getoond</div>
+        </div>
+        <div class="zigzag-dot"></div>
+      </div>
+
+      <div class="zigzag-item zigzag-rechts reveal reveal-d4">
+        <div class="zigzag-dot"></div>
+        <div class="zigzag-card card-probleem">
+          <div class="zigzag-label">Op station</div>
+          <p class="tijdlijn-tekst">Na opnieuw te zoeken in de OV-fiets sectie staat er dat er fietsen beschikbaar zijn in Haarlem. Op goed vertrouwen gaat Dirk op reis, maar bij aankomst blijkt hij de OV-fiets <strong>niet te kunnen huren met zijn pinpas</strong> en hij heeft geen OV-chipkaart. De app had hem hier <strong>niet duidelijk genoeg op gewezen</strong>.</p>
+          <div class="tijdlijn-cijfer">⚠️ Informatie zat verstopt achter knoppen in de app</div>
+        </div>
+      </div>
+
+      <div class="zigzag-item zigzag-links reveal reveal-d4">
+        <div class="zigzag-card card-crisis">
+          <div class="zigzag-label tijd-crisis">Gevolg</div>
+          <p class="tijdlijn-tekst tekst-crisis">Geen fiets, dreigt te laat op werk. Dirk bestelt een Uber, dient een klacht in en declareert de extra kosten.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">🚕 Uber besteld</span>
+            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">📋 Klacht ingediend</span>
+            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">🧾 Declaratie verstuurd</span>
+          </div>
+        </div>
+        <div class="zigzag-dot zigzag-dot-crisis"></div>
+      </div>
     </div>
 
     <div class="reveal">
       <div class="verhaal-conclusie" style="text-align:center;">
-        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong>,zonder waarschuwing, zonder alternatief. <span style="color:var(--yellow)">En Dirk is niet de enige.</span>
+        Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong>, zonder waarschuwing, zonder alternatief. <span style="color:var(--yellow)">En Dirk is niet de enige.</span>
       </div>
     </div>
 
     <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;">
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
-        <div class="counter" data-target="57974" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
+        <div class="counter" data-target="58000" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">klachten bij NS in 2024</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;font-style:italic;">Hoeveel hiervan hebben geleid tot een declaratie is intern en niet openbaar.</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;font-style:italic;">Hoeveel hiervan hebben geleid tot een declaratie is alleen intern bekend bij NS.</div>
         <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: NS Financieel Jaarverslag 2024</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
-        <div class="counter" data-target="900000" data-suffix="+" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">mensen gebruiken de NS app</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: Reizigersvereniging Rover · NS Halfjaarcijfers 2023</div>
+        <div class="counter" data-target="2000000" data-suffix="+" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;">keer per dag geopend op een normale werkdag</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6;">Bron: NS-directeur Wouter Koolmees, januari 2026</div>
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border);">
         <div class="counter" data-target="2025" data-suffix="" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px;">0</div>
@@ -364,7 +373,6 @@ footer strong { color: var(--blue); }
         <div class="persona-sub">38 jaar · Utrecht · Dagelijks forens</div>
         <div class="persona-quote">"De reisplanner is onoverzichtelijk. Ik wil duidelijke informatie, niet pas op het station erachter komen dat ik geen fiets kan huren. Ik heb de kosten van mijn Uber gedeclareerd."</div>
         <div class="persona-sterren">★★☆☆☆ <span>App Store · NS app</span></div>
-
       </div>
       <div class="taken-list">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Primaire taken van dagelijkse NS-forensen</div>
@@ -402,7 +410,7 @@ footer strong { color: var(--blue); }
     <div class="reveal">
       <div class="section-label">
         <div class="section-num">03</div>
-        <span class="section-tag">Doel & Problemen</span>
+        <span class="section-tag">Doel &amp; Problemen</span>
       </div>
       <h2 style="margin-bottom:8px;">Waar loopt Dirk tegenaan?</h2>
       <p class="section-intro">Problemen op zowel UX- als Interaction Design-vlak.</p>
@@ -410,12 +418,8 @@ footer strong { color: var(--blue); }
     <div class="problemen-grid">
       <div class="probleem-card probleem-ux reveal reveal-d1" style="grid-column:span 1">
         <div class="probleem-img-wrap slide-left">
-          <img class="probleem-img" src="images/screen-01.png" alt="Foutmelding betaalpas"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="probleem-img-placeholder" style="display:none">
-            <div class="img-icon">📱</div>
-            <div>Voeg toe: <strong>images/screen-01.png</strong></div>
-          </div>
+          <img class="probleem-img" src="images/screen-01.png" alt="Foutmelding betaalpas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="probleem-img-placeholder" style="display:none"><div class="img-icon">📱</div><div>Voeg toe: <strong>images/screen-01.png</strong></div></div>
         </div>
         <div class="probleem-card-top">
           <span class="probleem-badge badge-ux">UX Probleem</span>
@@ -425,17 +429,13 @@ footer strong { color: var(--blue); }
       </div>
       <div class="probleem-card probleem-id reveal reveal-d2" style="grid-column:span 1">
         <div class="probleem-img-wrap">
-          <img class="probleem-img" src="images/screen-02.png" alt="OV-fiets verstopt"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="probleem-img-placeholder" style="display:none">
-            <div class="img-icon">📱</div>
-            <div>Voeg toe: <strong>images/screen-02.png</strong></div>
-          </div>
+          <img class="probleem-img" src="images/screen-02.png" alt="OV-fiets verstopt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="probleem-img-placeholder" style="display:none"><div class="img-icon">📱</div><div>Voeg toe: <strong>images/screen-02.png</strong></div></div>
         </div>
         <div class="probleem-card-top">
           <span class="probleem-badge badge-id">ID Probleem</span>
           <div class="probleem-title">OV-fiets verstopt in reisopties</div>
-          <div class="probleem-text">Verborgen onder "Aankomst: Lopen",niet intuïtief.</div>
+          <div class="probleem-text">Verborgen onder "Aankomst: Lopen", niet intuïtief.</div>
         </div>
       </div>
     </div>
@@ -443,12 +443,8 @@ footer strong { color: var(--blue); }
     <div class="problemen-grid-bottom">
       <div class="probleem-card probleem-id reveal reveal-d2">
         <div class="probleem-img-wrap">
-          <img class="probleem-img" src="images/screen-05.png" alt="Reisplanner fietsinfo"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="probleem-img-placeholder" style="display:none">
-            <div class="img-icon">📱</div>
-            <div>Voeg toe: <strong>images/screen-05.png</strong></div>
-          </div>
+          <img class="probleem-img" src="images/screen-05.png" alt="Reisplanner fietsinfo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="probleem-img-placeholder" style="display:none"><div class="img-icon">📱</div><div>Voeg toe: <strong>images/screen-05.png</strong></div></div>
         </div>
         <div class="probleem-card-top">
           <span class="probleem-badge badge-id">ID Probleem</span>
@@ -458,12 +454,8 @@ footer strong { color: var(--blue); }
       </div>
       <div class="probleem-card probleem-id reveal reveal-d3">
         <div class="probleem-img-wrap">
-          <img class="probleem-img" src="images/screen-03.png" alt="Verkeerd station"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="probleem-img-placeholder" style="display:none">
-            <div class="img-icon">📱</div>
-            <div>Voeg toe: <strong>images/screen-03.png</strong></div>
-          </div>
+          <img class="probleem-img" src="images/screen-03.png" alt="Verkeerd station" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="probleem-img-placeholder" style="display:none"><div class="img-icon">📱</div><div>Voeg toe: <strong>images/screen-03.png</strong></div></div>
         </div>
         <div class="probleem-card-top">
           <span class="probleem-badge badge-id">ID Probleem</span>
@@ -476,12 +468,8 @@ footer strong { color: var(--blue); }
     <div class="reveal" style="display:flex;gap:32px;align-items:flex-end;">
       <div class="probleem-card probleem-ux" style="flex:0 0 calc(50% - 16px);">
         <div class="probleem-img-wrap">
-          <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="probleem-img-placeholder" style="display:none">
-            <div class="img-icon">📱</div>
-            <div>Voeg toe: <strong>images/screen-04.png</strong></div>
-          </div>
+          <img class="probleem-img" src="images/screen-04.png" alt="Pinpas werkt niet" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="probleem-img-placeholder" style="display:none"><div class="img-icon">📱</div><div>Voeg toe: <strong>images/screen-04.png</strong></div></div>
         </div>
         <div class="probleem-card-top">
           <span class="probleem-badge badge-ux">UX Probleem</span>
@@ -490,14 +478,15 @@ footer strong { color: var(--blue); }
         </div>
       </div>
       <div style="flex:0 0 calc(50% - 16px);display:flex;justify-content:center;">
-        <div style="width:72%;background:var(--blue);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;gap:20px;min-height:420px;justify-content:center;">
+        <div style="width:72%;background:var(--blue);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;gap:20px;min-height:420px;justify-content:flex-start;">
           <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">⚖️ <strong style="color:#fff;">Betere UX = minder frustratie voor Dirk én minder klachten voor NS.</strong> Negatieve reviews zijn direct te herleiden naar de reisplanner.</div>
           <div style="border-left:3px solid var(--yellow);padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.85);line-height:1.6;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
-            <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk en de 900.000+ dagelijkse gebruikers, door de momenten die nu fout gaan <em>goed</em> te maken.
+            <strong style="color:var(--yellow);">Dit pak ik op als designer.</strong> Ik ontwerp voor Dirk en de 2 miljoen+ dagelijkse gebruikers, door de momenten die nu fout gaan <em>goed</em> te maken.
           </div>
           <div style="border-left:3px solid var(--yellow);padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.85);line-height:1.6;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
             <strong style="color:var(--yellow);">Mijn impact:</strong> betere ervaring, minder klachten, minder declaraties voor NS.
           </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;font-style:italic;">NS staat voor de beste reis- en UX-ervaring voor elke reiziger.</div>
         </div>
       </div>
     </div>
@@ -512,7 +501,7 @@ footer strong { color: var(--blue); }
         <span class="section-tag" style="color:rgba(255,255,255,0.5)">Domein</span>
       </div>
       <h2 style="margin-bottom:8px;color:#fff">Welke interfaces ga ik ontwerpen?</h2>
-      <p class="section-intro" style="color:rgba(255,255,255,0.5)">Bestaande app,NS app (iOS & Android), Reisplanner sectie.</p>
+      <p class="section-intro" style="color:rgba(255,255,255,0.5)"></p>
     </div>
     <div class="interfaces-grid">
       <div class="interface-card reveal reveal-d1">
@@ -555,7 +544,7 @@ footer strong { color: var(--blue); }
     <div class="rand-grid">
       <div class="rand-col rand-col-blue reveal reveal-d1">
         <div class="rand-title rand-title-blue">Technisch</div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Bestaande NS app (iOS & Android)</div></div>
+        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Bestaande NS app (iOS &amp; Android)</div></div>
         <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Beschikbaarheidsdata niet realtime</div></div>
         <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">OV-chipkaart vereist voor OV-fiets</div></div>
       </div>
@@ -568,8 +557,8 @@ footer strong { color: var(--blue); }
       <div class="rand-col rand-col-blue reveal reveal-d3">
         <div class="rand-title rand-title-blue">Organisatorisch</div>
         <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">OV-chipkaart verdwijnt eind 2027</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">900.000+ gebruikers,geen radicale wijzigingen</div></div>
-        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">AVG,toestemming nodig voor meldingen</div></div>
+        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">2M+ gebruikers, geen radicale wijzigingen</div></div>
+        <div class="rand-item"><div class="rand-dot"></div><div class="rand-text">AVG, toestemming nodig voor meldingen</div></div>
       </div>
     </div>
   </div>
@@ -581,51 +570,49 @@ footer strong { color: var(--blue); }
     <h2 style="margin-bottom:32px"></h2>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;">
-
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px;">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;">Tech stack NS app</div>
         <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">De NS app draait op een <strong style="color:#fff">React + TypeScript</strong> frontend met een <strong style="color:#fff">Java/Spring Boot</strong> backend. NS gebruikt het eigen design system <strong style="color:#fff">Tractie</strong> voor consistente UI-componenten.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">Voor interne apps maakt NS gebruik van het <strong style="color:#fff">Mendix low-code platform</strong>. Er is geen publieke CMS-naam bekend voor de consumentenapp,NS beheert dit via eigen infrastructuur.</p>
-        <p style="font-size:13px;color:rgba(255,201,23,0.8);line-height:1.7;margin-bottom:8px;">⚠️ Het is lastig te achterhalen of de verbeteringen die ik voorstel puur frontend zijn, of ook backend-aanpassingen vereisen,bijvoorbeeld voor betaalstatus, beschikbaarheidsdata of OV-fiets koppeling. Als designer ontwerp ik de interface; de technische haalbaarheid per oplossing moet in samenwerking met een developer worden bepaald.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">Voor interne apps maakt NS gebruik van het <strong style="color:#fff">Mendix low-code platform</strong>. Er is geen publieke CMS-naam bekend voor de consumentenapp, NS beheert dit via eigen infrastructuur.</p>
+        <p style="font-size:13px;color:rgba(255,201,23,0.8);line-height:1.7;margin-bottom:8px;">⚠️ Het is lastig te achterhalen of de verbeteringen die ik voorstel puur frontend zijn, of ook backend-aanpassingen vereisen, bijvoorbeeld voor betaalstatus, beschikbaarheidsdata of OV-fiets koppeling. Als designer ontwerp ik de interface; de technische haalbaarheid per oplossing moet in samenwerking met een developer worden bepaald.</p>
         <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:8px;">Bron: NS vacatures (opdracht overheid, werkenbijns.nl), Railway Technology 2021</div>
       </div>
-
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px;">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;">App én website aanpakken?</div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">De verbeteringen zijn in de eerste plaats bedoeld voor de <strong style="color:#fff">telefoon</strong>. Niemand pakt onderweg zijn laptop erbij,de app is het moment waarop Dirk een beslissing moet maken, een foutmelding krijgt of iets niet kan vinden.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">De verbeteringen die ik ontwerp worden uiteraard <strong style="color:#fff">ook doorgevoerd in de desktopversie</strong>,maar de app staat centraal. Wat op de telefoon werkt, werkt overal.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:12px;">De verbeteringen zijn in de eerste plaats bedoeld voor de <strong style="color:#fff">telefoon</strong>. Niemand pakt onderweg zijn laptop erbij, de app is het moment waarop Dirk een beslissing moet maken, een foutmelding krijgt of iets niet kan vinden.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">De verbeteringen die ik ontwerp worden uiteraard <strong style="color:#fff">ook doorgevoerd in de desktopversie</strong>, maar de app staat centraal. Wat op de telefoon werkt, werkt overal.</p>
       </div>
-
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;text-align:left;">
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;">📌 Fictieve case</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin:0;">Dit is een <strong style="color:rgba(255,255,255,0.85)">fictieve case study</strong>. In een echte situatie zou NS mijn klant zijn,en zou ik de exacte klachtcijfers, categorisering en gebruikersdata rechtstreeks kunnen ophalen bij de klantenservice of interne analisten. Die data is niet openbaar, waardoor ik voor deze case heb gesteund op externe bronnen zoals het NS Jaarverslag, Reizigersvereniging Rover en het Klachtenloket Openbaar Vervoer. De cijfers geven een betrouwbaar beeld, maar zijn niet zo specifiek als interne data dat zou zijn.</p>
-    </div>
-
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">✉️ UX'er NS benaderd met volgende vragen</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:16px;">Via LinkedIn contact opgenomen met <a href="https://www.linkedin.com/in/herbert-de-vrijer-56a4a7a5/" target="_blank" style="color:var(--yellow);text-decoration:none;">Herbert de Vrijer</a>, UX designer bij NS die aan de OV-fiets heeft gewerkt:</p>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">1.</span>
-          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Wordt AI actief ingezet binnen het UX-vakgebied bij NS, en zo ja, hoe?</span>
-        </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">2.</span>
-          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Ligt er intern al onderzoek naar de UX van de reisplanner, en is dit openbaar?</span>
-        </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">3.</span>
-          <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Op wat voor systeem draaien de app en de website?</span>
-        </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;">📌 Fictieve case</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin:0;">Dit is een <strong style="color:rgba(255,255,255,0.85)">fictieve case study</strong>. In een echte situatie zou NS mijn klant zijn, en zou ik de exacte klachtcijfers, categorisering en gebruikersdata rechtstreeks kunnen ophalen bij de klantenservice of interne analisten. Die data is niet openbaar, waardoor ik voor deze case heb gesteund op externe bronnen zoals het NS Jaarverslag, Reizigersvereniging Rover en het Klachtenloket Openbaar Vervoer. De cijfers geven een betrouwbaar beeld, maar zijn niet zo specifiek als interne data dat zou zijn.</p>
       </div>
-      <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;">Antwoord volgt,wordt hier aangevuld zodra Herbert reageert.</div>
-    </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">✉️ UX'er NS benaderd met volgende vragen</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:16px;">Via LinkedIn contact opgenomen met <a href="https://www.linkedin.com/in/herbert-de-vrijer-56a4a7a5/" target="_blank" style="color:var(--yellow);text-decoration:none;">Herbert de Vrijer</a>, UX designer bij NS die aan de OV-fiets heeft gewerkt:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">1.</span>
+            <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Wordt AI actief ingezet binnen het UX-vakgebied bij NS, en zo ja, hoe?</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">2.</span>
+            <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Ligt er intern al onderzoek naar de UX van de reisplanner, en is dit openbaar?</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">3.</span>
+            <span style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Op wat voor systeem draaien de app en de website?</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;">Antwoord volgt, wordt hier aangevuld zodra Herbert reageert.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<footer>
   🗺️ NS Reisplanner UX Case Study · Persona: <strong>Dirk</strong> · NS app herontwerp
 </footer>
 
@@ -674,6 +661,7 @@ footer strong { color: var(--blue); }
       }
     })
   })
+
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -697,6 +685,66 @@ footer strong { color: var(--blue); }
     })
   }, { threshold: 0.5 })
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el))
+
+  const zzBar = document.getElementById('zz-bar')
+  const zzFill = document.getElementById('zz-fill')
+  const zzIcon = document.getElementById('zz-icon')
+  const zigzagSection = document.querySelector('.zigzag-tijdlijn')
+  const zigzagItems = document.querySelectorAll('.zigzag-item')
+
+  function updateScrollbar() {
+    if (!zigzagItems.length) return
+
+    const firstRect = zigzagItems[0].getBoundingClientRect()
+    const lastCard = zigzagItems[zigzagItems.length - 1].querySelector('.zigzag-card')
+    const lastRect = (lastCard || zigzagItems[zigzagItems.length - 1]).getBoundingClientRect()
+
+    // Startpunt = bovenkant eerste kaart, eindpunt = onderkant laatste kaart (op scherm)
+    const trackTop = firstRect.top
+    const trackBottom = lastRect.bottom
+    const trackHeight = trackBottom - trackTop
+
+    // Alleen tonen als de sectie in beeld is
+    if (trackBottom < 0 || trackTop > window.innerHeight) {
+      zzBar.classList.remove('active')
+      zzIcon.style.display = 'none'
+      return
+    }
+
+    zzBar.classList.add('active')
+    zzIcon.style.display = 'block'
+
+    const zzTrack = document.getElementById('zz-track')
+    const zzFillEl = document.getElementById('zz-fill')
+
+    // Clip track strictly between firstRect.top and trackBottom on screen
+    const clampedTop = Math.max(0, trackTop)
+    const clampedBottom = Math.min(window.innerHeight, trackBottom)
+    const visibleHeight = Math.max(0, clampedBottom - clampedTop)
+
+    zzTrack.style.top = clampedTop + 'px'
+    zzTrack.style.height = visibleHeight + 'px'
+
+    const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.5 - trackTop) / trackHeight))
+    const fillHeight = Math.min(progress * visibleHeight, clampedBottom - clampedTop)
+
+    zzFillEl.style.top = clampedTop + 'px'
+    zzFillEl.style.height = fillHeight + 'px'
+
+    const iconY = clampedTop + fillHeight
+    zzIcon.style.top = Math.max(40, Math.min(clampedBottom - 20, iconY)) + 'px'
+
+    // Wissel icoon
+    let activeIdx = 0
+    zigzagItems.forEach((el, idx) => {
+      const r = el.getBoundingClientRect()
+      if (r.top < window.innerHeight * 0.55) activeIdx = idx
+    })
+    zzIcon.textContent = activeIdx <= 2 ? '🚆' : '🚲'
+  }
+
+  window.addEventListener('scroll', updateScrollbar, { passive: true })
+  updateScrollbar()
 </script>
 </body>
 </html>
