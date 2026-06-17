@@ -126,7 +126,7 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .probleem-img{width:72%;display:block;object-fit:contain;border-radius:28px}
 .probleem-img-placeholder{width:78%;aspect-ratio:9/16;background:rgba(255,255,255,0.06);border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(255,255,255,0.3);font-size:11px;text-align:center;padding:12px}
 .probleem-img-placeholder .img-icon{font-size:24px;opacity:0.4}
-.probleem-card-top{background:var(--yellow);border-radius:16px;margin:0 14%;padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;min-height:160px;box-sizing:border-box}
+.probleem-card-top{background:var(--yellow);border-radius:16px;margin:0 14%;padding:14px 18px 14px;display:flex;flex-direction:column;flex:1;min-height:120px;box-sizing:border-box}
 .probleem-badge{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:10px}
 .badge-ux{color:var(--red);background:rgba(204,0,0,0.1)}
 .badge-id{color:var(--blue);background:rgba(0,48,130,0.12)}
@@ -274,7 +274,7 @@ footer strong{color:var(--blue)}
       <span class="hero-word hw2">Ontwerp,</span>
       <span class="hero-word hw3">Goede Reis.</span>
     </h1>
-    <p class="hero-sub">Een UX-analyse van de NS Reisplanner — van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
+    <p class="hero-sub">Een fictieve UX-analyse van de NS Reisplanner — van verborgen opties tot misleidende beschikbaarheidsinformatie.</p>
     <div class="hero-tags">
       <span class="hero-tag ht-p">🗺️ Reisplanner</span>
       <span class="hero-tag ht-s">📱 NS App</span>
@@ -346,6 +346,15 @@ footer strong{color:var(--blue)}
     <div class="reveal">
       <div class="verhaal-conclusie" style="text-align:center">Dirk deed niks fout. De app leidde hem stap voor stap naar een <strong>dood spoor</strong> — op de dag dat hij juist een goede indruk wilde maken. <span style="color:var(--yellow)">En Dirk is niet de enige.</span></div>
     </div>
+
+    <!-- Gelukkig einde -->
+    <div class="reveal" style="margin-top:16px;background:rgba(10,124,66,0.08);border:1px solid rgba(10,124,66,0.2);border-radius:16px;padding:22px 28px;display:flex;gap:20px;align-items:flex-start">
+      <div style="font-size:28px;flex-shrink:0">🎉</div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0a7c42;margin-bottom:6px">Goed nieuws</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.7;margin:0">Dirk is gelukkig wél aangenomen. Op zijn eerste werkdag ontvangt hij van zijn baas bij AXS een <strong>NS Business Card</strong> — voortaan betaalt AXS zijn reiskosten. Nu hoeft hij alleen nog maar te kunnen <strong>reserveren</strong>.</p>
+      </div>
+    </div>
     <div class="reveal g3" style="margin-top:14px">
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border)">
         <div class="counter" data-target="58000" style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px">0</div>
@@ -393,18 +402,14 @@ footer strong{color:var(--blue)}
         </label>
       </div>
 
-    <div class="reveal" style="margin-top:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.35)">
-      ⚠️ <strong style="color:rgba(255,255,255,0.6)">Proto persona disclaimer:</strong> Deze profielen zijn gebaseerd op deskresearch en aannames — nog niet gevalideerd via primair gebruikersonderzoek.
-    </div>
   </div>
 </section>
 
 <!-- 03 PERSONA — DIRK -->
-<section class="sec" style="background:var(--white);padding-top:100px;padding-bottom:100px">
+<section class="sec" style="background:var(--bg);padding-top:100px;padding-bottom:100px">
   <div class="si" style="max-width:860px">
     <div class="reveal" style="margin-bottom:40px">
-      <div class="sl"><div class="sn">03</div><span class="st">Persona</span></div>
-      <h2>Dirk</h2>
+      <div class="sl"><div class="sn">03</div><span class="st">Proto Persona</span></div>
     </div>
     <div class="reveal">
       <div style="width:100%;border-radius:24px;background:linear-gradient(135deg,#003082 0%,#001f5c 60%,#003a9e 100%);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,48,130,0.35);padding:48px 52px;min-height:520px;display:flex;flex-direction:column;gap:32px;justify-content:space-between">
@@ -473,17 +478,9 @@ footer strong{color:var(--blue)}
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- 04 PERSONA — VERA -->
-<section class="sec" style="background:var(--bg);padding-top:100px;padding-bottom:100px">
-  <div class="si" style="max-width:860px">
-    <div class="reveal" style="margin-bottom:40px">
-      <div class="sl"><div class="sn">04</div><span class="st">Persona</span></div>
-      <h2>Vera</h2>
-    </div>
-    <div class="reveal">
+    <!-- VERA KAART -->
+    <div class="reveal" style="margin-top:80px">
       <div style="width:100%;border-radius:24px;background:linear-gradient(135deg,#1a3a6e 0%,#0d2456 60%,#1a4a8e 100%);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(13,36,86,0.4);padding:48px 52px;min-height:520px;display:flex;flex-direction:column;gap:32px;justify-content:space-between">
         <div style="position:absolute;left:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,201,23,0.06)"></div>
         <div style="position:absolute;right:-40px;bottom:-80px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,0.04)"></div>
@@ -496,7 +493,7 @@ footer strong{color:var(--blue)}
         <div style="display:flex;align-items:center;gap:32px;position:relative;z-index:1">
           <label style="width:110px;height:110px;border-radius:50%;border:3px solid rgba(255,201,23,0.6);overflow:hidden;background:rgba(255,255,255,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:40px;cursor:pointer;position:relative">
             <input type="file" accept="image/*" style="display:none" onchange="(function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){var img=e.target.parentElement.querySelector('img');img.src=ev.target.result;img.style.display='block';e.target.parentElement.querySelector('.ph-v').style.display='none';};r.readAsDataURL(f);})(event)">
-            <img src="" alt="Vera" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;inset:0">
+            <img src="" alt="Vera" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:none;position:absolute;inset:0;border-radius:50%">
             <span class="ph-v">👩‍🎓</span>
           </label>
           <div style="width:56px;height:42px;background:linear-gradient(135deg,#f0c040,#e8a800,#f5d060,#c88800);border-radius:6px;flex-shrink:0"></div>
@@ -550,15 +547,16 @@ footer strong{color:var(--blue)}
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- 05 PROBLEMEN -->
+<!-- 04 PROBLEMEN -->
 <section class="sec" style="background:var(--white)">
   <div class="si">
     <div class="reveal">
-      <div class="sl"><div class="sn">05</div><span class="st">Pijnpunten</span></div>
-      <h2 style="margin-bottom:8px">Waar loopt Dirk tegenaan?</h2>
+      <div class="sl"><div class="sn">04</div><span class="st">Pijnpunten</span></div>
+      <h2 style="margin-bottom:8px">Waar lopen Dirk en Vera tegenaan?</h2>
       <p class="intro">Problemen op zowel UX- als Interaction Design-vlak.</p>
     </div>
     <div class="problemen-grid">
@@ -614,23 +612,174 @@ footer strong{color:var(--blue)}
 
 </section>
 
-<!-- DIVIDER -->
-
-<section class="sec" style="background:var(--bg);border-top:4px solid var(--yellow)">
+<!-- 05 USER STORIES -->
+<section class="sec" style="background:var(--blue);padding-top:100px;padding-bottom:100px">
   <div class="si">
+    <div class="reveal" style="margin-bottom:40px;text-align:center">
+      <div class="sl" style="justify-content:center"><div class="sn sn-dim">05</div><span class="st st-dim">User Stories</span></div>
+      <h2 style="color:var(--white)">Wat willen Dirk en Vera graag kunnen doen?</h2>
+      <p class="intro" style="color:rgba(255,255,255,0.5);margin:0 auto">Functionele eisen vanuit Dirk en Vera, gekoppeld aan de geïdentificeerde pijnpunten.</p>
+    </div>
+    <div class="g2 reveal">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:14px">🧔</div>
+          <span style="font-size:13px;font-weight:800;color:var(--white)">Dirk</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.4)">NS Business Card · Forens</span>
+        </div>
+        <div class="story-card"><div class="story-id">US-D01 · Reservering</div><p class="story-text"><strong style="color:#fff">Als</strong> forens met NS Pro <strong style="color:#fff">wil ik</strong> een OV-fiets reserveren op mijn aankomststation <strong style="color:#fff">zodat</strong> er zeker één klaarstaat als ik aankom.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">NS Business Card</span></div></div>
+        <div class="story-card"><div class="story-id">US-D02 · Automatische route</div><p class="story-text"><strong style="color:#fff">Als</strong> dagelijkse forens <strong style="color:#fff">wil ik</strong> mijn vaste route automatisch aangepast zien bij vertraging <strong style="color:#fff">zodat</strong> ik niets zelf hoef te herplannen.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Smart routing</span></div></div>
+        <div class="story-card"><div class="story-id">US-D03 · Fiets pauzeren</div><p class="story-text"><strong style="color:#fff">Als</strong> forens <strong style="color:#fff">wil ik</strong> mijn fietsrit kunnen pauzeren op het werk <strong style="color:#fff">zodat</strong> de fiets gereserveerd blijft voor de terugweg.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Rit pauzeren</span></div></div>
+        <div class="story-card story-card-low"><div class="story-id story-id-low">US-D04 · Betaalinfo vooraf</div><p class="story-text"><strong style="color:#fff">Als</strong> reiziger <strong style="color:#fff">wil ik</strong> vooraf zien welke betaalmethodes werken <strong style="color:#fff">zodat</strong> ik niet strand op het station.</p><div class="story-meta"><span class="s-mid">Middel</span><span class="s-tag">Inline waarschuwing</span></div></div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:14px">👩‍🎓</div>
+          <span style="font-size:13px;font-weight:800;color:var(--white)">Vera</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.4)">Studenten OV · Flexibel</span>
+        </div>
+        <div class="story-card"><div class="story-id">US-V01 · Bluetooth opening</div><p class="story-text"><strong style="color:#fff">Als</strong> student zonder OV-chipkaart <strong style="color:#fff">wil ik</strong> de OV-fiets openen via bluetooth <strong style="color:#fff">zodat</strong> ik geen fysieke kaart nodig heb.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Bluetooth / NFC</span></div></div>
+        <div class="story-card"><div class="story-id">US-V02 · Digitaal betalen</div><p class="story-text"><strong style="color:#fff">Als</strong> digitale reiziger <strong style="color:#fff">wil ik</strong> betalen via Apple Pay <strong style="color:#fff">zodat</strong> ik geen chipkaart hoef aan te schaffen.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Apple Pay / iDEAL</span></div></div>
+        <div class="story-card"><div class="story-id">US-V03 · Punten sparen</div><p class="story-text"><strong style="color:#fff">Als</strong> student <strong style="color:#fff">wil ik</strong> punten sparen bij elke OV-fietsrit <strong style="color:#fff">zodat</strong> ik korting krijg bij koffietentjes of de bioscoop.</p><div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Loyaliteitsprogramma</span></div></div>
+        <div class="story-card story-card-low"><div class="story-id story-id-low">US-V04 · Altijd een fiets</div><p class="story-text"><strong style="color:#fff">Als</strong> flexibele reiziger <strong style="color:#fff">wil ik</strong> altijd een OV-fiets kunnen reserveren <strong style="color:#fff">zodat</strong> ik niet afhankelijk ben van tram of bus.</p><div class="story-meta"><span class="s-mid">Middel</span><span class="s-tag">Reservering</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 06 IDEAAL SCENARIO — DIRK -->
+<section class="sec" style="background:var(--white);padding-top:100px;padding-bottom:100px">
+  <div class="si" style="max-width:860px">
+    <div class="reveal" style="margin-bottom:48px">
+      <div class="sl"><div class="sn">07</div><span class="st">Ideaal User Scenario</span></div>
+      <h2>Dirk's ideale reis</h2>
+      <p class="intro">Begin zomer 2027. Dirk reist dagelijks van Abcoude naar Haarlem — met een NS Business Card en een app die voor hem denkt.</p>
+    </div>
     <div class="reveal">
-      <div class="sl"><div class="sn">06</div><span class="st">Onderzoek</span></div>
-      <h2>Wat weten we al?</h2>
-      <p class="intro">Deskresearch op basis van het NS Jaarverslag 2024, Rover Reisplannertest 2024 en een vergelijking met concurrenten.</p>
-    </div>
+      <div style="background:linear-gradient(135deg,#003082,#001f5c);border-radius:20px;padding:28px 32px;margin-bottom:32px;display:flex;align-items:center;gap:16px">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🧔</div>
+        <div><div style="font-size:16px;font-weight:800;color:#fff">Dirk · IT Projectmanager · 51 jaar</div><div style="font-size:12px;color:rgba(255,255,255,0.5)">NS Business Card · Samsung Galaxy · Abcoude → Haarlem</div></div>
+      </div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-dot td-blue"></div><div class="tl-card tc-normal"><div class="tl-time tt-n">07:00 · Thuis — Abcoude</div><p style="font-size:14px;color:var(--text);line-height:1.75">Het is begin zomer 2027. Dirk wordt wakker van zijn wekker om 07:00 — zijn vaste tijd. Hij doucht, kleedt zich aan, zet een kop koffie en maakt zich klaar voor weer een doodgewone werkdag. Om 08:00 horen de klokken luiden in Abcoude. Hij trekt de deur achter zich dicht en loopt naar het station.</p></div></div>
 
-    <!-- Deskresearch 2 kolommen -->
-    <div class="reveal g2" style="margin-bottom:20px">
-      <div class="card"><div class="label-sm lb" style="margin-bottom:12px">Rover Reisplannertest 2024 — 475 respondenten, 42 apps</div><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>OV-fiets alleen aangeboden als natransport</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>Geen alternatief als geen fietsen beschikbaar</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>Slechts ~3 van 20+ deelmobiliteitsaanbieders</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">★</span>NS scoort 7,6 — best van alle 42 planners</div></div></div>
-      <div class="card"><div class="label-sm lb" style="margin-bottom:12px">NS Jaarverslag 2024</div><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">🔑</span>80% fietsen heeft nieuw chipkaart slot — pinpas werkt niet</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">📍</span>22.000 fietsen op 282 locaties eind 2024</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">💰</span>Prijs verhoogd van €4,55 naar €4,65 per rit per 1 jan 2025</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">📈</span>5,9 miljoen ritten in 2024 — nieuw record, stijging elk jaar</div></div></div>
-    </div>
+        <div class="tl-item"><div class="tl-dot td-yellow"></div><div class="tl-card tc-warn"><div class="tl-time tt-w">08:02 · Pushmelding onderweg</div><p style="font-size:14px;color:var(--text);line-height:1.75">Zijn telefoon trilt. <strong>"Jouw trein is 8 minuten vertraagd."</strong> Maar de NS Reisplanner heeft zijn vaste route al automatisch aangepast — snelste verbinding gevonden, geen herplanning nodig. Dirk vindt het fijn dat hij niets zelf hoeft te doen: de planner denkt voor hem mee.</p></div></div>
 
-    <!-- Competitor tabel -->
+        <div class="tl-item"><div class="tl-dot td-blue"></div><div class="tl-card tc-normal"><div class="tl-time tt-n">08:10 · In de trein</div><p style="font-size:14px;color:var(--text);line-height:1.75">Dirk stapt in. Het is lekker weer — hij fietst altijd het laatste stuk van station Haarlem naar AXS, door weer en wind, maar vandaag is het extra aangenaam. In de trein checkt hij zijn telefoon. Hij had eerder al ingesteld dat er standaard een OV-fiets wordt gereserveerd op zijn aankomststation. En inderdaad: <strong>"Fiets 405 is voor u gereserveerd op Station Haarlem. Reserveringskosten: €2 per 30 min — betaald via NS Business Card AXS."</strong></p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-yellow"></div><div class="tl-card tc-warn"><div class="tl-time tt-w">08:14 · Twijfel</div><p style="font-size:14px;color:var(--text);line-height:1.75">Door de vertraging vraagt Dirk zich af of zijn gereserveerde fiets er nog wel staat. Hij checkt de app — direct een update: <strong>"Fiets 405 is nog beschikbaar. Reservering geldig voor nog 28 minuten."</strong> Opgelucht leunt hij achterover. Het NS Pro abonnement heeft hij eerder gemakkelijk kunnen toevoegen aan zijn Samsung Wallet via de NS-app.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:22 · Station Haarlem — fiets ophalen</div><p style="font-size:14px;color:var(--text);line-height:1.75">Dirk stapt uit en loopt naar de stalling. Hij ziet fiets 405 staan. Hij houdt zijn Samsung Galaxy tegen het digitale slot. <strong>Klik.</strong> De fiets gaat open. Pushmelding: <em>"Rit gestart. Fijne dag, Dirk."</em> Tevreden stapt hij op en fietst richting AXS.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:30 · Aankomst AXS — rit pauzeren</div><p style="font-size:14px;color:var(--text);line-height:1.75">Bij kantoor opent hij de NS-app en ziet zijn actieve rit. Hij schuift de knop van <strong>"Actief"</strong> naar <strong>"Rit pauzeren"</strong> — de fiets blijft op zijn naam gereserveerd voor de terugweg. Simpel.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-yellow"></div><div class="tl-card tc-warn"><div class="tl-time tt-w">17:30 · Herinnering van de app</div><p style="font-size:14px;color:var(--text);line-height:1.75">Pushmelding: <strong>"Huurt u de fiets nog steeds?"</strong> Dirk lacht. Hij is het niet vergeten. Hij negeert de melding — maar vindt het wel fijn dat de app hem eraan herinnert. Hij loopt terug naar de fiets, opent de app en schuift naar <strong>"Rit vervolgen"</strong>.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">17:55 · Station Haarlem — fiets terug</div><p style="font-size:14px;color:var(--text);line-height:1.75">Pushmelding: <strong>"U nadert Station Haarlem. Zet de fiets terug in de stalling en sluit af met uw digitale pas."</strong> Direct daarna: <strong>"U heeft nog 3 minuten voor de trein op spoor 5."</strong> Dirk loopt snel — en haalt het. Hij houdt zijn Samsung bij het slot. Klik. <em>"Reservering afgerond."</em></p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">18:10 · In de trein naar Abcoude</div><p style="font-size:14px;color:var(--text);line-height:1.75">Tevreden stapt Dirk de trein in. <em>Geen gedoe met sleutels. Geen fysieke OV-chipkaart. Geen lastige instructies.</em> Daardoor had hij vroeger misschien zijn trein gemist. Nu niet. Prima reis — heen en terug.</p></div></div>
+      </div>
+      <div style="margin-top:24px;padding:16px 20px;background:rgba(0,48,130,0.04);border:1px solid rgba(0,48,130,0.1);border-radius:12px;font-size:13px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--blue)">NS Business Card voordelen:</strong> Reserveringskosten €2/30 min — volledig betaald door werkgever AXS. NS verdient extra B2B-inkomsten bovenop de ritprijs. Schaalbaar naar alle medewerkers van AXS.
+      </div>
+
+      <!-- BUSINESS CASE DIRK -->
+      <div style="margin-top:16px;background:var(--blue);border-radius:16px;padding:28px 32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:20px">💼 Wat levert het NS op? — Het Dirk-model</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px">
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">€2</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">per 30 min reservering</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">bovenop €4,65 ritprijs</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">~€520</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">per forens per jaar</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">260 werkdagen × €2 reservering</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">€52M+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">potentieel per jaar</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">bij 100.000 Business Card forensen</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px">
+          NS maakte in 2024 al 5,9 miljoen OV-fietsritten — een nieuw record. Als 10% van de zakelijke dagelijkse forensen overstapt op een reserveerbaar NS Business Card-pakket, genereert NS structurele B2B-inkomsten bovenop de bestaande ritopbrengst. Werkgevers betalen de kosten als zakelijk voordeel — net als bij een telefoon of laptop van de zaak. <em style="color:rgba(255,255,255,0.3)">Schattingen zijn indicatief en gebaseerd op publieke NS-data (Jaarverslag 2024).</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 IDEAAL SCENARIO — VERA -->
+<section class="sec" style="background:var(--bg);padding-top:100px;padding-bottom:100px">
+  <div class="si" style="max-width:860px">
+    <div class="reveal" style="margin-bottom:48px">
+      <div class="sl"><div class="sn">08</div><span class="st">Ideaal User Scenario</span></div>
+      <h2>Vera's ideale reis</h2>
+      <p class="intro">Dinsdag 2027. Vera reist drie keer per week van Leiden naar Amsterdam — met haar iPhone, Apple Wallet en een loyaliteitsprogramma dat werkt voor haar.</p>
+    </div>
+    <div class="reveal">
+      <div style="background:var(--blue);border-radius:20px;padding:28px 32px;margin-bottom:32px;display:flex;align-items:center;gap:16px">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">👩‍🎓</div>
+        <div><div style="font-size:16px;font-weight:800;color:#fff">Vera · Student communicatiedesign · 24 jaar</div><div style="font-size:12px;color:rgba(255,255,255,0.5)">Studenten OV · iPhone · Leiden → Amsterdam</div></div>
+      </div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-dot td-blue"></div><div class="tl-card tc-normal"><div class="tl-time tt-n">Vera — 3e jaar studie, 2027</div><p style="font-size:14px;color:var(--text);line-height:1.75">Vera zit in haar derde jaar communicatiedesign. Ze woont samen met twee huisgenoten in Leiden en reist drie keer per week naar Amsterdam voor college. Ze geniet van de stad — de lessen, het uitgaan, nieuwe hippe koffietentjes ontdekken met studiegenoten. Net als haar leeftijdsgenoten regelt ze alles digitaal op haar iPhone.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-blue"></div><div class="tl-card tc-normal"><div class="tl-time tt-n">Studenten OV in Apple Wallet</div><p style="font-size:14px;color:var(--text);line-height:1.75">Vera heeft haar digitale studenten OV toegevoegd via de NS-app en aan haar <strong>Apple Wallet</strong> op haar iPhone. Alles zit in één plek — geen fysieke kaart, geen chipkaart, geen losse apps.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">Dinsdag · Amsterdam Centraal</div><p style="font-size:14px;color:var(--text);line-height:1.75">Vera reserveert drie keer per week een OV-fiets via haar NS Studenten abonnement. De OV-fiets valt niet onder het gratis abonnement, maar voor studenten kost reserveren slechts <strong>€1 per 30 minuten</strong>. Ze houdt haar iPhone bij het fietsslot — bluetooth verbindt automatisch. <strong>Fiets ontgrendeld.</strong> Ze betaalt via Apple Pay. Geen chipkaart, geen instructies, gewoon instappen.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">Punten sparen — elke rit telt</div><p style="font-size:14px;color:var(--text);line-height:1.75">Elke keer dat Vera de fiets huurt én goed inlevert, spaart ze punten. Hoe vaker en langer ze huurt, hoe meer korting ze opbouwt. Via de NS-app ziet ze precies hoeveel punten ze heeft. Ze kan haar punten ook <strong>delen met studiegenoten</strong> — handig als je samen uit bent geweest.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">Punten inzetten</div><p style="font-size:14px;color:var(--text);line-height:1.75">Vera's gespaard punten zijn breed inzetbaar: korting op <strong>koffie bij Julia's</strong> op het station, een bioscoopkaartje, of toegang tot een museum. Het voelt als een beloning voor iets wat ze toch al doet.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-blue"></div><div class="tl-card tc-normal"><div class="tl-time tt-n">Avond — flexibel terug naar Leiden</div><p style="font-size:14px;color:var(--text);line-height:1.75">Na een etentje of avond uit in Amsterdam weet Vera nooit precies wanneer ze teruggaat. Ze wil niet afhankelijk zijn van de tram of bus. Wanneer ze er klaar voor is, pakt ze gewoon een OV-fiets naar het station. Die flexibiliteit is precies waarom ze de OV-fiets zo waardeert.</p></div></div>
+
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">Fiets inleveren · +4 punten</div><p style="font-size:14px;color:var(--text);line-height:1.75">Vera zet de fiets netjes terug in de stalling en sluit af met haar iPhone. Direct een melding: <strong>"Rit afgerond. +4 punten gespaard. Totaal: 48 punten."</strong> Nog een paar ritten en ze heeft genoeg voor gratis koffie. Tevreden stapt ze de trein in richting Leiden.</p></div></div>
+      </div>
+      <div style="margin-top:24px;padding:16px 20px;background:rgba(0,48,130,0.04);border:1px solid rgba(0,48,130,0.1);border-radius:12px;font-size:13px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--blue)">Studenten voordeel:</strong> Reserveren €1/30 min (normaal €2). Punten sparen per rit — inwisselbaar voor korting bij koffietentjes, bioscoop of museum. Punten deelbaar met studiegenoten.
+      </div>
+
+      <!-- BUSINESS CASE VERA -->
+      <div style="margin-top:16px;background:var(--blue);border-radius:16px;padding:28px 32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:20px">💼 Wat levert het NS op? — Het Vera-model</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px">
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">€1</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">per 30 min reservering</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">studententarief (normaal €2)</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">~€156</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">per student per jaar</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">3 ritten/week × 52 weken × €1</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:22px;font-weight:900;color:var(--yellow);letter-spacing:-1px">€46M+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px">potentieel per jaar</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px">bij 300.000 actieve studenten</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px">
+          Nederland telt ruim 900.000 studenten in het hoger onderwijs. Een groot deel reist al met de trein via een studentenreiskaart. Het loyaliteitsprogramma verhoogt de gebruiksfrequentie — studenten die punten sparen rijden vaker. Reserveringskosten zijn laag genoeg om drempelloos te zijn, maar hoog genoeg om structurele inkomsten te genereren bovenop de ritprijs van €4,65. Partners zoals Julia's en bioscoopketens kunnen sponsoren mee betalen voor de punten-uitwisseling. <em style="color:rgba(255,255,255,0.3)">Schattingen zijn indicatief en gebaseerd op CBS-data en NS Jaarverslag 2024.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 COMPETITOR ONDERZOEK -->
+<section class="sec" style="background:var(--white);padding-top:100px;padding-bottom:100px">
+  <div class="si">
+    <div class="reveal" style="margin-bottom:36px">
+      <div class="sl"><div class="sn">08</div><span class="st">Competitor onderzoek</span></div>
+      <h2>Hoe doen concurrenten het?</h2>
+      <p class="intro">De OV-fiets is goedkoop en landelijk dekkend — maar mist functies die concurrenten al jaren hebben.</p>
+    </div>
     <div class="reveal">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8B6500;margin-bottom:14px">⚔️ Competitor onderzoek</div>
       <div style="overflow-x:auto;margin-bottom:16px">
@@ -664,30 +813,71 @@ footer strong{color:var(--blue)}
     </div>
   </div>
 </section>
-<div class="chapter-div"><div class="chapter-div-line"></div><div class="chapter-div-label">Ontwerp &amp; Uitvoering</div><div class="chapter-div-line"></div></div>
 
-<!-- 07 INTERFACES -->
+<!-- 09b ONDERZOEK -->
+<section class="sec" style="background:var(--bg);border-top:4px solid var(--yellow)">
+  <div class="si">
+    <div class="reveal">
+      <div class="sl"><div class="sn">06</div><span class="st">Onderzoek</span></div>
+      <h2>Wat weten we al?</h2>
+      <p class="intro">Deskresearch op basis van het NS Jaarverslag 2024, Rover Reisplannertest 2024 en een vergelijking met concurrenten.</p>
+    </div>
+
+    <!-- Deskresearch 2 kolommen -->
+    <div class="reveal g2" style="margin-bottom:20px">
+      <div class="card"><div class="label-sm lb" style="margin-bottom:12px">Rover Reisplannertest 2024 — 475 respondenten, 42 apps</div><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>OV-fiets alleen aangeboden als natransport</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>Geen alternatief als geen fietsen beschikbaar</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--red);flex-shrink:0">✗</span>Slechts ~3 van 20+ deelmobiliteitsaanbieders</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">★</span>NS scoort 7,6 — best van alle 42 planners</div></div></div>
+      <div class="card"><div class="label-sm lb" style="margin-bottom:12px">NS Jaarverslag 2024</div><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">🔑</span>80% fietsen heeft nieuw chipkaart slot — pinpas werkt niet</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">📍</span>22.000 fietsen op 282 locaties eind 2024</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">💰</span>Prijs verhoogd van €4,55 naar €4,65 per rit per 1 jan 2025</div><div style="display:flex;gap:8px;font-size:13px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">📈</span>5,9 miljoen ritten in 2024 — nieuw record, stijging elk jaar</div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 10 INTERFACES -->
+
+
 <section class="sec" style="background:var(--blue);padding-top:100px;padding-bottom:100px">
   <div class="si">
     <div class="reveal">
-      <div class="sl"><div class="sn sn-dim">07</div><span class="st st-dim">Domein</span></div>
+      <div class="sl"><div class="sn sn-dim">10</div><span class="st st-dim">Domein</span></div>
       <h2 style="color:var(--white);margin-bottom:12px">Welke interfaces ga ik ontwerpen?</h2>
-      <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.7;margin-bottom:48px;max-width:480px">Op basis van de geïdentificeerde pijnpunten en het onderzoek worden vier schermen herontworpen.</p>
+      <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.7;margin-bottom:48px;max-width:560px">Op basis van de eisen van Dirk en Vera worden de volgende schermen herontworpen. Elke interface lost een of meer van hun pijnpunten op.</p>
     </div>
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div class="interface-card"><div class="interface-num">01</div><div class="interface-icon">💳</div><div class="interface-name">Betaalpas koppelen</div><div class="interface-why">Duidelijke foutmelding + uitleg "Bedrag"-veld.</div></div>
-      <div class="interface-card"><div class="interface-num">02</div><div class="interface-icon">🗺️</div><div class="interface-name">Reisopties scherm</div><div class="interface-why">OV-fiets zichtbaar als vervoersoptie.</div></div>
-      <div class="interface-card"><div class="interface-num">03</div><div class="interface-icon">📍</div><div class="interface-name">Beschikbaarheid aankomst</div><div class="interface-why">Toont juiste station met actuele fietsinfo.</div></div>
-      <div class="interface-card"><div class="interface-num">04</div><div class="interface-icon">⚠️</div><div class="interface-name">Betaalmethode melding</div><div class="interface-why">Waarschuwing als pinpas niet werkt voor OV-fiets.</div></div>
+
+    <!-- Dirk eisen -->
+    <div class="reveal" style="margin-bottom:40px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🧔</div>
+        <span style="font-size:14px;font-weight:800;color:var(--white)">Dirk — NS Business Card</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="interface-card"><div class="interface-num">01 · Dirk</div><div class="interface-icon">💳</div><div class="interface-name">Betaalpas koppelen</div><div class="interface-why">Duidelijke foutmelding + uitleg "Bedrag"-veld. Dirk moest nu naar de website — dat moet in de app kunnen.</div></div>
+        <div class="interface-card"><div class="interface-num">02 · Dirk</div><div class="interface-icon">🗺️</div><div class="interface-name">OV-fiets in reisopties</div><div class="interface-why">OV-fiets direct zichtbaar als vervoersoptie — niet verstopt onder "Aankomst: Lopen".</div></div>
+        <div class="interface-card"><div class="interface-num">03 · Dirk</div><div class="interface-icon">📍</div><div class="interface-name">Beschikbaarheid aankomst</div><div class="interface-why">Correct station tonen, realtime fietsaantallen, en melding als reservering nog geldig is bij vertraging.</div></div>
+        <div class="interface-card"><div class="interface-num">04 · Dirk</div><div class="interface-icon">🔒</div><div class="interface-name">Fiets reserveren</div><div class="interface-why">Reservering via NS Pro-abonnement. Automatisch voor vaste route. Pushmelding bij bevestiging en bij vertraging.</div></div>
+      </div>
+    </div>
+
+    <!-- Vera eisen -->
+    <div class="reveal">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">👩‍🎓</div>
+        <span style="font-size:14px;font-weight:800;color:var(--white)">Vera — Studenten OV</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="interface-card"><div class="interface-num">05 · Vera</div><div class="interface-icon">📶</div><div class="interface-name">Bluetooth fiets openen</div><div class="interface-why">Fiets openen via NFC/bluetooth op iPhone — zonder OV-chipkaart. Apple Wallet integratie.</div></div>
+        <div class="interface-card"><div class="interface-num">06 · Vera</div><div class="interface-icon">💳</div><div class="interface-name">Digitaal betalen</div><div class="interface-why">Apple Pay of pinpas via wallet koppelen. Geen fysieke chipkaart vereist voor gebruik.</div></div>
+        <div class="interface-card"><div class="interface-num">07 · Vera</div><div class="interface-icon">⭐</div><div class="interface-name">Punten sparen</div><div class="interface-why">Loyaliteitsprogramma: punten per rit, inwisselbaar bij Julia's, bioscoop of museum. Deelbaar met studiegenoten.</div></div>
+        <div class="interface-card"><div class="interface-num">08 · Dirk &amp; Vera</div><div class="interface-icon">⚠️</div><div class="interface-name">Betaalmethode melding</div><div class="interface-why">Proactieve waarschuwing vóór vertrek als pinpas of chipkaart niet werkt voor OV-fiets.</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 08 RANDVOORWAARDEN -->
+<!-- 11 RANDVOORWAARDEN -->
 <section class="sec" style="background:var(--bg);padding-top:100px;padding-bottom:100px">
   <div class="si">
     <div class="reveal">
-      <div class="sl"><div class="sn">08</div><span class="st">Randvoorwaarden</span></div>
+      <div class="sl"><div class="sn">11</div><span class="st">Randvoorwaarden</span></div>
       <h2 style="margin-bottom:12px">Beperkingen</h2>
       <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:48px;max-width:480px">Technische, budgettaire en organisatorische grenzen waarbinnen het herontwerp plaatsvindt.</p>
     </div>
@@ -695,6 +885,117 @@ footer strong{color:var(--blue)}
       <div class="rand-col rand-col-blue"><div class="rand-title rand-title-blue">Technisch</div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Bestaande NS app (iOS &amp; Android)</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">OV-chipkaart vereist voor OV-fiets</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">React + TypeScript · Java/Spring Boot · NS design system Tractie</div></div></div>
       <div class="rand-col rand-col-yellow"><div class="rand-title rand-title-yellow">Budgettair</div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Alle oplossingen zijn frontend-gericht</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Tractie design system beschikbaar</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">Lage implementatiekosten verwacht</div></div></div>
       <div class="rand-col rand-col-blue"><div class="rand-title rand-title-blue">Organisatorisch</div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">OV-chipkaart verdwijnt eind 2027</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">2M+ gebruikers — geen radicale wijzigingen</div></div><div class="rand-item"><div class="rand-dot"></div><div class="rand-text">AVG — toestemming nodig voor meldingen</div></div></div>
+    </div>
+
+    <!-- Bluetooth investering -->
+    <div class="reveal" style="margin-top:40px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px">🔧 Wat kost het om de fietsen over te zetten naar bluetooth?</div>
+
+      <!-- Context -->
+      <div style="background:rgba(0,48,130,0.04);border:1px solid rgba(0,48,130,0.1);border-radius:12px;padding:18px 22px;margin-bottom:20px;font-size:13px;color:var(--muted);line-height:1.7">
+        NS heeft de slotvervanging al eerder grootschalig uitgevoerd: in 2021 ging NS over op het nieuwe elektronische OV-fietsslot. Maandelijks verdwenen zo'n 500 fietssleutels van de oude sloten. Een bluetooth-upgrade bouwt voort op die infrastructuur — de sloten zijn al digitaal, bluetooth is een extra laag. De OV-chipkaart wordt eind 2027 volledig uitgefaseerd en vervangen door de OV-pas, een nieuwe smartcard die ook digitaal aan een smartphone toegevoegd kan worden. Bluetooth-opening sluit daar direct op aan.
+      </div>
+
+      <!-- Kostenraming grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+        <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:14px;padding:20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">🔩 Hardware — sloten</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Bluetooth-module per slot</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€30–80</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Montage per fiets (~22.000 fietsen)</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€10–20</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Totale hardware + montage</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">~€1–2M</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px">
+              <span style="color:var(--muted);font-size:12px">Bij nieuw slot: deels al verwerkt</span>
+              <span style="font-weight:700;color:var(--green);white-space:nowrap;margin-left:12px;font-size:12px">↓ lager</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--yellow);border-radius:14px;padding:20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8B6500;margin-bottom:14px">💻 Software &amp; App</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">BLE-integratie iOS + Android</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€150–300K</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Backend reserveringssysteem</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€200–400K</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Wallet-integratie (Apple / Google)</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€50–100K</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px">
+              <span style="color:var(--text)">Testen, uitrol, monitoring</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€100–200K</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:14px;padding:20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">📡 Infrastructuur</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text)">Connectivity per stalling (IoT)</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€500–1M</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:13px">
+              <span style="color:var(--text)">Jaarlijkse onderhoudskosten</span>
+              <span style="font-weight:700;color:var(--blue);white-space:nowrap;margin-left:12px">€200–500K/jr</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--blue);border-radius:14px;padding:20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:14px">💰 Totaalschatting</div>
+          <div style="font-size:28px;font-weight:900;color:var(--white);letter-spacing:-1px;margin-bottom:4px">€2–4M</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:16px">eenmalige investering</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7">Terugverdientijd: bij 100.000 reserverende gebruikers à €2/rit is de investering in <strong style="color:var(--yellow)">~4–8 maanden</strong> terugverdiend.</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:12px">Indicatief — gebaseerd op vergelijkbare deelfietsprojecten en NS-data.</div>
+        </div>
+
+      </div>
+
+      <!-- Teams -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;margin-top:8px">👥 Welke teams zijn erbij betrokken?</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">📱 UX / Product</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Interface ontwerpen, gebruikersonderzoek, bluetooth-flow, wallet-integratie UX, pushmelding design</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">💻 Frontend</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">BLE-implementatie iOS &amp; Android, Apple Wallet / Google Wallet integratie, React Native modules</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">⚙️ Backend</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Reserveringssysteem, slotaansturing API, realtime beschikbaarheid, Business Card-koppeling</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">🔩 Hardware / OV-fiets</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Bluetooth-modules inkopen en monteren, firmware slotsoftware, onderhoud 22.000 fietsen</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">🔐 Security / AVG</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">BLE-beveiliging, gebruikersauthenticatie, privacywetgeving voor wallet- en locatiedata</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">💼 Commercieel / B2B</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">NS Business Card-contracten, zakelijke tarieven, partner-akkoorden voor loyaliteitsprogramma</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:12px;opacity:0.6">Bronnen: NS Jaarverslag 2024 · nieuws.ns.nl · Wikipedia OVpay · Vergelijkbare BLE-deelfietsprojecten (Donkey Republic, Check)</div>
     </div>
   </div>
 </section>
