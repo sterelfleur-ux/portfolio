@@ -9,10 +9,10 @@
 <title>NS Reisplanner · UX Case Study</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--blue:#003082;--yellow:#FFC917;--white:#fff;--bg:#F8F9FA;--text:#1A1A2E;--muted:#6B7280;--border:#E5E7EB;--red:#CC0000;--green:#0a7c42}
+:root{--blue:#003082;--yellow:#FFC917;--white:#fff;--bg:#F8F9FA;--text:#1A1A2E;--muted:#6B7280;--border:#E5E7EB;--red:#003082;--green:#003082}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
-#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),#FFC917,#FF8C00,var(--red));z-index:200;transition:width 0.1s linear}
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),var(--yellow));z-index:200;transition:width 0.1s linear}
 #zz-bar{position:fixed;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;pointer-events:none;z-index:5;display:none}
 #zz-bar.active{display:block}
 #zz-track{position:absolute;width:3px;background:rgba(0,48,130,0.12)}
@@ -64,14 +64,14 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .tijdlijn-item.past .tijdlijn-card{border-left-color:var(--border)!important}
 .tijdlijn-item.past .tijdlijn-tijd{color:var(--muted)!important}
 .tijdlijn-tijd{flex-shrink:0;width:80px;padding-top:4px;font-size:11px;font-weight:700}
-.tijd-normaal{color:var(--muted)}.tijd-probleem{color:var(--blue)}.tijd-crisis{color:var(--red)}
+.tijd-normaal{color:var(--muted)}.tijd-probleem{color:var(--blue)}.tijd-crisis{color:var(--blue)}
 .tijdlijn-card{flex:1;background:var(--white);border-radius:0 12px 12px 0;padding:16px 20px}
 .card-normaal{border:1px solid var(--border);border-left:3px solid var(--border)}
 .card-probleem{border:1px solid rgba(0,48,130,0.12);border-left:3px solid var(--blue)}
-.card-crisis{border:1px solid rgba(204,0,0,0.2);border-left:3px solid var(--red)}
+.card-crisis{border:1px solid rgba(255,201,23,0.35);border-left:3px solid var(--yellow)}
 .tijdlijn-tekst{font-size:15px;line-height:1.65;margin-bottom:8px}
 .tekst-normaal{color:var(--text);font-weight:400}
-.tekst-crisis{color:var(--red);font-weight:600}
+.tekst-crisis{color:var(--blue);font-weight:600}
 .tijdlijn-cijfer{font-size:12px;color:var(--muted);background:var(--bg);padding:6px 12px;border-radius:8px;display:inline-block}
 .verhaal-conclusie{background:var(--blue);border-radius:16px;padding:24px 28px;margin-top:8px;color:var(--white);font-size:15px;line-height:1.65;font-style:italic}
 .verhaal-conclusie strong{color:var(--yellow)}
@@ -86,9 +86,9 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .zigzag-dot{width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--white);box-shadow:0 0 0 3px var(--blue);flex-shrink:0;position:absolute;left:calc(50% - 7px);z-index:3}
 .zigzag-dot-crisis{background:var(--blue);box-shadow:0 0 0 3px var(--blue)}
 .zigzag-card.card-probleem{border:1px solid rgba(0,48,130,0.12);border-left:3px solid var(--blue)}
-.zigzag-card.card-crisis{border:1px solid rgba(204,0,0,0.2);border-left:3px solid var(--red)}
+.zigzag-card.card-crisis{border:1px solid rgba(255,201,23,0.35);border-left:3px solid var(--yellow)}
 .zigzag-label.tijd-probleem{color:var(--blue)}
-.zigzag-label.tijd-crisis{color:var(--red)}
+.zigzag-label.tijd-crisis{color:var(--blue)}
 
 /* ── TABS ── */
 .tabs-wrap{margin-bottom:0}
@@ -111,11 +111,11 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .card-bt-blue{border-top:3px solid var(--blue)}
 .card-bt-yellow{border-top:3px solid var(--yellow)}
 .label-sm{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.lb{color:var(--blue)}.lm{color:var(--muted)}.ly{color:#8B6500}.lr{color:var(--red)}
+.lb{color:var(--blue)}.lm{color:var(--muted)}.ly{color:var(--blue)}.lr{color:var(--blue)}
 .chip{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px}
-.ch-red{background:rgba(204,0,0,0.08);color:var(--red)}
+.ch-red{background:rgba(255,201,23,0.15);color:var(--blue)}
 .ch-blue{background:rgba(0,48,130,0.08);color:var(--blue)}
-.ch-green{background:rgba(10,124,66,0.1);color:var(--green)}
+.ch-green{background:rgba(0,48,130,0.08);color:var(--blue)}
 
 /* ── PROBLEEM KAARTEN ── */
 .problemen-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px;align-items:stretch}
@@ -128,7 +128,7 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .probleem-img-placeholder .img-icon{font-size:24px;opacity:0.4}
 .probleem-card-top{background:var(--yellow);border-radius:16px;margin:0 14%;padding:14px 18px 14px;display:flex;flex-direction:column;flex:1;min-height:120px;box-sizing:border-box}
 .probleem-badge{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:10px}
-.badge-ux{color:var(--red);background:rgba(204,0,0,0.1)}
+.badge-ux{color:var(--blue);background:rgba(255,201,23,0.15)}
 .badge-id{color:var(--blue);background:rgba(0,48,130,0.12)}
 .probleem-title{font-size:15px;font-weight:800;color:var(--blue);margin-bottom:6px;line-height:1.3}
 .probleem-text{font-size:12px;color:rgba(0,30,80,0.7);line-height:1.6}
@@ -157,11 +157,11 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .proto-body{padding:20px 24px;display:flex;flex-direction:column;gap:14px}
 .proto-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px}
 .proto-quote-dark{background:rgba(255,255,255,0.05);border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;font-style:italic}
-.proto-quote-blue-dark{border-left-color:#6b9fff}
+.proto-quote-blue-dark{border-left-color:var(--blue)}
 .proto-gedrag{display:flex;flex-direction:column;gap:5px}
 .proto-gedrag-item{display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.5}
 .proto-chips{display:flex;flex-wrap:wrap;gap:5px}
-.proto-chip-red{background:rgba(204,0,0,0.15);color:#ff8080;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px}
+.proto-chip-red{background:rgba(255,201,23,0.18);color:var(--blue);font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px}
 .proto-kv{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .proto-kv-item{background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 10px}
 .proto-kv-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.35);margin-bottom:2px}
@@ -174,15 +174,15 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .tl-dot{position:absolute;left:-21px;top:5px;width:10px;height:10px;border-radius:50%;border:2px solid var(--white)}
 .td-blue{background:var(--blue);box-shadow:0 0 0 2px var(--blue)}
 .td-yellow{background:var(--yellow);box-shadow:0 0 0 2px var(--yellow)}
-.td-red{background:var(--red);box-shadow:0 0 0 2px var(--red)}
-.td-green{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+.td-red{background:var(--yellow);box-shadow:0 0 0 2px var(--yellow)}
+.td-green{background:var(--blue);box-shadow:0 0 0 2px var(--blue)}
 .tl-card{border-radius:10px;padding:12px 14px}
 .tc-normal{background:var(--white);border:1px solid var(--border)}
 .tc-warn{background:rgba(255,201,23,0.06);border:1px solid rgba(255,201,23,0.3)}
-.tc-danger{background:rgba(204,0,0,0.04);border:1px solid rgba(204,0,0,0.18)}
-.tc-green{background:rgba(10,124,66,0.05);border:1px solid rgba(10,124,66,0.2)}
+.tc-danger{background:rgba(255,201,23,0.08);border:1px solid rgba(255,201,23,0.3)}
+.tc-green{background:rgba(0,48,130,0.04);border:1px solid rgba(0,48,130,0.15)}
 .tl-time{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.tt-n{color:var(--muted)}.tt-w{color:#8B6500}.tt-r{color:var(--red)}.tt-g{color:var(--green)}
+.tt-n{color:var(--muted)}.tt-w{color:var(--blue)}.tt-r{color:var(--blue)}.tt-g{color:var(--blue)}
 
 /* ── USER STORIES ── */
 .story-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px}
@@ -219,7 +219,7 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 .rand-col-blue{border-top:3px solid var(--blue)}
 .rand-col-yellow{border-top:3px solid var(--yellow)}
 .rand-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-.rand-title-blue{color:var(--blue)}.rand-title-yellow{color:#8B6500}
+.rand-title-blue{color:var(--blue)}.rand-title-yellow{color:var(--blue)}
 .rand-item{display:flex;gap:10px;margin-bottom:12px}
 .rand-dot{width:4px;height:4px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:7px}
 .rand-text{font-size:13px;color:var(--muted);line-height:1.5}
@@ -274,9 +274,9 @@ footer strong{color:var(--blue)}
       <span class="hero-word hw2">Ontwerp,</span>
       <span class="hero-word hw3">Goede Reis.</span>
     </h1>
-    <p class="hero-sub">Een fictieve UX-analyse van de NS Reisplanner.</p>
+    <p class="hero-sub">Een fictieve UX-analyse over het kunnen reserveren van een OV-fiets.</p>
     <div class="hero-tags">
-      <span class="hero-tag ht-p">🗺️ Reisplanner</span>
+      <span class="hero-tag ht-p">🗺️ OV-fiets</span>
       <span class="hero-tag ht-s">📱 NS App</span>
     </div>
   </div>
@@ -297,45 +297,28 @@ footer strong{color:var(--blue)}
       <div class="zigzag-lijn"><div class="zigzag-lijn-track"></div></div>
       <div class="zigzag-item zigzag-links reveal rd1">
         <div class="zigzag-card card-probleem">
-          <div class="zigzag-label tijd-probleem">Betaalpas koppelen</div>
-          <p class="tijdlijn-tekst tekst-normaal">Dirk heeft een sollicitatiegesprek bij zijn werkgever in Haarlem. Hij heeft nog geen NS-abonnement en wil zijn <strong>betaalpas koppelen</strong> in de NS-app. Hij vult het formulier in maar krijgt een <strong>vage foutmelding</strong>. Hij koppelt zijn betaalpas via de website en gaat verder met plannen.</p>
-          <div class="tijdlijn-cijfer">💡 Op de website staat dit wél duidelijk uitgelegd</div>
+          <div class="zigzag-label tijd-probleem">OV-fiets zoeken</div>
+          <p class="tijdlijn-tekst tekst-normaal">Dirk zoekt een <strong>OV-fiets</strong> voor het laatste stukje van station Haarlem naar het kantoor van zijn potentiële nieuwe werkgever. Onder "Openbaar vervoer" staat <strong>geen OV-fiets</strong>. De optie zit verstopt onder <strong>"Aankomst: Lopen"</strong>, drie klikken diep.</p>
+          <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties</div>
         </div>
         <div class="zigzag-dot"></div>
       </div>
       <div class="zigzag-item zigzag-rechts reveal rd2">
         <div class="zigzag-dot"></div>
         <div class="zigzag-card card-probleem">
-          <div class="zigzag-label tijd-probleem">OV-fiets zoeken</div>
-          <p class="tijdlijn-tekst tekst-normaal">Dirk zoekt een <strong>OV-fiets</strong> voor het laatste stukje van station Haarlem naar het kantoor van AXS. Onder "Openbaar vervoer" staat <strong>geen OV-fiets</strong>. De optie zit verstopt onder <strong>"Aankomst: Lopen"</strong>, drie klikken diep.</p>
-          <div class="tijdlijn-cijfer">🔍 OV-fiets staat niet bij OV-opties</div>
+          <div class="zigzag-label">Op station Haarlem</div>
+          <p class="tijdlijn-tekst">Dirk ging ervan uit dat er bij aankomst wel een OV-fiets beschikbaar zou zijn. Helaas blijkt dit <strong>niet het geval</strong>: alle fietsen zijn al bezet. Hij heeft <strong>geen fiets kunnen reserveren</strong>.</p>
+          <div class="tijdlijn-cijfer">⚠️ Geen fiets beschikbaar bij aankomst</div>
         </div>
       </div>
       <div class="zigzag-item zigzag-links reveal rd3">
-        <div class="zigzag-card card-probleem">
-          <div class="zigzag-label tijd-probleem">Beschikbaarheid checken</div>
-          <p class="tijdlijn-tekst tekst-normaal">De reis is gepland, maar zijn vraag blijft onbeantwoord: <strong>zijn er fietsen in Haarlem?</strong> Hij scrolt helemaal naar beneden, langs advertenties. Eindelijk staat daar het aanbod, maar de app toont <strong>Amsterdam Zuid</strong> in plaats van Haarlem.</p>
-          <div class="tijdlijn-cijfer">📍 Verkeerd station getoond</div>
-        </div>
-        <div class="zigzag-dot"></div>
-      </div>
-      <div class="zigzag-item zigzag-rechts reveal rd4">
-        <div class="zigzag-dot"></div>
-        <div class="zigzag-card card-probleem">
-          <div class="zigzag-label">Op station Haarlem</div>
-          <p class="tijdlijn-tekst">Na opnieuw te zoeken staat er dat er fietsen beschikbaar zijn. Op goed vertrouwen stapt Dirk op de trein. Bij aankomst blijkt hij de OV-fiets <strong>niet te kunnen huren met zijn pinpas, hij heeft niet gezien dat dit niet kon. De app had hem hier <strong>nergens op gewezen</strong>.</p>
-          <div class="tijdlijn-cijfer">⚠️ Informatie zat verstopt achter knoppen in de app</div>
-        </div>
-      </div>
-      <div class="zigzag-item zigzag-links reveal rd4">
         <div class="zigzag-card card-crisis">
           <div class="zigzag-label tijd-crisis">Gevolg</div>
-          <p class="tijdlijn-tekst tekst-crisis">Geen fiets. Dirk dreigt te laat te komen voor zijn sollicitatiegesprek. Hij bestelt een Uber, komt net op tijd aan, maar gestrest en met een slechte eerste indruk van NS. Daarna dient hij een klacht in en declareert de Uber-kosten.</p>
+          <p class="tijdlijn-tekst tekst-crisis">Geen fiets. Dirk dreigt te laat te komen voor zijn sollicitatiegesprek. Hij bestelt een <strong>Uber</strong>, komt net op tijd aan, maar gestrest en met een slechte eerste indruk van NS. De kosten declareert hij achteraf.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
-            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">🚕 Uber besteld</span>
-            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">😤 Gestrest op gesprek</span>
-            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">📋 Klacht ingediend</span>
-            <span style="background:rgba(192,57,43,0.1);color:#c0392b;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">🧾 Declaratie verstuurd</span>
+            <span style="background:rgba(255,201,23,0.15);color:var(--blue);font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">🚕 Uber besteld</span>
+            <span style="background:rgba(255,201,23,0.15);color:var(--blue);font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">😤 Gestrest op gesprek</span>
+            <span style="background:rgba(255,201,23,0.15);color:var(--blue);font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px">🧾 Kosten gedeclareerd</span>
           </div>
         </div>
         <div class="zigzag-dot zigzag-dot-crisis"></div>
@@ -347,11 +330,11 @@ footer strong{color:var(--blue)}
     </div>
 
     <!-- Gelukkig einde -->
-    <div class="reveal" style="margin-top:16px;background:rgba(10,124,66,0.08);border:1px solid rgba(10,124,66,0.2);border-radius:16px;padding:22px 28px;display:flex;gap:20px;align-items:flex-start">
+    <div class="reveal" style="margin-top:16px;background:rgba(0,48,130,0.05);border:1px solid rgba(0,48,130,0.15);border-radius:16px;padding:22px 28px;display:flex;gap:20px;align-items:flex-start">
       <div style="font-size:28px;flex-shrink:0">🎉</div>
       <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0a7c42;margin-bottom:6px">Goed nieuws</div>
-        <p style="font-size:14px;color:var(--text);line-height:1.7;margin:0">Dirk is gelukkig wél aangenomen. Op zijn eerste werkdag ontvangt hij van zijn baas bij zijn werkgever een <strong>NS Pro Business Card</strong>, voortaan betaalt werkgever zijn reiskosten. Nu hoeft hij alleen nog maar een fiets te kunnen <strong>reserveren</strong>.</p>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:6px">Goed nieuws</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.7;margin:0">Dirk is gelukkig wél aangenomen. Nu hoeft hij alleen nog maar een fiets te kunnen <strong>reserveren</strong>.</p>
       </div>
     </div>
     <div class="reveal g3" style="margin-top:14px">
@@ -367,7 +350,7 @@ footer strong{color:var(--blue)}
       </div>
       <div style="background:var(--white);border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border)">
         <div style="font-size:2rem;font-weight:900;color:var(--blue);letter-spacing:-1px">2025</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px">NS vernieuwde de app, gebruikers zijn positief maar klachten bleven</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">NS vernieuwde de reisplanner, gebruikers zijn positief maar klachten bleven</div>
         <div style="font-size:10px;color:var(--muted);margin-top:8px;opacity:0.6">Bron: Klachtenloket Openbaar Vervoer</div>
       </div>
     </div>
@@ -420,15 +403,15 @@ footer strong{color:var(--blue)}
         <div style="background:var(--white);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--border);width:160px">
           <div style="font-size:16px;font-weight:800;color:var(--blue)">Dirk</div>
           <div style="font-size:12px;color:var(--muted)">51 jaar · Abcoude</div>
-          <div style="font-size:12px;color:var(--muted)">IT Projectmanager · AXS</div>
+          <div style="font-size:12px;color:var(--muted)">IT Projectmanager · Nieuwe werkgever</div>
           <div style="font-size:12px;color:var(--muted)">Vrouw &amp; dochter</div>
           <div style="margin-top:4px;background:var(--blue);border-radius:100px;padding:3px 12px;font-size:10px;font-weight:700;color:#fff;display:inline-block">NS Pro · Doener</div>
           <div style="background:rgba(0,48,130,0.07);border-radius:8px;padding:8px 10px;margin-top:4px;font-size:11px;color:var(--blue);font-style:italic">"Ik wil erop kunnen vertrouwen dat mijn reis goed geregeld is."</div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <div style="background:#F0F7EE;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2a6e1f;margin-bottom:10px">Over</div>
+        <div style="background:rgba(0,48,130,0.05);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px">Over</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--text);line-height:1.6">
             <div><span style="color:var(--muted)">Opleiding:</span> Business IT &amp; Management</div>
             <div><span style="color:var(--muted)">Apparaat:</span> Samsung Galaxy · tech-savvy</div>
@@ -438,8 +421,8 @@ footer strong{color:var(--blue)}
             <div><span style="color:var(--muted)">Tech:</span> Redelijk digitaal vaardig</div>
           </div>
         </div>
-        <div style="background:#FFF8E8;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8B6500;margin-bottom:12px">Gedrag &amp; gewoontes</div>
+        <div style="background:rgba(255,201,23,0.14);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Gedrag &amp; gewoontes</div>
           <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
             <div style="text-align:center"><div style="font-size:24px">🚴</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Wielrennen</div></div>
             <div style="text-align:center"><div style="font-size:24px">🍷</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Wijn &amp; restaurants</div></div>
@@ -449,25 +432,25 @@ footer strong{color:var(--blue)}
             <div style="text-align:center"><div style="font-size:24px">🏗️</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Houdt van structuur</div></div>
           </div>
         </div>
-        <div style="background:#EEF4FF;border-radius:14px;padding:18px 20px">
+        <div style="background:rgba(0,48,130,0.08);border-radius:14px;padding:18px 20px">
           <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Waarvoor gebruikt hij de app</div>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
-            <div style="text-align:center"><div style="font-size:24px">📲</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Abbo in wallet + fiets openen</div></div>
+            <div style="text-align:center"><div style="font-size:24px">🚲</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Fiets reserveren op aankomststation</div></div>
             <div style="text-align:center"><div style="font-size:24px">🔒</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Auto fietsreservering</div></div>
             <div style="text-align:center"><div style="font-size:24px">🗺️</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Persoonlijke reisplanner</div></div>
             <div style="text-align:center"><div style="font-size:24px">🔔</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Pushmeldingen vertraging</div></div>
             <div style="text-align:center"><div style="font-size:24px">📡</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Realtime reisinformatie</div></div>
           </div>
         </div>
-        <div style="background:#FFF0F0;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Pijnpunten</div>
+        <div style="background:rgba(255,201,23,0.2);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px">Pijnpunten</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:var(--text);line-height:1.6">
             <div>✗ Geen reserveringsfunctie</div>
-            <div>✗ Pinpas werkt niet bij OV-fiets</div>
+            <div>✗ Geen fiets meer bij aankomst</div>
             <div>✗ OV-fiets verstopt in menu</div>
-            <div>✗ Verkeerd station getoond</div>
+            <div>✗ Geen zekerheid vooraf</div>
             <div>✗ Geen melding bij vertraging</div>
-            <div>✗ Abonnement niet in wallet te plaatsen</div>
+            <div>✗ Geen automatische reservering</div>
           </div>
         </div>
       </div>
@@ -499,19 +482,19 @@ footer strong{color:var(--blue)}
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <div style="background:#F0F7EE;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2a6e1f;margin-bottom:10px">Over</div>
+        <div style="background:rgba(0,48,130,0.05);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px">Over</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--text);line-height:1.6">
             <div><span style="color:var(--muted)">Studie:</span> Communicatiedesign Amsterdam</div>
             <div><span style="color:var(--muted)">Apparaat:</span> iPhone · digital native</div>
             <div><span style="color:var(--muted)">Kolb-type:</span> <strong>Bezinner</strong>, observeert, denkt na</div>
             <div><span style="color:var(--muted)">Reist:</span> 3 dagen/week, Leiden → Amsterdam</div>
-            <div><span style="color:var(--muted)">Betaalt via:</span> Apple Pay · iDEAL · geen chipkaart</div>
+            <div><span style="color:var(--muted)">Betaalt via:</span> Apple Pay · iDEAL · OV-chipkaart studenten</div>
             <div><span style="color:var(--muted)">Tech:</span> Tech savvy · alles digitaal</div>
           </div>
         </div>
-        <div style="background:#FFF8E8;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8B6500;margin-bottom:12px">Gedrag &amp; gewoontes</div>
+        <div style="background:rgba(255,201,23,0.14);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Gedrag &amp; gewoontes</div>
           <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
             <div style="text-align:center"><div style="font-size:24px">🎉</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Uitgaan</div></div>
             <div style="text-align:center"><div style="font-size:24px">☕</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Koffie buiten</div></div>
@@ -520,7 +503,7 @@ footer strong{color:var(--blue)}
             <div style="text-align:center"><div style="font-size:24px">✨</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Volgt trends</div></div>
           </div>
         </div>
-        <div style="background:#EEF4FF;border-radius:14px;padding:18px 20px">
+        <div style="background:rgba(0,48,130,0.08);border-radius:14px;padding:18px 20px">
           <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Waarvoor gebruikt ze de app</div>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <div style="text-align:center"><div style="font-size:24px">📶</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Bluetooth fiets openen</div></div>
@@ -530,8 +513,8 @@ footer strong{color:var(--blue)}
             <div style="text-align:center"><div style="font-size:24px">🔄</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Flexibel reserveren</div></div>
           </div>
         </div>
-        <div style="background:#FFF0F0;border-radius:14px;padding:18px 20px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Pijnpunten</div>
+        <div style="background:rgba(255,201,23,0.2);border-radius:14px;padding:18px 20px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px">Pijnpunten</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:var(--text);line-height:1.6">
             <div>✗ OV-chipkaart vereist</div>
             <div>✗ Geen bluetooth-opening</div>
@@ -565,9 +548,9 @@ footer strong{color:var(--blue)}
 
         <div class="tl-item"><div class="tl-dot td-yellow"></div><div class="tl-card tc-warn"><div class="tl-time tt-w">08:14 · Twijfel</div><p style="font-size:14px;color:var(--text);line-height:1.75">Door de vertraging vraagt Dirk zich af of zijn gereserveerde fiets er nog wel staat. Hij checkt de app, direct een update: <strong>"Fiets 405 is nog beschikbaar. Reservering geldig voor nog 28 minuten."</strong> Opgelucht leunt hij achterover. Het NS Pro abonnement heeft hij eerder gemakkelijk kunnen toevoegen aan zijn Samsung Wallet via de NS-app.</p></div></div>
 
-        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:22 · Station Haarlem, fiets ophalen</div><p style="font-size:14px;color:var(--text);line-height:1.75">Dirk stapt uit en loopt naar de stalling. Hij ziet fiets 405 staan. Hij houdt zijn Samsung Galaxy tegen het digitale slot. <strong>Klik.</strong> De fiets gaat open. Pushmelding: <em>"Rit gestart. Fijne dag, Dirk."</em> Tevreden stapt hij op en fietst richting AXS.</p></div></div>
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:22 · Station Haarlem, fiets ophalen</div><p style="font-size:14px;color:var(--text);line-height:1.75">Dirk stapt uit en loopt naar de stalling. Hij ziet fiets 405 staan. Hij houdt zijn Samsung Galaxy tegen het digitale slot. <strong>Klik.</strong> De fiets gaat open. Pushmelding: <em>"Rit gestart. Fijne dag, Dirk."</em> Tevreden stapt hij op en fietst richting zijn nieuwe werkgever.</p></div></div>
 
-        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:30 · Aankomst AXS, rit pauzeren</div><p style="font-size:14px;color:var(--text);line-height:1.75">Bij kantoor opent hij de NS-app en ziet zijn actieve rit. Hij schuift de knop van <strong>"Actief"</strong> naar <strong>"Rit pauzeren"</strong>, de fiets blijft op zijn naam gereserveerd voor de terugweg. Simpel.</p></div></div>
+        <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">08:30 · Aankomst kantoor, rit pauzeren</div><p style="font-size:14px;color:var(--text);line-height:1.75">Bij kantoor opent hij de NS-app en ziet zijn actieve rit. Hij schuift de knop van <strong>"Actief"</strong> naar <strong>"Rit pauzeren"</strong>, de fiets blijft op zijn naam gereserveerd voor de terugweg. Simpel.</p></div></div>
 
         <div class="tl-item"><div class="tl-dot td-yellow"></div><div class="tl-card tc-warn"><div class="tl-time tt-w">17:30 · Herinnering van de app</div><p style="font-size:14px;color:var(--text);line-height:1.75">Pushmelding: <strong>"Huurt u de fiets nog steeds?"</strong> Dirk lacht. Hij is het niet vergeten. Hij negeert de melding, maar vindt het wel fijn dat de app hem eraan herinnert. Hij loopt terug naar de fiets, opent de app en schuift naar <strong>"Rit vervolgen"</strong>.</p></div></div>
 
@@ -576,7 +559,7 @@ footer strong{color:var(--blue)}
         <div class="tl-item"><div class="tl-dot td-green"></div><div class="tl-card tc-green"><div class="tl-time tt-g">18:10 · In de trein naar Abcoude</div><p style="font-size:14px;color:var(--text);line-height:1.75">Tevreden stapt Dirk de trein in. <em>Geen gedoe met sleutels. Geen fysieke OV-chipkaart. Geen lastige instructies.</em> Daardoor had hij vroeger misschien zijn trein gemist. Nu niet. Prima reis, heen en terug.</p></div></div>
       </div>
       <div style="margin-top:24px;padding:16px 20px;background:rgba(0,48,130,0.04);border:1px solid rgba(0,48,130,0.1);border-radius:12px;font-size:13px;color:var(--muted);line-height:1.7">
-        <strong style="color:var(--blue)">NS Pro Business Card voordelen:</strong> Reserveringskosten €2/30 min, volledig betaald door zijn werkgever. NS verdient extra B2B-inkomsten bovenop de ritprijs. Schaalbaar naar alle medewerkers van AXS.
+        <strong style="color:var(--blue)">NS Pro Business Card voordelen:</strong> Reserveringskosten €2/30 min, volledig betaald door zijn werkgever. NS verdient extra B2B-inkomsten bovenop de ritprijs. Schaalbaar naar alle medewerkers van zijn werkgever.
       </div>
 
       <!-- BUSINESS CASE DIRK -->
@@ -674,7 +657,7 @@ footer strong{color:var(--blue)}
       <p class="intro" style="color:rgba(255,255,255,0.5);margin:0 auto 16px;text-align:center">In de NS Reisplanner app, rondom het gebruik van de OV-fiets.</p>
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,201,23,0.12);border:1px solid rgba(255,201,23,0.35);border-radius:100px;padding:8px 18px">
         <span style="font-size:14px">✏️</span>
-        <span style="font-size:12px;font-weight:700;color:var(--yellow)">Ik pak per persona 1 user story op om uit te werken en te ontwerpen</span>
+        <span style="font-size:12px;font-weight:700;color:var(--yellow)">Ik pak de belangrijkste user stories op om uit te werken en te ontwerpen</span>
       </div>
     </div>
     <div class="g2 reveal">
@@ -691,11 +674,6 @@ footer strong{color:var(--blue)}
           <div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Reisplanner</span><span class="s-tag">Reservering</span></div>
         </div>
         <div class="story-card" style="margin-bottom:8px;padding:12px 14px;opacity:0.55">
-          <div class="story-id" style="margin-bottom:8px">US-D02 · Pro OV abbo in Samsung Wallet</div>
-          <p class="story-text" style="margin:0 0 10px;font-size:13px;line-height:1.6"><strong style="color:#fff">Als Dirk</strong> wil ik mijn NS Pro (Pro OV) abonnement toevoegen aan Samsung Wallet, <strong style="color:var(--yellow)">zodat ik</strong> direct kan inchecken zonder de app te openen.</p>
-          <div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Samsung Wallet</span></div>
-        </div>
-        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;opacity:0.55">
           <div class="story-id" style="margin-bottom:8px">US-D03 · Pushmelding</div>
           <p class="story-text" style="margin:0 0 10px;font-size:13px;line-height:1.6"><strong style="color:#fff">Als Dirk</strong> wil ik een pushmelding krijgen bij vertraging of zodra mijn fiets gereserveerd is, <strong style="color:var(--yellow)">zodat ik</strong> altijd op de hoogte ben zonder zelf te hoeven checken.</p>
           <div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Pushmelding</span></div>
@@ -707,21 +685,16 @@ footer strong{color:var(--blue)}
           <span style="font-size:13px;font-weight:800;color:var(--white)">Vera</span>
           <span style="font-size:11px;color:rgba(255,255,255,0.4)">Studenten OV · Flexibel</span>
         </div>
-        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;opacity:0.55">
+        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;position:relative;border:1px solid var(--yellow);box-shadow:0 0 0 1px var(--yellow)">
+          <div style="position:absolute;top:-11px;right:14px;background:var(--yellow);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:0.5px;padding:3px 10px;border-radius:100px">Wordt ontworpen</div>
           <div class="story-id" style="margin-bottom:8px">US-V01 · OV-fiets reserveren</div>
           <p class="story-text" style="margin:0 0 10px;font-size:13px;line-height:1.6"><strong style="color:#fff">Als Vera</strong> wil ik een OV-fiets kunnen reserveren, <strong style="color:var(--yellow)">zodat ik</strong> flexibel OV heb zonder te hoeven wachten op beschikbaarheid.</p>
           <div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">OV-fiets</span><span class="s-tag">Reservering</span></div>
         </div>
-        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;position:relative;border:1px solid var(--yellow);box-shadow:0 0 0 1px var(--yellow)">
-          <div style="position:absolute;top:-11px;right:14px;background:var(--yellow);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:0.5px;padding:3px 10px;border-radius:100px">Wordt ontworpen</div>
+        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;opacity:0.55">
           <div class="story-id" style="margin-bottom:8px">US-V02 · Punten sparen</div>
           <p class="story-text" style="margin:0 0 10px;font-size:13px;line-height:1.6"><strong style="color:#fff">Als Vera</strong> wil ik punten sparen per OV-fiets reservering, <strong style="color:var(--yellow)">zodat ik</strong> korting krijg op koffie op stations.</p>
           <div class="story-meta"><span class="s-high">Hoog</span><span class="s-tag">Loyaliteit</span></div>
-        </div>
-        <div class="story-card" style="margin-bottom:8px;padding:12px 14px;opacity:0.55">
-          <div class="story-id" style="margin-bottom:8px">US-V03 · OV-chipkaart in Apple Wallet</div>
-          <p class="story-text" style="margin:0 0 10px;font-size:13px;line-height:1.6"><strong style="color:#fff">Als Vera</strong> wil ik mijn OV-chipkaart toevoegen aan mijn Apple Wallet, <strong style="color:var(--yellow)">zodat ik</strong> direct kan reizen zonder de NS-app te openen.</p>
-          <div class="story-meta"><span class="s-mid">Middel</span><span class="s-tag">Apple Wallet</span></div>
         </div>
       </div>
     </div>
@@ -812,7 +785,7 @@ footer strong{color:var(--blue)}
           <div>
             <div style="font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8b9ab0;margin-bottom:5px">Heuristic Markup</div>
             <div class="row-title" style="font-size:16px;font-weight:800;color:#003082;line-height:1.3;margin-bottom:6px;transition:color .15s">Waar lopen Dirk en Vera tegenaan?</div>
-            <div style="font-size:13px;color:#6b7a90;line-height:1.55">Pijnpunten getoetst via heuristic markup — vage foutmeldingen, OV-fiets verstopt, pinpas werkt niet.</div>
+            <div style="font-size:13px;color:#6b7a90;line-height:1.55">Pijnpunten getoetst via heuristic markup — vage foutmeldingen, OV-fiets verstopt, geen reservering mogelijk.</div>
           </div>
         </a>
     </div>
@@ -824,30 +797,23 @@ footer strong{color:var(--blue)}
     <div class="reveal" style="margin-bottom:40px">
       <div class="sl"><div class="sn sn-dim">06</div><span class="st st-dim">Interfaces</span></div>
       <h2 style="color:var(--white);margin-bottom:12px">Welke interface ga ik voor Dirk en Vera ontwerpen?</h2>
-      <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.7;max-width:560px">Eén kerninterface per persona, direct voortkomend uit hun belangrijkste user story.</p>
+      <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.7;max-width:560px">Eén gedeelde kerninterface voor beide persona's, direct voortkomend uit hun belangrijkste user story.</p>
     </div>
 
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-top:3px solid var(--yellow);border-radius:20px;padding:36px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🧔</div>
-          <span style="font-size:14px;font-weight:800;color:var(--white)">Pro Business Card</span>
-        </div>
-        <div style="font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:2px;margin-bottom:14px">US-D01</div>
-        <div style="font-size:36px;margin-bottom:16px">🚲</div>
-        <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Reserveringssysteem</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6">Automatisch een OV-fiets reserveren gekoppeld aan Dirks dagelijkse route, zodat de fiets al klaarstaat op het station als hij aankomt.</div>
+    <div class="reveal" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-top:3px solid var(--yellow);border-radius:20px;padding:36px;max-width:640px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🧔</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-left:-14px">👩‍🎓</div>
+        <span style="font-size:14px;font-weight:800;color:var(--white);margin-left:6px">Dirk &amp; Vera</span>
       </div>
-      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-top:3px solid var(--yellow);border-radius:20px;padding:36px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">👩‍🎓</div>
-          <span style="font-size:14px;font-weight:800;color:var(--white)">Vera, Studenten OV</span>
-        </div>
-        <div style="font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:2px;margin-bottom:14px">US-V02</div>
-        <div style="font-size:36px;margin-bottom:16px">⭐</div>
-        <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Puntenspaarsysteem</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6">Punten verdienen bij elke OV-fiets reservering, inwisselbaar voor korting op koffie op stations.</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px">
+        <span style="font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:2px">US-D01</span>
+        <span style="font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:2px">·</span>
+        <span style="font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:2px">US-V01</span>
       </div>
+      <div style="font-size:36px;margin-bottom:16px">🚲</div>
+      <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Reserveringssysteem</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6">Eén reserveringssysteem voor de OV-fiets, met twee ingangen: bij Dirk automatisch gekoppeld aan zijn dagelijkse route zodat de fiets al klaarstaat, bij Vera handmatig en flexibel op het moment dat ze een fiets nodig heeft.</div>
     </div>
   </div>
 </section>
@@ -960,45 +926,81 @@ footer strong{color:var(--blue)}
   </div>
 </section>
 
-<!-- 08a PROTOTYPE — DIRK -->
+<!-- 08 PROTOTYPE — DIRK & VERA -->
 <section class="sec" style="background:var(--white);padding-top:100px;padding-bottom:100px">
-  <div class="si" style="max-width:520px">
+  <div class="si" style="max-width:920px">
     <div class="reveal" style="margin-bottom:40px;text-align:center">
       <div class="sl" style="justify-content:center"><div class="sn">08</div><span class="st">Prototype</span></div>
-      <h2>Dirk</h2>
-      <p class="intro" style="text-align:center;margin-left:auto;margin-right:auto">Samsung Galaxy · Reserveringssysteem</p>
+      <h2>Dirk &amp; Vera</h2>
+      <p class="intro" style="text-align:center;margin-left:auto;margin-right:auto">Reserveringssysteem — het prototype dat het reserveren van een OV-fiets mogelijk maakt.</p>
     </div>
-    <div class="reveal" style="display:flex;justify-content:center">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
-        <div style="width:100%;max-width:640px">
-          <img src="images/png5.png" alt="Prototype Dirk — Dagelijkse route + reservering fiets" style="width:100%;max-width:640px;height:480px;object-fit:cover;border-radius:20px;display:block" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;max-width:640px;height:480px;border:2px dashed #b0c4de;border-radius:20px;background:var(--bg);align-items:center;justify-content:center;text-align:center;padding:16px">
-            <div style="font-size:12px;color:#99aabb;line-height:1.5">Plaats png5.png in de map "images"<br>(640×480)</div>
+    <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:920px">
+        <div style="width:100%">
+          <!-- OPTIE A — zelf gehoste video: plaats dirk-demo.mp4 in een map "videos" naast "images" -->
+          <video controls style="width:100%;aspect-ratio:882/1808;object-fit:cover;border-radius:20px;display:block;background:#000" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <source src="videos/dirk-demo.mp4" type="video/mp4">
+          </video>
+          <div style="display:none;width:100%;aspect-ratio:882/1808;border:2px dashed #b0c4de;border-radius:20px;background:var(--bg);align-items:center;justify-content:center;text-align:center;padding:16px">
+            <div style="font-size:12px;color:#99aabb;line-height:1.5">Plaats dirk-demo.mp4 in de map "videos"<br>(of gebruik optie B hieronder)</div>
           </div>
+          <!--
+          OPTIE B — video via YouTube/Loom embed (verwijder bovenstaand <video>-blok en gebruik dit in plaats daarvan):
+          <iframe width="100%" height="360" src="https://www.youtube.com/embed/JOUW-VIDEO-ID" style="border-radius:20px;display:block" frameborder="0" allowfullscreen></iframe>
+          -->
         </div>
-        <div style="font-size:14px;font-weight:700;color:var(--text);text-align:center">Dagelijkse route + reservering fiets</div>
+        <div style="width:100%">
+          <!-- OPTIE A — zelf gehoste video: plaats vera-demo.mp4 in een map "videos" naast "images" -->
+          <video controls style="width:100%;aspect-ratio:882/1808;object-fit:cover;border-radius:20px;display:block;background:#000" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <source src="videos/vera-demo.mp4" type="video/mp4">
+          </video>
+          <div style="display:none;width:100%;aspect-ratio:882/1808;border:2px dashed #b0c4de;border-radius:20px;background:var(--bg);align-items:center;justify-content:center;text-align:center;padding:16px">
+            <div style="font-size:12px;color:#99aabb;line-height:1.5">Plaats vera-demo.mp4 in de map "videos"<br>(of gebruik optie B hieronder)</div>
+          </div>
+          <!--
+          OPTIE B — video via YouTube/Loom embed (verwijder bovenstaand <video>-blok en gebruik dit in plaats daarvan):
+          <iframe width="100%" height="360" src="https://www.youtube.com/embed/JOUW-VIDEO-ID" style="border-radius:20px;display:block" frameborder="0" allowfullscreen></iframe>
+          -->
+        </div>
+      </div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);text-align:center;margin-top:4px">OV-fiets reserveren</div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,48,130,0.06);border:1px solid rgba(0,48,130,0.15);border-radius:100px;padding:6px 16px;margin-top:4px">
+        <span style="font-size:13px">✅</span>
+        <span style="font-size:12px;font-weight:700;color:var(--blue)">Getest met gebruikers · meer testen volgen</span>
+      </div>
+      <div style="width:100%;max-width:640px;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:20px 24px;margin-top:6px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px">Notes uit de eerste test</div>
+        <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text);line-height:1.7">
+          <li>Reserveren aan het einde van de trip: station moet dan nog wel geselecteerd worden</li>
+          <li>Onduidelijk of je op beide stations een fiets kan huren</li>
+          <li>Kaartje/tekst voelt klein aan — behoefte aan een uitklapbare kaart</li>
+          <li>Vraag of er op dat moment daadwerkelijk fietsen beschikbaar zijn</li>
+          <li>Wens voor een flexibeler model: station en datum los kunnen kiezen</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 08b PROTOTYPE — VERA -->
-<section class="sec" style="background:var(--white);padding-top:100px;padding-bottom:100px">
-  <div class="si" style="max-width:520px">
-    <div class="reveal" style="margin-bottom:40px;text-align:center">
-      <div class="sl" style="justify-content:center"><div class="sn" style="background:rgba(0,48,130,0.1);color:var(--blue)">08</div><span class="st">Prototype</span></div>
-      <h2>Vera</h2>
-      <p class="intro" style="text-align:center;margin-left:auto;margin-right:auto">iPhone · Studenten OV · Puntenspaarsysteem</p>
+<!-- 09 REFLECTIE -->
+<section class="sec" style="background:var(--blue);padding-top:110px;padding-bottom:110px">
+  <div class="si" style="max-width:640px">
+    <div class="reveal" style="margin-bottom:32px">
+      <div class="sl"><div class="sn" style="background:var(--yellow);color:var(--blue)">09</div><span class="st" style="color:rgba(255,255,255,0.6)">Reflectie</span></div>
+      <h2 style="color:#fff">Hoe ik dit onderzoek heb aangepakt</h2>
     </div>
-    <div class="reveal" style="display:flex;justify-content:center">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
-        <div style="width:100%;max-width:640px">
-          <img src="images/png6.png" alt="Prototype Vera — Punten sparen" style="width:100%;max-width:640px;height:480px;object-fit:cover;border-radius:20px;display:block" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;max-width:640px;height:480px;border:2px dashed #b0c4de;border-radius:20px;background:var(--bg);align-items:center;justify-content:center;text-align:center;padding:16px">
-            <div style="font-size:12px;color:#99aabb;line-height:1.5">Plaats png6.png in de map "images"<br>(640×480)</div>
-          </div>
-        </div>
-        <div style="font-size:14px;font-weight:700;color:var(--text);text-align:center">Punten sparen</div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px 26px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px">Aanpak</div>
+        <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.75;margin:0">Ik ben gestart vanuit twee persona's, Dirk en Vera, en heb hun reis in kaart gebracht om te ontdekken waar het huren van een OV-fiets misgaat. Van daaruit heb ik user stories geschreven, gekozen welke ik zou ontwerpen, en een klikbaar prototype gebouwd in Figma. Dat prototype heb ik vervolgens getest met echte gebruikers.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px 26px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px">Wat ik ervan heb geleerd</div>
+        <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.75;margin:0">De eerste test leverde meteen bruikbare inzichten op — dingen die ik zelf niet had bedacht, zoals de vraag of je op beide stations kan reserveren en de behoefte aan een flexibeler model. Dat maakte me duidelijk hoe belangrijk het is om vroeg te testen, ook met een simpel prototype: je ziet meteen waar aannames niet kloppen.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:22px 26px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px">Vervolg</div>
+        <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.75;margin:0">Dit is een eerste testronde — er volgen nog meer gebruikerstests om het ontwerp verder aan te scherpen, met name rondom flexibiliteit in station- en datumkeuze.</p>
       </div>
     </div>
   </div>
@@ -1006,11 +1008,7 @@ footer strong{color:var(--blue)}
 
 
 
-
-
-
-
-<footer>🗺️ NS Reisplanner · UX Case Study · Fictief portfolio project</footer>
+<footer>🗺️ Een fictieve UX-analyse over het kunnen reserveren van een OV-fiets.</footer>
 
 <script>
 // Progress bar
@@ -1084,7 +1082,7 @@ function updateZZ(){
   // Switch icon near the end
   let activeIdx=0;
   zigzagItems.forEach((el,idx)=>{if(el.getBoundingClientRect().top<window.innerHeight*0.55)activeIdx=idx;});
-  zzIcon.textContent=activeIdx<=2?'🚆':'🚲';
+  zzIcon.textContent=activeIdx<=0?'🚆':'🚲';
 }
 window.addEventListener('scroll',updateZZ,{passive:true});
 updateZZ();
