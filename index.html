@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -10,15 +10,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--blue:#003082;--yellow:#FFC917;--white:#fff;--bg:#F8F9FA;--text:#1A1A2E;--muted:#6B7280;--border:#E5E7EB;--red:#003082;--green:#003082}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;max-width:100%}
 #progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),var(--yellow));z-index:200;transition:width 0.1s linear}
 #zz-bar{position:fixed;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;pointer-events:none;z-index:5;display:none}
 #zz-bar.active{display:block}
 #zz-track{position:absolute;width:3px;background:rgba(0,48,130,0.12)}
 #zz-fill{position:absolute;width:3px;height:0%;background:var(--blue)}
 #zz-icon{position:fixed;left:50%;transform:translateX(-50%);font-size:26px;z-index:20;pointer-events:none;display:none}
-header{position:sticky;top:0;z-index:150;background:var(--blue);height:58px;display:flex;align-items:center;padding:0 60px;gap:16px}
+header{position:sticky;top:0;z-index:150;background:var(--blue);min-height:58px;display:flex;align-items:center;padding:0 60px;padding-top:env(safe-area-inset-top);gap:16px;flex-wrap:wrap}
 .ht{font-weight:700;font-size:15px;color:var(--white)}
 .hd{width:1px;height:20px;background:rgba(255,255,255,0.2)}
 .hs{color:rgba(255,255,255,0.5);font-size:13px}
@@ -232,23 +232,38 @@ h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;marg
 /* ── AFSLUITER ── */
 .afsluiter{background:var(--blue);padding:80px;text-align:center}
 .afsluiter-badge{display:inline-block;background:rgba(255,201,23,0.15);border:1px solid rgba(255,201,23,0.25);color:var(--yellow);padding:5px 16px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-footer{text-align:center;padding:28px 80px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+footer{text-align:center;padding:28px 80px;padding-bottom:calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
 footer strong{color:var(--blue)}
 
 @media(max-width:900px){
   .sec{padding:60px 24px}
-  header{padding:0 24px}
+  header{padding:0 24px;padding-top:env(safe-area-inset-top)}
   .hero{padding:80px 24px}
   .g2,.g3,.g4,.problemen-grid,.problemen-grid-bottom{grid-template-columns:1fr!important}
   .zigzag-links,.zigzag-rechts{flex-direction:column;padding:0}
   .zigzag-lijn{display:none}
   .zigzag-dot{position:static;margin-bottom:8px}
   .chapter-div{padding:0 24px}
+
+  /* Inline-styled grids (persona cards, business-case numbers, gedrag icons,
+     prototype videos, meta-info cards) don't respond to the class rules above
+     since they set grid-template-columns directly on the element. Target them
+     by their exact inline value (with a trailing ; so column counts can't
+     accidentally match each other) and force sensible mobile columns. */
+  [style*="grid-template-columns:180px 1fr;"]{grid-template-columns:1fr!important;justify-items:center;text-align:center;gap:20px!important}
+  [style*="grid-template-columns:1fr 1fr;"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr 1fr;"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr 1fr 1fr;"]{grid-template-columns:1fr 1fr!important}
+  [style*="grid-template-columns:repeat(6,1fr);"]{grid-template-columns:repeat(3,1fr)!important}
+  [style*="grid-template-columns:repeat(5,1fr);"]{grid-template-columns:repeat(3,1fr)!important}
 }
 @media(max-width:600px){
   .sec{padding:48px 20px}
   h2{font-size:1.8rem}
   .hero-word{font-size:clamp(2.5rem,14vw,4rem);letter-spacing:-2px}
+  [style*="grid-template-columns:1fr 1fr 1fr 1fr;"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:repeat(6,1fr);"],
+  [style*="grid-template-columns:repeat(5,1fr);"]{grid-template-columns:repeat(2,1fr)!important}
 }
 </style>
 </head>
