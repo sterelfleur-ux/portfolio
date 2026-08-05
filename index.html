@@ -245,6 +245,10 @@ footer strong{color:var(--blue)}
   .zigzag-dot{position:static;margin-bottom:8px}
   .chapter-div{padding:0 24px}
 
+  /* Trein/fiets scroller (volgt de zigzag-tijdlijn bovenaan) is een
+     desktop-only extraatje — op mobiel blijft alleen de tijdlijn zelf over. */
+  #zz-bar,#zz-icon{display:none!important}
+
   /* Inline-styled grids (persona cards, business-case numbers, gedrag icons,
      prototype videos, meta-info cards) don't respond to the class rules above
      since they set grid-template-columns directly on the element. Target them
